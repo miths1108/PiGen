@@ -1,0 +1,42 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Partial Mode": "Simple",
+      "Parallel Aware": false,
+      "Startup Cost": 1496.34,
+      "Total Cost": 1497.34,
+      "Plan Rows": 100,
+      "Plan Width": 4,
+      "Actual Startup Time": 12.865,
+      "Actual Total Time": 12.890,
+      "Actual Rows": 101,
+      "Actual Loops": 1,
+      "Group Key": ["i_manager_id"],
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "item",
+          "Alias": "item",
+          "Startup Cost": 0.00,
+          "Total Cost": 1461.00,
+          "Plan Rows": 14136,
+          "Plan Width": 4,
+          "Actual Startup Time": 0.006,
+          "Actual Total Time": 6.419,
+          "Actual Rows": 14136,
+          "Actual Loops": 1,
+          "Filter": "(i_class_id < 10)",
+          "Rows Removed by Filter": 3864
+        }
+      ]
+    },
+    "Planning Time": 0.064,
+    "Triggers": [
+    ],
+    "Execution Time": 12.917
+  }
+]

@@ -1,0 +1,184 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 4231.44,
+      "Total Cost": 61474.93,
+      "Plan Rows": 27,
+      "Plan Width": 2442,
+      "Actual Startup Time": 205.642,
+      "Actual Total Time": 544.554,
+      "Actual Rows": 899,
+      "Actual Loops": 1,
+      "Hash Cond": "(cs1.cs_call_center_sk = call_center.cc_call_center_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 4230.28,
+          "Total Cost": 61473.38,
+          "Plan Rows": 32,
+          "Plan Width": 430,
+          "Actual Startup Time": 205.619,
+          "Actual Total Time": 543.349,
+          "Actual Rows": 900,
+          "Actual Loops": 1,
+          "Hash Cond": "(cs1.cs_ship_addr_sk = customer_address.ca_address_sk)",
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 2501.50,
+              "Total Cost": 59739.76,
+              "Plan Rows": 1204,
+              "Plan Width": 285,
+              "Actual Startup Time": 179.535,
+              "Actual Total Time": 523.663,
+              "Actual Rows": 34330,
+              "Actual Loops": 1,
+              "Hash Cond": "(cs1.cs_ship_date_sk = date_dim.d_date_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "catalog_sales",
+                  "Alias": "cs1",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 51820.48,
+                  "Plan Rows": 1441548,
+                  "Plan Width": 167,
+                  "Actual Startup Time": 0.028,
+                  "Actual Total Time": 255.222,
+                  "Actual Rows": 1441548,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 2500.73,
+                  "Total Cost": 2500.73,
+                  "Plan Rows": 61,
+                  "Plan Width": 118,
+                  "Actual Startup Time": 15.684,
+                  "Actual Total Time": 15.684,
+                  "Actual Rows": 62,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Original Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 18,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "date_dim",
+                      "Alias": "date_dim",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 2500.73,
+                      "Plan Rows": 61,
+                      "Plan Width": 118,
+                      "Actual Startup Time": 6.994,
+                      "Actual Total Time": 15.666,
+                      "Actual Rows": 62,
+                      "Actual Loops": 1,
+                      "Filter": "((d_date >= '2000-03-01'::date) AND (d_date <= '2000-05-01'::date))",
+                      "Rows Removed by Filter": 72987
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 1712.00,
+              "Total Cost": 1712.00,
+              "Plan Rows": 1343,
+              "Plan Width": 145,
+              "Actual Startup Time": 14.246,
+              "Actual Total Time": 14.246,
+              "Actual Rows": 1326,
+              "Actual Loops": 1,
+              "Hash Buckets": 2048,
+              "Original Hash Buckets": 2048,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 247,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "customer_address",
+                  "Alias": "customer_address",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 1712.00,
+                  "Plan Rows": 1343,
+                  "Plan Width": 145,
+                  "Actual Startup Time": 0.023,
+                  "Actual Total Time": 13.943,
+                  "Actual Rows": 1326,
+                  "Actual Loops": 1,
+                  "Filter": "(ca_state = 'MN'::bpchar)",
+                  "Rows Removed by Filter": 48674
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 1.10,
+          "Total Cost": 1.10,
+          "Plan Rows": 5,
+          "Plan Width": 2012,
+          "Actual Startup Time": 0.015,
+          "Actual Total Time": 0.015,
+          "Actual Rows": 6,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 11,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "call_center",
+              "Alias": "call_center",
+              "Startup Cost": 0.00,
+              "Total Cost": 1.10,
+              "Plan Rows": 5,
+              "Plan Width": 2012,
+              "Actual Startup Time": 0.008,
+              "Actual Total Time": 0.012,
+              "Actual Rows": 6,
+              "Actual Loops": 1,
+              "Filter": "((cc_county)::text = ANY ('{\"Williamson County\",\"Williamson County\",\"Williamson County\",\"Williamson County\",\"Williamson County\"}'::text[]))",
+              "Rows Removed by Filter": 0
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.757,
+    "Triggers": [
+    ],
+    "Execution Time": 544.768
+  }
+]

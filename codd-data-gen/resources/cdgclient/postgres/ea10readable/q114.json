@@ -1,0 +1,9 @@
+Hash Join  (cost=2501.12..574263.29 rows=6080 width=285) (actual time=2604.640..10791.639 rows=136682 loops=1)
+  Hash Cond: (catalog_sales.cs_sold_date_sk = date_dim.d_date_sk)
+  ->  Seq Scan on catalog_sales  (cost=0.00..517696.36 rows=14401336 width=167) (actual time=0.208..9081.862 rows=14401261 loops=1)
+  ->  Hash  (cost=2500.73..2500.73 rows=31 width=118) (actual time=17.474..17.474 rows=30 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 5kB
+        ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=31 width=118) (actual time=8.681..17.464 rows=30 loops=1)
+              Filter: ((d_year = 1999) AND (d_moy = 6))
+              Rows Removed by Filter: 73019
+Total runtime: 10797.291 ms

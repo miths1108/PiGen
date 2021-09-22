@@ -1,0 +1,30 @@
+Hash Join  (cost=11574.97..925912.59 rows=341 width=1187) (actual time=100.101..10909.312 rows=27763 loops=1)
+  Hash Cond: (store_sales.ss_store_sk = store.s_store_sk)
+  ->  Hash Join  (cost=11567.81..925900.10 rows=513 width=900) (actual time=99.993..10879.272 rows=43483 loops=1)
+        Hash Cond: (store_sales.ss_item_sk = item.i_item_sk)
+        ->  Hash Join  (cost=2525.98..915647.51 rows=5235 width=396) (actual time=19.904..9789.946 rows=433204 loops=1)
+              Hash Cond: (store_sales.ss_promo_sk = promotion.p_promo_sk)
+              ->  Hash Join  (cost=2501.10..915529.32 rows=10922 width=229) (actual time=18.584..9452.605 rows=881977 loops=1)
+                    Hash Cond: (store_sales.ss_sold_date_sk = date_dim.d_date_sk)
+                    ->  Seq Scan on store_sales  (cost=0.00..804916.00 rows=28800800 width=111) (actual time=0.004..6010.960 rows=28800991 loops=1)
+                    ->  Hash  (cost=2500.73..2500.73 rows=29 width=118) (actual time=18.477..18.477 rows=30 loops=1)
+                          Buckets: 1024  Batches: 1  Memory Usage: 5kB
+                          ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=29 width=118) (actual time=9.383..18.461 rows=30 loops=1)
+                                Filter: ((d_year = 2000) AND (d_moy = 11))
+                                Rows Removed by Filter: 73019
+              ->  Hash  (cost=21.75..21.75 rows=251 width=167) (actual time=1.313..1.313 rows=251 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 51kB
+                    ->  Seq Scan on promotion  (cost=0.00..21.75 rows=251 width=167) (actual time=0.010..1.247 rows=251 loops=1)
+                          Filter: ((p_channel_dmail = 'Y'::bpchar) OR (p_channel_email = 'Y'::bpchar) OR (p_channel_tv = 'Y'::bpchar))
+                          Rows Removed by Filter: 249
+        ->  Hash  (cost=8273.00..8273.00 rows=9986 width=504) (actual time=77.933..77.933 rows=10222 loops=1)
+              Buckets: 1024  Batches: 8  Memory Usage: 700kB
+              ->  Seq Scan on item  (cost=0.00..8273.00 rows=9986 width=504) (actual time=0.055..69.408 rows=10222 loops=1)
+                    Filter: (i_category = 'Electronics'::bpchar)
+                    Rows Removed by Filter: 91778
+  ->  Hash  (cost=6.28..6.28 rows=71 width=287) (actual time=0.098..0.098 rows=71 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 24kB
+        ->  Seq Scan on store  (cost=0.00..6.28 rows=71 width=287) (actual time=0.007..0.070 rows=71 loops=1)
+              Filter: (s_gmt_offset = (-6)::numeric)
+              Rows Removed by Filter: 31
+Total runtime: 10911.102 ms

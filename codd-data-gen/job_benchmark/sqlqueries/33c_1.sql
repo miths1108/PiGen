@@ -1,0 +1,1 @@
+SELECT * FROM info_type AS it1, kind_type AS kt1, movie_info_idx AS mi_idx1, title AS t1 WHERE it1.it_info  = 'rating' AND kt1.kt_kind  in ('tv series', 'episode') AND it1.it_id = mi_idx1.mii_info_type_id AND t1.t_id = mi_idx1.mii_movie_id AND kt1.kt_id = t1.t_kind_id;

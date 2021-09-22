@@ -1,0 +1,22 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Relation Name": "customer_address",
+      "Alias": "customer_address",
+      "Startup Cost": 0.00,
+      "Total Cost": 1712.00,
+      "Plan Rows": 1395,
+      "Plan Width": 145,
+      "Actual Startup Time": 0.005,
+      "Actual Total Time": 6.326,
+      "Actual Rows": 1418,
+      "Actual Loops": 1,
+      "Filter": "(ca_state = 'TN'::bpchar)",
+      "Rows Removed by Filter": 48582
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 6.370
+  }
+]

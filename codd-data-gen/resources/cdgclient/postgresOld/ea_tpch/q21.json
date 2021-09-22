@@ -1,0 +1,35 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Startup Cost": 187518.19,
+      "Total Cost": 191463.35,
+      "Plan Rows": 394516,
+      "Plan Width": 4,
+      "Actual Startup Time": 1762.521,
+      "Actual Total Time": 2105.059,
+      "Actual Rows": 1500000,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "lineitem",
+          "Alias": "lineitem",
+          "Startup Cost": 0.00,
+          "Total Cost": 172515.15,
+          "Plan Rows": 6001215,
+          "Plan Width": 4,
+          "Actual Startup Time": 0.008,
+          "Actual Total Time": 684.552,
+          "Actual Rows": 6001215,
+          "Actual Loops": 1
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 2147.522
+  }
+]

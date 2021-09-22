@@ -1,0 +1,170 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 3333.25,
+      "Total Cost": 97025.88,
+      "Plan Rows": 898,
+      "Plan Width": 552,
+      "Actual Startup Time": 8.392,
+      "Actual Total Time": 605.110,
+      "Actual Rows": 40383,
+      "Actual Loops": 1,
+      "Hash Cond": "(store_sales.ss_store_sk = store.s_store_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 3331.86,
+          "Total Cost": 97011.98,
+          "Plan Rows": 941,
+          "Plan Width": 265,
+          "Actual Startup Time": 8.381,
+          "Actual Total Time": 586.863,
+          "Actual Rows": 40383,
+          "Actual Loops": 1,
+          "Hash Cond": "(store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk)",
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Join Type": "Inner",
+              "Startup Cost": 3142.86,
+              "Total Cost": 96780.24,
+              "Plan Rows": 8889,
+              "Plan Width": 233,
+              "Actual Startup Time": 7.377,
+              "Actual Total Time": 553.222,
+              "Actual Rows": 358566,
+              "Actual Loops": 1,
+              "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "store_sales",
+                  "Alias": "store_sales",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 82746.99,
+                  "Plan Rows": 2880399,
+                  "Plan Width": 115,
+                  "Actual Startup Time": 0.009,
+                  "Actual Total Time": 234.803,
+                  "Actual Rows": 2622614,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Startup Cost": 3139.91,
+                  "Total Cost": 3139.91,
+                  "Plan Rows": 236,
+                  "Plan Width": 118,
+                  "Actual Startup Time": 7.364,
+                  "Actual Total Time": 7.364,
+                  "Actual Rows": 252,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 38,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Relation Name": "date_dim",
+                      "Alias": "date_dim",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 3139.91,
+                      "Plan Rows": 236,
+                      "Plan Width": 118,
+                      "Actual Startup Time": 3.567,
+                      "Actual Total Time": 7.338,
+                      "Actual Rows": 252,
+                      "Actual Loops": 1,
+                      "Filter": "((d_year = ANY ('{1998,1999,2000}'::integer[])) AND (((d_dom >= 1) AND (d_dom <= 3)) OR ((d_dom >= 25) AND (d_dom <= 28))))",
+                      "Rows Removed by Filter": 72797
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 179.00,
+              "Total Cost": 179.00,
+              "Plan Rows": 800,
+              "Plan Width": 32,
+              "Actual Startup Time": 0.867,
+              "Actual Total Time": 0.867,
+              "Actual Rows": 800,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 50,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "household_demographics",
+                  "Alias": "household_demographics",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 179.00,
+                  "Plan Rows": 800,
+                  "Plan Width": 32,
+                  "Actual Startup Time": 0.600,
+                  "Actual Total Time": 0.820,
+                  "Actual Rows": 800,
+                  "Actual Loops": 1,
+                  "Filter": "((hd_vehicle_count > 0) AND ((hd_buy_potential = 'from500to1000'::bpchar) OR (hd_buy_potential = 'from0to500'::bpchar)))",
+                  "Rows Removed by Filter": 6400
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 1.24,
+          "Total Cost": 1.24,
+          "Plan Rows": 12,
+          "Plan Width": 287,
+          "Actual Startup Time": 0.007,
+          "Actual Total Time": 0.007,
+          "Actual Rows": 12,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 4,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "store",
+              "Alias": "store",
+              "Startup Cost": 0.00,
+              "Total Cost": 1.24,
+              "Plan Rows": 12,
+              "Plan Width": 287,
+              "Actual Startup Time": 0.003,
+              "Actual Total Time": 0.007,
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Filter": "((s_county)::text = ANY ('{\"Williamson County\",\"Williamson County\",\"Williamson County\",\"Williamson County\",\"Williamson County\",\"Williamson County\",\"Williamson County\",\"Williamson County\"}'::text[]))",
+              "Rows Removed by Filter": 0
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 606.262
+  }
+]

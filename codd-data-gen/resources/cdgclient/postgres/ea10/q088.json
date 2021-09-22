@@ -1,0 +1,23 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Relation Name": "item",
+      "Alias": "item",
+      "Startup Cost": 0.00,
+      "Total Cost": 8400.50,
+      "Plan Rows": 819,
+      "Plan Width": 17,
+      "Actual Startup Time": 0.155,
+      "Actual Total Time": 71.445,
+      "Actual Rows": 806,
+      "Actual Loops": 1,
+      "Filter": "(i_color = ANY ('{almond,dodger,dim}'::bpchar[]))",
+      "Rows Removed by Filter": 101194
+    },
+    "Planning Time": 0.531,
+    "Triggers": [
+    ],
+    "Execution Time": 71.552
+  }
+]

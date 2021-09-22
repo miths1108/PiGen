@@ -1,0 +1,1 @@
+SELECT * FROM keyword AS k, movie_keyword AS mk WHERE k.k_keyword  in ('superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence') AND k.k_id = mk.mk_keyword_id;

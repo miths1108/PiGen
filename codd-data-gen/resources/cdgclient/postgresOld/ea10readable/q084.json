@@ -1,0 +1,35 @@
+Hash Join  (cost=691864.38..700269.76 rows=488 width=1235) (actual time=22983.345..23274.549 rows=19918 loops=1)
+  Hash Cond: (item.i_item_sk = catalog_sales.cs_item_sk)
+  ->  Seq Scan on item  (cost=0.00..8018.00 rows=102000 width=504) (actual time=0.005..90.448 rows=102000 loops=1)
+  ->  Hash  (cost=691858.28..691858.28 rows=488 width=731) (actual time=22981.538..22981.538 rows=19918 loops=1)
+        Buckets: 1024  Batches: 16 (originally 1)  Memory Usage: 1025kB
+        ->  Hash Join  (cost=102004.30..691858.28 rows=488 width=731) (actual time=21290.140..22919.391 rows=19918 loops=1)
+              Hash Cond: (customer.c_current_addr_sk = customer_address.ca_address_sk)
+              ->  Hash Join  (cost=90183.01..678574.85 rows=2442 width=586) (actual time=9047.815..22415.771 rows=98303 loops=1)
+                    Hash Cond: (catalog_sales.cs_bill_customer_sk = customer.c_customer_sk)
+                    ->  Hash Join  (cost=55984.97..635732.37 rows=5004 width=341) (actual time=7671.553..21182.350 rows=202141 loops=1)
+                          Hash Cond: (catalog_sales.cs_bill_cdemo_sk = cd1.cd_demo_sk)
+                          ->  Hash Join  (cost=2322.65..574736.01 rows=71199 width=285) (actual time=6861.065..14906.403 rows=2852599 loops=1)
+                                Hash Cond: (catalog_sales.cs_sold_date_sk = date_dim.d_date_sk)
+                                ->  Seq Scan on catalog_sales  (cost=0.00..517696.36 rows=14401336 width=167) (actual time=0.197..11059.791 rows=14401261 loops=1)
+                                ->  Hash  (cost=2318.11..2318.11 rows=363 width=118) (actual time=17.605..17.605 rows=365 loops=1)
+                                      Buckets: 1024  Batches: 1  Memory Usage: 55kB
+                                      ->  Seq Scan on date_dim  (cost=0.00..2318.11 rows=363 width=118) (actual time=8.857..17.491 rows=365 loops=1)
+                                            Filter: (d_year = 2001)
+                                            Rows Removed by Filter: 72684
+                          ->  Hash  (cost=50640.00..50640.00 rows=135706 width=56) (actual time=716.078..716.078 rows=137200 loops=1)
+                                Buckets: 2048  Batches: 16  Memory Usage: 787kB
+                                ->  Seq Scan on customer_demographics cd1  (cost=0.00..50640.00 rows=135706 width=56) (actual time=0.400..649.707 rows=137200 loops=1)
+                                      Filter: ((cd_gender = 'F'::bpchar) AND (cd_education_status = '4 yr Degree'::bpchar))
+                                      Rows Removed by Filter: 1783600
+                    ->  Hash  (cost=22987.00..22987.00 rows=245283 width=245) (actual time=451.064..451.064 rows=242558 loops=1)
+                          Buckets: 1024  Batches: 128  Memory Usage: 460kB
+                          ->  Seq Scan on customer  (cost=0.00..22987.00 rows=245283 width=245) (actual time=0.008..316.683 rows=242558 loops=1)
+                                Filter: (c_birth_month = ANY ('{6,5,12,4,3,7}'::integer[]))
+                                Rows Removed by Filter: 257442
+              ->  Hash  (cost=10122.50..10122.50 rows=49983 width=145) (actual time=167.682..167.682 rows=50077 loops=1)
+                    Buckets: 1024  Batches: 16  Memory Usage: 562kB
+                    ->  Seq Scan on customer_address  (cost=0.00..10122.50 rows=49983 width=145) (actual time=0.006..146.792 rows=50077 loops=1)
+                          Filter: (ca_state = ANY ('{TN,IL,GA,MO,CO,OH,NM}'::bpchar[]))
+                          Rows Removed by Filter: 199923
+Total runtime: 23275.758 ms

@@ -1,0 +1,9 @@
+Hash Join  (cost=2322.65..89904.39 rows=13804 width=216) (actual time=17.302..1423.398 rows=314996 loops=1)
+  Hash Cond: (store_returns.sr_returned_date_sk = date_dim.d_date_sk)
+  ->  Seq Scan on store_returns  (cost=0.00..76660.69 rows=2875469 width=98) (actual time=0.239..874.338 rows=2875432 loops=1)
+  ->  Hash  (cost=2318.11..2318.11 rows=363 width=118) (actual time=17.040..17.040 rows=365 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 55kB
+        ->  Seq Scan on date_dim  (cost=0.00..2318.11 rows=363 width=118) (actual time=8.375..16.967 rows=365 loops=1)
+              Filter: (d_year = 1998)
+              Rows Removed by Filter: 72684
+Total runtime: 1438.448 ms

@@ -1,0 +1,42 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Partial Mode": "Simple",
+      "Parallel Aware": false,
+      "Startup Cost": 27794.99,
+      "Total Cost": 27804.74,
+      "Plan Rows": 975,
+      "Plan Width": 4,
+      "Actual Startup Time": 131.196,
+      "Actual Total Time": 131.213,
+      "Actual Rows": 164,
+      "Actual Loops": 1,
+      "Group Key": ["puma10"],
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "jointable",
+          "Alias": "jointable",
+          "Startup Cost": 0.00,
+          "Total Cost": 27782.72,
+          "Plan Rows": 4907,
+          "Plan Width": 4,
+          "Actual Startup Time": 0.107,
+          "Actual Total Time": 130.191,
+          "Actual Rows": 7245,
+          "Actual Loops": 1,
+          "Filter": "((agep >= 15) AND (agep <= 85) AND (relp = 12) AND (sex = 1))",
+          "Rows Removed by Filter": 1008441
+        }
+      ]
+    },
+    "Planning Time": 0.054,
+    "Triggers": [
+    ],
+    "Execution Time": 131.238
+  }
+]

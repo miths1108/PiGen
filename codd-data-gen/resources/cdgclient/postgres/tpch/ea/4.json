@@ -1,0 +1,96 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Partial Mode": "Simple",
+      "Parallel Aware": false,
+      "Startup Cost": 252910.10,
+      "Total Cost": 252910.15,
+      "Plan Rows": 5,
+      "Plan Width": 16,
+      "Actual Startup Time": 1778.738,
+      "Actual Total Time": 1778.738,
+      "Actual Rows": 5,
+      "Actual Loops": 1,
+      "Group Key": ["orders.o_orderpriority"],
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 49320.18,
+          "Total Cost": 252543.03,
+          "Plan Rows": 146828,
+          "Plan Width": 16,
+          "Actual Startup Time": 257.233,
+          "Actual Total Time": 1737.874,
+          "Actual Rows": 229393,
+          "Actual Loops": 1,
+          "Hash Cond": "(lineitem.l_orderkey = orders.o_orderkey)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "lineitem",
+              "Alias": "lineitem",
+              "Startup Cost": 0.00,
+              "Total Cost": 187518.19,
+              "Plan Rows": 3796370,
+              "Plan Width": 4,
+              "Actual Startup Time": 0.008,
+              "Actual Total Time": 1091.290,
+              "Actual Rows": 3797462,
+              "Actual Loops": 1,
+              "Filter": "(l_commitdate < '1996-05-03'::date)",
+              "Rows Removed by Filter": 2203753
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 48595.00,
+              "Total Cost": 48595.00,
+              "Plan Rows": 58014,
+              "Plan Width": 20,
+              "Actual Startup Time": 257.192,
+              "Actual Total Time": 257.192,
+              "Actual Rows": 57375,
+              "Actual Loops": 1,
+              "Hash Buckets": 65536,
+              "Original Hash Buckets": 65536,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 3426,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "orders",
+                  "Alias": "orders",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 48595.00,
+                  "Plan Rows": 58014,
+                  "Plan Width": 20,
+                  "Actual Startup Time": 0.042,
+                  "Actual Total Time": 243.579,
+                  "Actual Rows": 57375,
+                  "Actual Loops": 1,
+                  "Filter": "((o_orderdate >= '1992-11-25'::date) AND (o_orderdate < '1993-02-25'::date))",
+                  "Rows Removed by Filter": 1442625
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.172,
+    "Triggers": [
+    ],
+    "Execution Time": 1778.783
+  }
+]

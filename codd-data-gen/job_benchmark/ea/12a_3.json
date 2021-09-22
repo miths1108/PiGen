@@ -1,0 +1,78 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 2.43,
+      "Total Cost": 445734.00,
+      "Plan Rows": 3405,
+      "Plan Width": 92,
+      "Actual Startup Time": 990.348,
+      "Actual Total Time": 2535.302,
+      "Actual Rows": 364608,
+      "Actual Loops": 1,
+      "Hash Cond": "(mi.mi_info_type_id = it1.it_id)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "movie_info",
+          "Alias": "mi",
+          "Startup Cost": 0.00,
+          "Total Cost": 444254.80,
+          "Plan Rows": 384726,
+          "Plan Width": 74,
+          "Actual Startup Time": 351.685,
+          "Actual Total Time": 2468.343,
+          "Actual Rows": 366548,
+          "Actual Loops": 1,
+          "Filter": "(mi_info = ANY ('{Drama,Horror}'::text[]))",
+          "Rows Removed by Filter": 18447286
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 2.41,
+          "Total Cost": 2.41,
+          "Plan Rows": 1,
+          "Plan Width": 18,
+          "Actual Startup Time": 0.017,
+          "Actual Total Time": 0.017,
+          "Actual Rows": 1,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 9,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "info_type",
+              "Alias": "it1",
+              "Startup Cost": 0.00,
+              "Total Cost": 2.41,
+              "Plan Rows": 1,
+              "Plan Width": 18,
+              "Actual Startup Time": 0.009,
+              "Actual Total Time": 0.016,
+              "Actual Rows": 1,
+              "Actual Loops": 1,
+              "Filter": "((it_info)::text = 'genres'::text)",
+              "Rows Removed by Filter": 112
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.119,
+    "Triggers": [
+    ],
+    "Execution Time": 2545.445
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 108077.67,
+      "Total Cost": 575906.96,
+      "Plan Rows": 1,
+      "Plan Width": 186,
+      "Actual Startup Time": 2706.315,
+      "Actual Total Time": 3339.069,
+      "Actual Rows": 63,
+      "Actual Loops": 1,
+      "Hash Cond": "(mi.mi_info_type_id = it.it_id)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 108075.24,
+          "Total Cost": 575904.36,
+          "Plan Rows": 44,
+          "Plan Width": 168,
+          "Actual Startup Time": 509.008,
+          "Actual Total Time": 3338.997,
+          "Actual Rows": 489,
+          "Actual Loops": 1,
+          "Hash Cond": "(mi.mi_movie_id = t.t_id)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "movie_info",
+              "Alias": "mi",
+              "Startup Cost": 0.00,
+              "Total Cost": 397107.04,
+              "Plan Rows": 18859104,
+              "Plan Width": 74,
+              "Actual Startup Time": 0.014,
+              "Actual Total Time": 1506.985,
+              "Actual Rows": 18813834,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 108075.14,
+              "Total Cost": 108075.14,
+              "Plan Rows": 8,
+              "Plan Width": 94,
+              "Actual Startup Time": 506.100,
+              "Actual Total Time": 506.100,
+              "Actual Rows": 3,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Original Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 9,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "title",
+                  "Alias": "t",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 108075.14,
+                  "Plan Rows": 8,
+                  "Plan Width": 94,
+                  "Actual Startup Time": 23.622,
+                  "Actual Total Time": 506.095,
+                  "Actual Rows": 3,
+                  "Actual Loops": 1,
+                  "Filter": "((t_production_year >= 2000) AND (t_production_year <= 2010) AND (t_title = 'Shrek 2'::text))",
+                  "Rows Removed by Filter": 3403207
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 2.41,
+          "Total Cost": 2.41,
+          "Plan Rows": 1,
+          "Plan Width": 18,
+          "Actual Startup Time": 0.021,
+          "Actual Total Time": 0.021,
+          "Actual Rows": 1,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 9,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "info_type",
+              "Alias": "it",
+              "Startup Cost": 0.00,
+              "Total Cost": 2.41,
+              "Plan Rows": 1,
+              "Plan Width": 18,
+              "Actual Startup Time": 0.010,
+              "Actual Total Time": 0.019,
+              "Actual Rows": 1,
+              "Actual Loops": 1,
+              "Filter": "((it_info)::text = 'release dates'::text)",
+              "Rows Removed by Filter": 112
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.279,
+    "Triggers": [
+    ],
+    "Execution Time": 3339.107
+  }
+]

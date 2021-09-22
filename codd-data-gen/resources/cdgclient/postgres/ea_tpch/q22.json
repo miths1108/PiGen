@@ -1,0 +1,74 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 9097.00,
+      "Total Cost": 225466.61,
+      "Plan Rows": 119,
+      "Plan Width": 247,
+      "Actual Startup Time": 63.079,
+      "Actual Total Time": 1475.095,
+      "Actual Rows": 112,
+      "Actual Loops": 1,
+      "Hash Cond": "(lineitem.l_partkey = part.p_partkey)",
+      "Join Filter": "(((part.p_brand = 'Brand#54'::bpchar) AND (part.p_container = ANY ('{\"SM CASE\",\"SM BOX\",\"SM PACK\",\"SM PKG\"}'::bpchar[])) AND (lineitem.l_quantity >= 4::numeric) AND (lineitem.l_quantity <= 14::numeric) AND (part.p_size <= 5)) OR ((part.p_brand = 'Brand#51'::bpchar) AND (part.p_container = ANY ('{\"MED BAG\",\"MED BOX\",\"MED PKG\",\"MED PACK\"}'::bpchar[])) AND (lineitem.l_quantity >= 11::numeric) AND (lineitem.l_quantity <= 21::numeric) AND (part.p_size <= 10)) OR ((part.p_brand = 'Brand#21'::bpchar) AND (part.p_container = ANY ('{\"LG CASE\",\"LG BOX\",\"LG PACK\",\"LG PKG\"}'::bpchar[])) AND (lineitem.l_quantity >= 28::numeric) AND (lineitem.l_quantity <= 38::numeric) AND (part.p_size <= 15)))",
+      "Rows Removed by Join Filter": 214265,
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "lineitem",
+          "Alias": "lineitem",
+          "Startup Cost": 0.00,
+          "Total Cost": 202521.22,
+          "Plan Rows": 213052,
+          "Plan Width": 117,
+          "Actual Startup Time": 0.008,
+          "Actual Total Time": 1181.656,
+          "Actual Rows": 214377,
+          "Actual Loops": 1,
+          "Filter": "((l_shipmode = ANY ('{AIR,\"AIR REG\"}'::bpchar[])) AND (l_shipinstruct = 'DELIVER IN PERSON'::bpchar))",
+          "Rows Removed by Filter": 5786838
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 6597.00,
+          "Total Cost": 6597.00,
+          "Plan Rows": 200000,
+          "Plan Width": 130,
+          "Actual Startup Time": 61.195,
+          "Actual Total Time": 61.195,
+          "Actual Rows": 200000,
+          "Actual Loops": 1,
+          "Hash Buckets": 32768,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 32489,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "part",
+              "Alias": "part",
+              "Startup Cost": 0.00,
+              "Total Cost": 6597.00,
+              "Plan Rows": 200000,
+              "Plan Width": 130,
+              "Actual Startup Time": 0.002,
+              "Actual Total Time": 30.174,
+              "Actual Rows": 200000,
+              "Actual Loops": 1,
+              "Filter": "(p_size >= 1)",
+              "Rows Removed by Filter": 0
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 1477.335
+  }
+]

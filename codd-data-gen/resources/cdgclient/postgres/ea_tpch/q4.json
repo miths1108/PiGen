@@ -1,0 +1,137 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Startup Cost": 268232.49,
+      "Total Cost": 271414.61,
+      "Plan Rows": 318212,
+      "Plan Width": 12,
+      "Actual Startup Time": 1927.342,
+      "Actual Total Time": 1929.374,
+      "Actual Rows": 11384,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 63160.47,
+          "Total Cost": 265845.90,
+          "Plan Rows": 318212,
+          "Plan Width": 12,
+          "Actual Startup Time": 371.816,
+          "Actual Total Time": 1918.684,
+          "Actual Rows": 30227,
+          "Actual Loops": 1,
+          "Hash Cond": "(lineitem.l_orderkey = orders.o_orderkey)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "lineitem",
+              "Alias": "lineitem",
+              "Startup Cost": 0.00,
+              "Total Cost": 187518.19,
+              "Plan Rows": 3196032,
+              "Plan Width": 4,
+              "Actual Startup Time": 0.005,
+              "Actual Total Time": 881.658,
+              "Actual Rows": 3226661,
+              "Actual Loops": 1,
+              "Filter": "(l_shipdate > '1995-03-21'::date)",
+              "Rows Removed by Filter": 2774554
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 61293.63,
+              "Total Cost": 61293.63,
+              "Plan Rows": 149347,
+              "Plan Width": 12,
+              "Actual Startup Time": 371.609,
+              "Actual Total Time": 371.609,
+              "Actual Rows": 145911,
+              "Actual Loops": 1,
+              "Hash Buckets": 16384,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 6270,
+              "Plans": [
+                {
+                  "Node Type": "Hash Join",
+                  "Parent Relationship": "Outer",
+                  "Join Type": "Inner",
+                  "Startup Cost": 5844.19,
+                  "Total Cost": 61293.63,
+                  "Plan Rows": 149347,
+                  "Plan Width": 12,
+                  "Actual Startup Time": 25.076,
+                  "Actual Total Time": 350.707,
+                  "Actual Rows": 145911,
+                  "Actual Loops": 1,
+                  "Hash Cond": "(orders.o_custkey = customer.c_custkey)",
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Relation Name": "orders",
+                      "Alias": "orders",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 44845.00,
+                      "Plan Rows": 728878,
+                      "Plan Width": 16,
+                      "Actual Startup Time": 0.002,
+                      "Actual Total Time": 158.963,
+                      "Actual Rows": 731071,
+                      "Actual Loops": 1,
+                      "Filter": "(o_orderdate < '1995-03-21'::date)",
+                      "Rows Removed by Filter": 768929
+                    },
+                    {
+                      "Node Type": "Hash",
+                      "Parent Relationship": "Inner",
+                      "Startup Cost": 5460.00,
+                      "Total Cost": 5460.00,
+                      "Plan Rows": 30735,
+                      "Plan Width": 4,
+                      "Actual Startup Time": 25.060,
+                      "Actual Total Time": 25.060,
+                      "Actual Rows": 30189,
+                      "Actual Loops": 1,
+                      "Hash Buckets": 4096,
+                      "Hash Batches": 1,
+                      "Original Hash Batches": 1,
+                      "Peak Memory Usage": 1062,
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Relation Name": "customer",
+                          "Alias": "customer",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 5460.00,
+                          "Plan Rows": 30735,
+                          "Plan Width": 4,
+                          "Actual Startup Time": 0.003,
+                          "Actual Total Time": 21.466,
+                          "Actual Rows": 30189,
+                          "Actual Loops": 1,
+                          "Filter": "(c_mktsegment = 'HOUSEHOLD'::bpchar)",
+                          "Rows Removed by Filter": 119811
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 1930.140
+  }
+]

@@ -1,0 +1,123 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 10776.00,
+      "Total Cost": 299277.96,
+      "Plan Rows": 8,
+      "Plan Width": 792,
+      "Actual Startup Time": 78.515,
+      "Actual Total Time": 1802.186,
+      "Actual Rows": 384,
+      "Actual Loops": 1,
+      "Hash Cond": "(web_sales.ws_sold_date_sk = date_dim.d_date_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 8274.11,
+          "Total Cost": 296752.45,
+          "Plan Rows": 6280,
+          "Plan Width": 674,
+          "Actual Startup Time": 62.012,
+          "Actual Total Time": 1786.267,
+          "Actual Rows": 14215,
+          "Actual Loops": 1,
+          "Hash Cond": "(web_sales.ws_item_sk = item.i_item_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "web_sales",
+              "Alias": "web_sales",
+              "Startup Cost": 0.00,
+              "Total Cost": 261424.66,
+              "Plan Rows": 7197566,
+              "Plan Width": 170,
+              "Actual Startup Time": 0.026,
+              "Actual Total Time": 1060.128,
+              "Actual Rows": 7194440,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 8273.00,
+              "Total Cost": 8273.00,
+              "Plan Rows": 89,
+              "Plan Width": 504,
+              "Actual Startup Time": 61.571,
+              "Actual Total Time": 61.571,
+              "Actual Rows": 198,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Original Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 112,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "item",
+                  "Alias": "item",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 8273.00,
+                  "Plan Rows": 89,
+                  "Plan Width": 504,
+                  "Actual Startup Time": 0.661,
+                  "Actual Total Time": 61.278,
+                  "Actual Rows": 198,
+                  "Actual Loops": 1,
+                  "Filter": "(i_manufact_id = 248)",
+                  "Rows Removed by Filter": 101802
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 2500.73,
+          "Total Cost": 2500.73,
+          "Plan Rows": 92,
+          "Plan Width": 118,
+          "Actual Startup Time": 13.120,
+          "Actual Total Time": 13.120,
+          "Actual Rows": 91,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 22,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "date_dim",
+              "Alias": "date_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 2500.73,
+              "Plan Rows": 92,
+              "Plan Width": 118,
+              "Actual Startup Time": 6.268,
+              "Actual Total Time": 13.075,
+              "Actual Rows": 91,
+              "Actual Loops": 1,
+              "Filter": "((d_date >= '2000-02-02'::date) AND (d_date <= '2000-05-02'::date))",
+              "Rows Removed by Filter": 72958
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 1.329,
+    "Triggers": [
+    ],
+    "Execution Time": 1802.388
+  }
+]

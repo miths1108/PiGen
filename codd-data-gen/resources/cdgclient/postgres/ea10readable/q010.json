@@ -1,0 +1,21 @@
+Hash Join  (cost=11549.07..2570275.23 rows=10092 width=784) (actual time=22926.230..49812.740 rows=424970 loops=1)
+  Hash Cond: (inventory.inv_warehouse_sk = warehouse.w_warehouse_sk)
+  ->  Hash Join  (cost=11547.85..2570135.24 rows=10092 width=638) (actual time=22926.213..49558.190 rows=424970 loops=1)
+        Hash Cond: (inventory.inv_item_sk = item.i_item_sk)
+        ->  Hash Join  (cost=2501.78..2553808.94 rows=153065 width=134) (actual time=22862.128..42032.896 rows=6630000 loops=1)
+              Hash Cond: (inventory.inv_date_sk = date_dim.d_date_sk)
+              ->  Seq Scan on inventory  (cost=0.00..2050614.00 rows=133110000 width=16) (actual time=0.004..26360.781 rows=133110000 loops=1)
+              ->  Hash  (cost=2500.73..2500.73 rows=84 width=118) (actual time=17.770..17.770 rows=90 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 14kB
+                    ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=84 width=118) (actual time=8.099..17.735 rows=90 loops=1)
+                          Filter: ((d_date >= '2001-02-14'::date) AND (d_date <= '2001-05-14'::date))
+                          Rows Removed by Filter: 72959
+        ->  Hash  (cost=8528.00..8528.00 rows=6725 width=504) (actual time=63.861..63.861 rows=6464 loops=1)
+              Buckets: 1024  Batches: 4  Memory Usage: 868kB
+              ->  Seq Scan on item  (cost=0.00..8528.00 rows=6725 width=504) (actual time=0.011..58.747 rows=6464 loops=1)
+                    Filter: ((i_current_price >= 0.99) AND (i_current_price <= 1.49))
+                    Rows Removed by Filter: 95536
+  ->  Hash  (cost=1.10..1.10 rows=10 width=146) (actual time=0.008..0.008 rows=10 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 2kB
+        ->  Seq Scan on warehouse  (cost=0.00..1.10 rows=10 width=146) (actual time=0.003..0.004 rows=10 loops=1)
+Total runtime: 49834.277 ms

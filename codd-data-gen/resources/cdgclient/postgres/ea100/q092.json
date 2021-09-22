@@ -1,0 +1,123 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 27550.68,
+      "Total Cost": 9158015.77,
+      "Plan Rows": 1127,
+      "Plan Width": 733,
+      "Actual Startup Time": 172.558,
+      "Actual Total Time": 169591.091,
+      "Actual Rows": 90478,
+      "Actual Loops": 1,
+      "Hash Cond": "(store_sales.ss_item_sk = item.i_item_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 2501.12,
+          "Total Cost": 9132516.16,
+          "Plan Rows": 117008,
+          "Plan Width": 229,
+          "Actual Startup Time": 42.236,
+          "Actual Total Time": 167132.422,
+          "Actual Rows": 9320432,
+          "Actual Loops": 1,
+          "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "store_sales",
+              "Alias": "store_sales",
+              "Startup Cost": 0.00,
+              "Total Cost": 8048855.88,
+              "Plan Rows": 287997088,
+              "Plan Width": 111,
+              "Actual Startup Time": 0.010,
+              "Actual Total Time": 124331.691,
+              "Actual Rows": 287997024,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 2500.73,
+              "Total Cost": 2500.73,
+              "Plan Rows": 31,
+              "Plan Width": 118,
+              "Actual Startup Time": 42.025,
+              "Actual Total Time": 42.025,
+              "Actual Rows": 31,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Original Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 13,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "date_dim",
+                  "Alias": "date_dim",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 2500.73,
+                  "Plan Rows": 31,
+                  "Plan Width": 118,
+                  "Actual Startup Time": 21.776,
+                  "Actual Total Time": 42.007,
+                  "Actual Rows": 31,
+                  "Actual Loops": 1,
+                  "Filter": "((d_moy = 12) AND (d_year = 2001))",
+                  "Rows Removed by Filter": 73018
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 25025.00,
+          "Total Cost": 25025.00,
+          "Plan Rows": 1965,
+          "Plan Width": 504,
+          "Actual Startup Time": 129.245,
+          "Actual Total Time": 129.245,
+          "Actual Rows": 1863,
+          "Actual Loops": 1,
+          "Hash Buckets": 2048,
+          "Original Hash Buckets": 2048,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 1007,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "item",
+              "Alias": "item",
+              "Startup Cost": 0.00,
+              "Total Cost": 25025.00,
+              "Plan Rows": 1965,
+              "Plan Width": 504,
+              "Actual Startup Time": 0.030,
+              "Actual Total Time": 128.188,
+              "Actual Rows": 1863,
+              "Actual Loops": 1,
+              "Filter": "(i_manager_id = 40)",
+              "Rows Removed by Filter": 202137
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 1.518,
+    "Triggers": [
+    ],
+    "Execution Time": 169603.811
+  }
+]

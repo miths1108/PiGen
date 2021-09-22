@@ -1,0 +1,76 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 1903.53,
+      "Total Cost": 6132.97,
+      "Plan Rows": 644,
+      "Plan Width": 390,
+      "Actual Startup Time": 19.518,
+      "Actual Total Time": 53.068,
+      "Actual Rows": 737,
+      "Actual Loops": 1,
+      "Hash Cond": "(c.c_current_addr_sk = ca.ca_address_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "customer",
+          "Alias": "c",
+          "Startup Cost": 0.00,
+          "Total Cost": 3848.00,
+          "Plan Rows": 100000,
+          "Plan Width": 245,
+          "Actual Startup Time": 0.006,
+          "Actual Total Time": 14.656,
+          "Actual Rows": 100000,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 1899.50,
+          "Total Cost": 1899.50,
+          "Plan Rows": 322,
+          "Plan Width": 145,
+          "Actual Startup Time": 19.496,
+          "Actual Total Time": 19.496,
+          "Actual Rows": 382,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 76,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "customer_address",
+              "Alias": "ca",
+              "Startup Cost": 0.00,
+              "Total Cost": 1899.50,
+              "Plan Rows": 322,
+              "Plan Width": 145,
+              "Actual Startup Time": 0.150,
+              "Actual Total Time": 19.412,
+              "Actual Rows": 382,
+              "Actual Loops": 1,
+              "Filter": "((ca_county)::text = ANY ('{\"Yellowstone County\",\"Montgomery County\",\"Divide County\",\"Cedar County\",\"Manassas Park city\"}'::text[]))",
+              "Rows Removed by Filter": 49618
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.338,
+    "Triggers": [
+    ],
+    "Execution Time": 53.137
+  }
+]

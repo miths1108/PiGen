@@ -1,0 +1,24 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Parallel Aware": false,
+      "Relation Name": "item",
+      "Alias": "item",
+      "Startup Cost": 0.00,
+      "Total Cost": 4140.00,
+      "Plan Rows": 1224,
+      "Plan Width": 503,
+      "Actual Startup Time": 0.018,
+      "Actual Total Time": 62.934,
+      "Actual Rows": 1863,
+      "Actual Loops": 1,
+      "Filter": "(((i_category = 'Women'::bpchar) AND ((i_color = 'olive'::bpchar) OR (i_color = 'grey'::bpchar)) AND ((i_units = 'Bundle'::bpchar) OR (i_units = 'Cup'::bpchar)) AND ((i_size = 'petite'::bpchar) OR (i_size = 'small'::bpchar))) OR ((i_category = 'Women'::bpchar) AND ((i_color = 'hot'::bpchar) OR (i_color = 'thistle'::bpchar)) AND ((i_units = 'Box'::bpchar) OR (i_units = 'Each'::bpchar)) AND ((i_size = 'large'::bpchar) OR (i_size = 'medium'::bpchar))) OR ((i_category = 'Men'::bpchar) AND ((i_color = 'chiffon'::bpchar) OR (i_color = 'yellow'::bpchar)) AND ((i_units = 'Carton'::bpchar) OR (i_units = 'Dozen'::bpchar)) AND ((i_size = 'NA'::bpchar) OR (i_size = 'extra_large'::bpchar))) OR ((i_category = 'Men'::bpchar) AND ((i_color = 'bisque'::bpchar) OR (i_color = 'turquoise'::bpchar)) AND ((i_units = 'Case'::bpchar) OR (i_units = 'Tsp'::bpchar)) AND ((i_size = 'petite'::bpchar) OR (i_size = 'small'::bpchar))) OR ((i_category = ANY ('{Books,Children,Electronics}'::bpchar[])) AND (i_class = ANY ('{personal,portable,refernece,self-help}'::bpchar[])) AND (i_brand = ANY ('{\"scholaramalgamalg #14\",\"scholaramalgamalg #7\",\"exportiunivamalg #9\",\"scholaramalgamalg #9\"}'::bpchar[]))) OR ((i_category = ANY ('{Women,Music,Men}'::bpchar[])) AND (i_class = ANY ('{accessories,classical,fragrances,pants}'::bpchar[])) AND (i_brand = ANY ('{\"amalgimporto #1\",\"edu packscholar #1\",\" exportiimporto #1\",\"importoamalg #1\"}'::bpchar[]))) OR ((i_current_price >= 0.99) AND (i_current_price <= 1.49)) OR (i_manufact_id = ANY ('{744,691,853,946}'::integer[])) OR (i_manager_id = 91))",
+      "Rows Removed by Filter": 16137
+    },
+    "Planning Time": 0.823,
+    "Triggers": [
+    ],
+    "Execution Time": 63.069
+  }
+]

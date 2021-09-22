@@ -1,0 +1,24 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Parallel Aware": false,
+      "Relation Name": "item",
+      "Alias": "item",
+      "Startup Cost": 0.00,
+      "Total Cost": 3420.00,
+      "Plan Rows": 4,
+      "Plan Width": 503,
+      "Actual Startup Time": 1.980,
+      "Actual Total Time": 24.132,
+      "Actual Rows": 3,
+      "Actual Loops": 1,
+      "Filter": "(((i_category = 'Women'::bpchar) AND ((i_color = 'olive'::bpchar) OR (i_color = 'grey'::bpchar)) AND ((i_units = 'Bundle'::bpchar) OR (i_units = 'Cup'::bpchar)) AND ((i_size = 'petite'::bpchar) OR (i_size = 'small'::bpchar))) OR ((i_category = 'Women'::bpchar) AND ((i_color = 'hot'::bpchar) OR (i_color = 'thistle'::bpchar)) AND ((i_units = 'Box'::bpchar) OR (i_units = 'Each'::bpchar)) AND ((i_size = 'large'::bpchar) OR (i_size = 'medium'::bpchar))) OR ((i_category = 'Men'::bpchar) AND ((i_color = 'chiffon'::bpchar) OR (i_color = 'yellow'::bpchar)) AND ((i_units = 'Carton'::bpchar) OR (i_units = 'Dozen'::bpchar)) AND ((i_size = 'NA'::bpchar) OR (i_size = 'extra_large'::bpchar))) OR ((i_category = 'Men'::bpchar) AND ((i_color = 'bisque'::bpchar) OR (i_color = 'turquoise'::bpchar)) AND ((i_units = 'Case'::bpchar) OR (i_units = 'Tsp'::bpchar)) AND ((i_size = 'petite'::bpchar) OR (i_size = 'small'::bpchar))))",
+      "Rows Removed by Filter": 17997
+    },
+    "Planning Time": 0.336,
+    "Triggers": [
+    ],
+    "Execution Time": 24.168
+  }
+]

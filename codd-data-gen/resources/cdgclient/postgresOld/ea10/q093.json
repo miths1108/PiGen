@@ -1,0 +1,172 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 8757.96,
+      "Total Cost": 30344.53,
+      "Plan Rows": 448,
+      "Plan Width": 434,
+      "Actual Startup Time": 65.029,
+      "Actual Total Time": 247.393,
+      "Actual Rows": 849,
+      "Actual Loops": 1,
+      "Hash Cond": "(customer.c_current_hdemo_sk = household_demographics.hd_demo_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 8588.44,
+          "Total Cost": 30153.13,
+          "Plan Rows": 4638,
+          "Plan Width": 390,
+          "Actual Startup Time": 62.153,
+          "Actual Total Time": 243.723,
+          "Actual Rows": 4288,
+          "Actual Loops": 1,
+          "Hash Cond": "(customer.c_current_addr_sk = customer_address.ca_address_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "customer",
+              "Alias": "customer",
+              "Startup Cost": 0.00,
+              "Total Cost": 19607.23,
+              "Plan Rows": 509623,
+              "Plan Width": 245,
+              "Actual Startup Time": 0.276,
+              "Actual Total Time": 104.595,
+              "Actual Rows": 500000,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 8560.00,
+              "Total Cost": 8560.00,
+              "Plan Rows": 2275,
+              "Plan Width": 145,
+              "Actual Startup Time": 61.455,
+              "Actual Total Time": 61.455,
+              "Actual Rows": 2138,
+              "Actual Loops": 1,
+              "Hash Buckets": 4096,
+              "Original Hash Buckets": 4096,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 399,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "customer_address",
+                  "Alias": "customer_address",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 8560.00,
+                  "Plan Rows": 2275,
+                  "Plan Width": 145,
+                  "Actual Startup Time": 0.083,
+                  "Actual Total Time": 60.373,
+                  "Actual Rows": 2138,
+                  "Actual Loops": 1,
+                  "Filter": "((ca_city)::text = 'Antioch'::text)",
+                  "Rows Removed by Filter": 247862
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 160.52,
+          "Total Cost": 160.52,
+          "Plan Rows": 720,
+          "Plan Width": 44,
+          "Actual Startup Time": 2.057,
+          "Actual Total Time": 2.057,
+          "Actual Rows": 1440,
+          "Actual Loops": 1,
+          "Hash Buckets": 2048,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 123,
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Join Type": "Inner",
+              "Startup Cost": 1.32,
+              "Total Cost": 160.52,
+              "Plan Rows": 720,
+              "Plan Width": 44,
+              "Actual Startup Time": 0.330,
+              "Actual Total Time": 1.757,
+              "Actual Rows": 1440,
+              "Actual Loops": 1,
+              "Hash Cond": "(household_demographics.hd_income_band_sk = income_band.ib_income_band_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "household_demographics",
+                  "Alias": "household_demographics",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 125.00,
+                  "Plan Rows": 7200,
+                  "Plan Width": 32,
+                  "Actual Startup Time": 0.004,
+                  "Actual Total Time": 0.451,
+                  "Actual Rows": 7200,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Startup Cost": 1.30,
+                  "Total Cost": 1.30,
+                  "Plan Rows": 2,
+                  "Plan Width": 12,
+                  "Actual Startup Time": 0.313,
+                  "Actual Total Time": 0.313,
+                  "Actual Rows": 4,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Original Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 9,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Relation Name": "income_band",
+                      "Alias": "income_band",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 1.30,
+                      "Plan Rows": 2,
+                      "Plan Width": 12,
+                      "Actual Startup Time": 0.305,
+                      "Actual Total Time": 0.308,
+                      "Actual Rows": 4,
+                      "Actual Loops": 1,
+                      "Filter": "((ib_lower_bound >= 9901) AND (ib_upper_bound <= 59901))",
+                      "Rows Removed by Filter": 16
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 2.169,
+    "Triggers": [
+    ],
+    "Execution Time": 247.606
+  }
+]

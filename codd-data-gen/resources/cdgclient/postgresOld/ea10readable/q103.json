@@ -1,0 +1,9 @@
+Hash Join  (cost=2504.50..289517.38 rows=29652 width=284) (actual time=18.379..5506.880 rows=1440709 loops=1)
+  Hash Cond: (web_sales.ws_sold_date_sk = date_dim.d_date_sk)
+  ->  Seq Scan on web_sales  (cost=0.00..259724.99 rows=7197699 width=166) (actual time=0.221..3424.996 rows=7197566 loops=1)
+  ->  Hash  (cost=2500.73..2500.73 rows=301 width=118) (actual time=17.857..17.857 rows=365 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 55kB
+        ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=301 width=118) (actual time=7.872..17.771 rows=365 loops=1)
+              Filter: ((d_month_seq >= 1214) AND (d_month_seq <= 1225))
+              Rows Removed by Filter: 72684
+Total runtime: 5577.645 ms

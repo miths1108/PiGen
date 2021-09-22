@@ -1,0 +1,1 @@
+SELECT * FROM keyword AS k, movie_keyword AS mk, title AS t WHERE k.k_keyword  in ('sequel', 'revenge', 'based-on-novel') AND t.t_production_year  > 1950 AND t.t_id = mk.mk_movie_id AND mk.mk_keyword_id = k.k_id;

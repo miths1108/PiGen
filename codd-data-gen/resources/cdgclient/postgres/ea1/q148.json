@@ -1,0 +1,70 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 1732.39,
+      "Total Cost": 95458.49,
+      "Plan Rows": 17762,
+      "Plan Width": 618,
+      "Actual Startup Time": 5.804,
+      "Actual Total Time": 427.168,
+      "Actual Rows": 13494,
+      "Actual Loops": 1,
+      "Hash Cond": "(store_sales.ss_item_sk = item.i_item_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "store_sales",
+          "Alias": "store_sales",
+          "Startup Cost": 0.00,
+          "Total Cost": 82746.99,
+          "Plan Rows": 2880399,
+          "Plan Width": 115,
+          "Actual Startup Time": 0.008,
+          "Actual Total Time": 244.608,
+          "Actual Rows": 2622614,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 1731.00,
+          "Total Cost": 1731.00,
+          "Plan Rows": 111,
+          "Plan Width": 503,
+          "Actual Startup Time": 5.677,
+          "Actual Total Time": 5.677,
+          "Actual Rows": 92,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 49,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "item",
+              "Alias": "item",
+              "Startup Cost": 0.00,
+              "Total Cost": 1731.00,
+              "Plan Rows": 111,
+              "Plan Width": 503,
+              "Actual Startup Time": 0.171,
+              "Actual Total Time": 5.660,
+              "Actual Rows": 92,
+              "Actual Loops": 1,
+              "Filter": "((i_current_price >= 6::numeric) AND (i_current_price <= 16::numeric) AND (i_current_price >= 7::numeric) AND (i_current_price <= 21::numeric) AND (i_color = ANY ('{lavender,metallic,beige,gainsboro,chartreuse,lemon}'::bpchar[])))",
+              "Rows Removed by Filter": 17908
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 427.681
+  }
+]

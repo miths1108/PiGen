@@ -1,0 +1,9 @@
+Hash Join  (cost=12300.73..72432.89 rows=220116 width=390) (actual time=170.829..916.806 rows=220738 loops=1)
+  Hash Cond: (customer.c_current_addr_sk = customer_address.ca_address_sk)
+  ->  Seq Scan on customer  (cost=0.00..19237.00 rows=500000 width=245) (actual time=0.006..206.419 rows=500000 loops=1)
+  ->  Hash  (cost=8560.00..8560.00 rows=110058 width=145) (actual time=170.639..170.639 rows=110471 loops=1)
+        Buckets: 1024  Batches: 32  Memory Usage: 623kB
+        ->  Seq Scan on customer_address  (cost=0.00..8560.00 rows=110058 width=145) (actual time=0.006..125.748 rows=110471 loops=1)
+              Filter: (ca_gmt_offset = (-6)::numeric)
+              Rows Removed by Filter: 139529
+Total runtime: 927.508 ms

@@ -1,0 +1,41 @@
+#Postgres Connection
+postgres.conn.driverclass=org.postgresql.Driver
+postgres.conn.connstring=jdbc:postgresql://localhost:5432/tpch
+postgres.conn.username=shadab
+postgres.conn.passwd=""
+
+
+#Postgres Basic Schema Input
+postgres.basicschema.dbname=tpch
+postgres.basicschema.schemaname=public
+postgres.basicschema.schemaquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/basicschema.sql
+postgres.basicschema.fkeysquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/fkeys.sql
+postgres.basicschema.rowcountquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/rowcount.sql
+postgres.basicschema.pkeysquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/primarykeys.sql
+
+
+#Postgres Basic Schema Output
+postgres.basicschema.targetfile=/home/shadab/Documents/HydraTemp/hydra/codd-data-gen/resources/cdgclient/postgres/tpch/temp_files/basicschema10.info
+
+#Postgres Anonymized Schema Output
+postgres.anonymizedschema.targetfile=/home/shadab/Documents/HydraTemp/hydra/codd-data-gen/resources/cdgclient/postgres/tpch/temp_files/anonymizedschema.info
+
+#Postgres Generate DDL Output
+postgres.ddlgenerated.createtablequery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/createtable.sql
+postgres.ddlgenerated.altertableaddpkquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/altertableaddpk.sql
+postgres.ddlgenerated.altertableaddfkquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/altertableaddfk.sql
+postgres.ddlgenerated.targetfile=/home/shadab/Documents/HydraTemp/hydra/codd-data-gen/resources/cdgclient/postgres/tpch/temp_files/schemaddl.sql
+
+#Postgres Anonymized Queries Output
+postgres.anonymizedqueries.targetlocation=/home/shadab/Documents/HydraTemp/hydra/codd-data-gen/resources/cdgclient/postgres/tpch/temp_files/anonymizedsqlqueries
+postgres.anonymizedqueries.selectstarquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/selectstar.sql
+
+
+#Postgres Queries Input
+postgres.sqlquery.location=/home/shadab/Documents/HydraTemp/hydra/codd-data-gen/resources/cdgclient/postgres/tpch/sqlqueries
+
+#Postgres EAs Output
+postgres.explainanalyze.location=/home/shadab/Documents/HydraTemp/hydra/codd-data-gen/resources/cdgclient/postgres/tpch/ea
+
+#Postgres Anonymized CCs Output
+postgres.anonymizedccs.targetfile=/home/shadab/Documents/HydraTemp/hydra/codd-data-gen/resources/cdgclient/postgres/tpch/temp_files/anonymizedcc.info

@@ -1,0 +1,76 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Nested Loop",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 5.78,
+      "Total Cost": 66208.67,
+      "Plan Rows": 17761,
+      "Plan Width": 614,
+      "Actual Startup Time": 0.533,
+      "Actual Total Time": 102.404,
+      "Actual Rows": 14826,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "item",
+          "Alias": "item",
+          "Startup Cost": 0.00,
+          "Total Cost": 2475.00,
+          "Plan Rows": 111,
+          "Plan Width": 503,
+          "Actual Startup Time": 0.457,
+          "Actual Total Time": 14.426,
+          "Actual Rows": 92,
+          "Actual Loops": 1,
+          "Filter": "((i_current_price >= '6'::numeric) AND (i_current_price <= '16'::numeric) AND (i_current_price >= '7'::numeric) AND (i_current_price <= '21'::numeric) AND (i_color = ANY ('{lavender,metallic,beige,gainsboro,chartreuse,lemon}'::bpchar[])))",
+          "Rows Removed by Filter": 17908
+        },
+        {
+          "Node Type": "Bitmap Heap Scan",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Relation Name": "store_sales",
+          "Alias": "store_sales",
+          "Startup Cost": 5.78,
+          "Total Cost": 572.44,
+          "Plan Rows": 174,
+          "Plan Width": 111,
+          "Actual Startup Time": 0.071,
+          "Actual Total Time": 0.839,
+          "Actual Rows": 161,
+          "Actual Loops": 92,
+          "Recheck Cond": "(ss_item_sk = item.i_item_sk)",
+          "Rows Removed by Index Recheck": 0,
+          "Exact Heap Blocks": 14802,
+          "Lossy Heap Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Bitmap Index Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Index Name": "store_sales_pkey",
+              "Startup Cost": 0.00,
+              "Total Cost": 5.73,
+              "Plan Rows": 174,
+              "Plan Width": 0,
+              "Actual Startup Time": 0.042,
+              "Actual Total Time": 0.042,
+              "Actual Rows": 161,
+              "Actual Loops": 92,
+              "Index Cond": "(ss_item_sk = item.i_item_sk)"
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.581,
+    "Triggers": [
+    ],
+    "Execution Time": 103.153
+  }
+]

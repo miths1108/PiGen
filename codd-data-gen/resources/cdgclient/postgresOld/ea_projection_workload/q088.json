@@ -1,0 +1,42 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Partial Mode": "Simple",
+      "Parallel Aware": false,
+      "Startup Cost": 1483.91,
+      "Total Cost": 1485.54,
+      "Plan Rows": 163,
+      "Plan Width": 17,
+      "Actual Startup Time": 8.696,
+      "Actual Total Time": 8.747,
+      "Actual Rows": 163,
+      "Actual Loops": 1,
+      "Group Key": ["i_item_id"],
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "item",
+          "Alias": "item",
+          "Startup Cost": 0.00,
+          "Total Cost": 1483.50,
+          "Plan Rows": 164,
+          "Plan Width": 17,
+          "Actual Startup Time": 0.141,
+          "Actual Total Time": 8.605,
+          "Actual Rows": 164,
+          "Actual Loops": 1,
+          "Filter": "(i_color = ANY ('{almond,dodger,dim}'::bpchar[]))",
+          "Rows Removed by Filter": 17836
+        }
+      ]
+    },
+    "Planning Time": 0.168,
+    "Triggers": [
+    ],
+    "Execution Time": 8.787
+  }
+]

@@ -1,0 +1,4 @@
+Seq Scan on item  (cost=0.00..8528.00 rows=1247 width=504) (actual time=0.103..51.348 rows=1299 loops=1)
+  Filter: ((i_manufact_id >= 770) AND (i_manufact_id <= 810))
+  Rows Removed by Filter: 100701
+Total runtime: 51.443 ms

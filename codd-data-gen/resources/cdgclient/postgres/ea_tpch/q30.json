@@ -1,0 +1,37 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Startup Cost": 203110.27,
+      "Total Cost": 203114.19,
+      "Plan Rows": 392,
+      "Plan Width": 4,
+      "Actual Startup Time": 858.036,
+      "Actual Total Time": 858.943,
+      "Actual Rows": 10000,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "lineitem",
+          "Alias": "lineitem",
+          "Startup Cost": 0.00,
+          "Total Cost": 202521.22,
+          "Plan Rows": 235617,
+          "Plan Width": 4,
+          "Actual Startup Time": 0.047,
+          "Actual Total Time": 812.585,
+          "Actual Rows": 229970,
+          "Actual Loops": 1,
+          "Filter": "((l_shipdate >= '1997-05-01'::date) AND (l_shipdate < '1997-08-01'::date))",
+          "Rows Removed by Filter": 5771245
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 859.207
+  }
+]

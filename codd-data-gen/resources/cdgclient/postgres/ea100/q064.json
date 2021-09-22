@@ -1,0 +1,123 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 27572.86,
+      "Total Cost": 9157995.53,
+      "Plan Rows": 2076,
+      "Plan Width": 733,
+      "Actual Startup Time": 685.746,
+      "Actual Total Time": 153558.949,
+      "Actual Rows": 157374,
+      "Actual Loops": 1,
+      "Hash Cond": "(store_sales.ss_item_sk = item.i_item_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 2501.11,
+          "Total Cost": 9132478.40,
+          "Plan Rows": 113233,
+          "Plan Width": 229,
+          "Actual Startup Time": 15.633,
+          "Actual Total Time": 150635.852,
+          "Actual Rows": 8800187,
+          "Actual Loops": 1,
+          "Hash Cond": "(store_sales.ss_sold_date_sk = dt.d_date_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "store_sales",
+              "Alias": "store_sales",
+              "Startup Cost": 0.00,
+              "Total Cost": 8048855.88,
+              "Plan Rows": 287997088,
+              "Plan Width": 111,
+              "Actual Startup Time": 0.190,
+              "Actual Total Time": 109892.433,
+              "Actual Rows": 287997024,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 2500.73,
+              "Total Cost": 2500.73,
+              "Plan Rows": 30,
+              "Plan Width": 118,
+              "Actual Startup Time": 15.106,
+              "Actual Total Time": 15.106,
+              "Actual Rows": 30,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Original Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 13,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "date_dim",
+                  "Alias": "dt",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 2500.73,
+                  "Plan Rows": 30,
+                  "Plan Width": 118,
+                  "Actual Startup Time": 7.716,
+                  "Actual Total Time": 15.096,
+                  "Actual Rows": 30,
+                  "Actual Loops": 1,
+                  "Filter": "((d_moy = 11) AND (d_year = 2001))",
+                  "Rows Removed by Filter": 73019
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 25025.00,
+          "Total Cost": 25025.00,
+          "Plan Rows": 3740,
+          "Plan Width": 504,
+          "Actual Startup Time": 664.930,
+          "Actual Total Time": 664.930,
+          "Actual Rows": 3648,
+          "Actual Loops": 1,
+          "Hash Buckets": 4096,
+          "Original Hash Buckets": 4096,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 1977,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "item",
+              "Alias": "item",
+              "Startup Cost": 0.00,
+              "Total Cost": 25025.00,
+              "Plan Rows": 3740,
+              "Plan Width": 504,
+              "Actual Startup Time": 0.605,
+              "Actual Total Time": 662.011,
+              "Actual Rows": 3648,
+              "Actual Loops": 1,
+              "Filter": "(i_manager_id = 1)",
+              "Rows Removed by Filter": 200352
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.386,
+    "Triggers": [
+    ],
+    "Execution Time": 153577.109
+  }
+]

@@ -1,0 +1,1 @@
+SELECT * FROM info_type AS it1, kind_type AS kt, movie_info AS mi, title AS t WHERE it1.it_info  = 'countries' AND kt.kt_kind  in ('movie', 'episode') AND mi.mi_info IN ('Germany', 'German', 'USA', 'American') AND t.t_production_year  > 2008 AND kt.kt_id = t.t_kind_id AND t.t_id = mi.mi_movie_id AND it1.it_id = mi.mi_info_type_id;

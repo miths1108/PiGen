@@ -1,0 +1,76 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 2459.81,
+      "Total Cost": 14237.51,
+      "Plan Rows": 43970,
+      "Plan Width": 390,
+      "Actual Startup Time": 28.812,
+      "Actual Total Time": 134.982,
+      "Actual Rows": 43494,
+      "Actual Loops": 1,
+      "Hash Cond": "(customer.c_current_addr_sk = customer_address.ca_address_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "customer",
+          "Alias": "customer",
+          "Startup Cost": 0.00,
+          "Total Cost": 3848.00,
+          "Plan Rows": 100000,
+          "Plan Width": 245,
+          "Actual Startup Time": 0.009,
+          "Actual Total Time": 17.127,
+          "Actual Rows": 100000,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 1712.00,
+          "Total Cost": 1712.00,
+          "Plan Rows": 21985,
+          "Plan Width": 145,
+          "Actual Startup Time": 28.765,
+          "Actual Total Time": 28.765,
+          "Actual Rows": 21901,
+          "Actual Loops": 1,
+          "Hash Buckets": 32768,
+          "Original Hash Buckets": 32768,
+          "Hash Batches": 2,
+          "Original Hash Batches": 2,
+          "Peak Memory Usage": 2193,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "customer_address",
+              "Alias": "customer_address",
+              "Startup Cost": 0.00,
+              "Total Cost": 1712.00,
+              "Plan Rows": 21985,
+              "Plan Width": 145,
+              "Actual Startup Time": 0.013,
+              "Actual Total Time": 22.378,
+              "Actual Rows": 21901,
+              "Actual Loops": 1,
+              "Filter": "(ca_gmt_offset = '-6'::numeric)",
+              "Rows Removed by Filter": 28099
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.313,
+    "Triggers": [
+    ],
+    "Execution Time": 136.654
+  }
+]

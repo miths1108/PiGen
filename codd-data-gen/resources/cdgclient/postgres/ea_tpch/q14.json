@@ -1,0 +1,83 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Startup Cost": 87430.00,
+      "Total Cost": 88930.00,
+      "Plan Rows": 150000,
+      "Plan Width": 4,
+      "Actual Startup Time": 1518.648,
+      "Actual Total Time": 1532.139,
+      "Actual Rows": 99996,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 6960.00,
+          "Total Cost": 83680.00,
+          "Plan Rows": 1500000,
+          "Plan Width": 4,
+          "Actual Startup Time": 37.486,
+          "Actual Total Time": 1091.294,
+          "Actual Rows": 1500000,
+          "Actual Loops": 1,
+          "Hash Cond": "(orders.o_custkey = customer.c_custkey)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "orders",
+              "Alias": "orders",
+              "Startup Cost": 0.00,
+              "Total Cost": 41095.00,
+              "Plan Rows": 1500000,
+              "Plan Width": 4,
+              "Actual Startup Time": 0.004,
+              "Actual Total Time": 101.898,
+              "Actual Rows": 1500000,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 5085.00,
+              "Total Cost": 5085.00,
+              "Plan Rows": 150000,
+              "Plan Width": 4,
+              "Actual Startup Time": 37.462,
+              "Actual Total Time": 37.462,
+              "Actual Rows": 150000,
+              "Actual Loops": 1,
+              "Hash Buckets": 16384,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 5274,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "customer",
+                  "Alias": "customer",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 5085.00,
+                  "Plan Rows": 150000,
+                  "Plan Width": 4,
+                  "Actual Startup Time": 0.002,
+                  "Actual Total Time": 17.927,
+                  "Actual Rows": 150000,
+                  "Actual Loops": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 1535.336
+  }
+]

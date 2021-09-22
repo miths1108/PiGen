@@ -1,0 +1,1 @@
+SELECT distinct ci.ci_nr_order, t.t_production_year, t.t_season_nr, t.t_series_years FROM cast_info AS ci, name AS n, role_type AS rt, title AS t WHERE ci.ci_note ='(voice: English version)' AND rt.rt_role ='actress' AND t.t_production_year between 2006 AND 2007 AND n.n_id = ci.ci_person_id AND ci.ci_movie_id = t.t_id AND ci.ci_role_id = rt.rt_id;

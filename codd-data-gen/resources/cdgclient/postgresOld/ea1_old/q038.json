@@ -1,0 +1,128 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 94087.53,
+      "Total Cost": 96534.35,
+      "Plan Rows": 12932,
+      "Plan Width": 732,
+      "Actual Startup Time": 2601.187,
+      "Actual Total Time": 3795.133,
+      "Actual Rows": 549184,
+      "Actual Loops": 1,
+      "Hash Cond": "(item.i_item_sk = store_sales.ss_item_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "item",
+          "Alias": "item",
+          "Startup Cost": 0.00,
+          "Total Cost": 2160.00,
+          "Plan Rows": 18000,
+          "Plan Width": 503,
+          "Actual Startup Time": 0.005,
+          "Actual Total Time": 6.036,
+          "Actual Rows": 18000,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 93925.88,
+          "Total Cost": 93925.88,
+          "Plan Rows": 12932,
+          "Plan Width": 229,
+          "Actual Startup Time": 2600.125,
+          "Actual Total Time": 2600.125,
+          "Actual Rows": 549184,
+          "Actual Loops": 1,
+          "Hash Buckets": 16384,
+          "Original Hash Buckets": 16384,
+          "Hash Batches": 64,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 3969,
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 2504.83,
+              "Total Cost": 93925.88,
+              "Plan Rows": 12932,
+              "Plan Width": 229,
+              "Actual Startup Time": 16.681,
+              "Actual Total Time": 1647.378,
+              "Actual Rows": 549184,
+              "Actual Loops": 1,
+              "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "store_sales",
+                  "Alias": "store_sales",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 80497.08,
+                  "Plan Rows": 2880108,
+                  "Plan Width": 111,
+                  "Actual Startup Time": 0.038,
+                  "Actual Total Time": 529.517,
+                  "Actual Rows": 2880404,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 2500.73,
+                  "Total Cost": 2500.73,
+                  "Plan Rows": 328,
+                  "Plan Width": 118,
+                  "Actual Startup Time": 16.594,
+                  "Actual Total Time": 16.594,
+                  "Actual Rows": 365,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Original Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 63,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "date_dim",
+                      "Alias": "date_dim",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 2500.73,
+                      "Plan Rows": 328,
+                      "Plan Width": 118,
+                      "Actual Startup Time": 7.646,
+                      "Actual Total Time": 16.520,
+                      "Actual Rows": 365,
+                      "Actual Loops": 1,
+                      "Filter": "((d_month_seq >= 1214) AND (d_month_seq <= 1225))",
+                      "Rows Removed by Filter": 72684
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.453,
+    "Triggers": [
+    ],
+    "Execution Time": 3818.809
+  }
+]

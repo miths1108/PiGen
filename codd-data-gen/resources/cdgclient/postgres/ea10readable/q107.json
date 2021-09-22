@@ -1,0 +1,23 @@
+Hash Join  (cost=3340.07..917677.38 rows=8366 width=548) (actual time=22.617..14981.241 rows=137822 loops=1)
+  Hash Cond: (store_sales.ss_store_sk = store.s_store_sk)
+  ->  Hash Join  (cost=3331.83..917550.55 rows=9313 width=261) (actual time=22.031..14838.688 rows=409319 loops=1)
+        Hash Cond: (store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk)
+        ->  Hash Join  (cost=3142.83..916939.35 rows=87752 width=229) (actual time=19.306..14271.042 rows=3762628 loops=1)
+              Hash Cond: (store_sales.ss_sold_date_sk = date_dim.d_date_sk)
+              ->  Seq Scan on store_sales  (cost=0.00..804916.00 rows=28800800 width=111) (actual time=0.005..8626.248 rows=28800991 loops=1)
+              ->  Hash  (cost=3139.91..3139.91 rows=233 width=118) (actual time=19.281..19.281 rows=252 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 38kB
+                    ->  Seq Scan on date_dim  (cost=0.00..3139.91 rows=233 width=118) (actual time=9.407..19.222 rows=252 loops=1)
+                          Filter: ((d_year = ANY ('{1998,1999,2000}'::integer[])) AND (((d_dom >= 1) AND (d_dom <= 3)) OR ((d_dom >= 25) AND (d_dom <= 28))))
+                          Rows Removed by Filter: 72797
+        ->  Hash  (cost=179.00..179.00 rows=800 width=32) (actual time=2.199..2.199 rows=800 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 50kB
+              ->  Seq Scan on household_demographics  (cost=0.00..179.00 rows=800 width=32) (actual time=1.554..2.104 rows=800 loops=1)
+                    Filter: ((hd_vehicle_count > 0) AND ((hd_buy_potential = 'from500to1000'::bpchar) OR (hd_buy_potential = 'from0to500'::bpchar)))
+                    Rows Removed by Filter: 6400
+  ->  Hash  (cost=7.04..7.04 rows=96 width=287) (actual time=0.083..0.083 rows=31 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 11kB
+        ->  Seq Scan on store  (cost=0.00..7.04 rows=96 width=287) (actual time=0.012..0.072 rows=31 loops=1)
+              Filter: ((s_county)::text = ANY ('{"Williamson County","Williamson County","Williamson County","Williamson County","Williamson County","Williamson County","Williamson County","Williamson County"}'::text[]))
+              Rows Removed by Filter: 71
+Total runtime: 14988.066 ms

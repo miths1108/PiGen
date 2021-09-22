@@ -1,0 +1,1 @@
+SELECT distinct t1.t_phonetic_code FROM company_name AS cn1, kind_type AS kt1, movie_companies AS mc1, title AS t1 WHERE (cn1.cn1_country_code  < '[us]' OR cn1.cn1_country_code  > '[us]') AND kt1.kt_kind  in ('tv series', 'episode') AND kt1.kt_id = t1.t_kind_id AND cn1.cn1_id = mc1.mc_company_id AND t1.t_id = mc1.mc_movie_id;

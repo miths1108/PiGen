@@ -1,0 +1,22 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Relation Name": "web_returns",
+      "Alias": "web_returns",
+      "Startup Cost": 0.00,
+      "Total Cost": 2240.04,
+      "Plan Rows": 686,
+      "Plan Width": 118,
+      "Actual Startup Time": 0.009,
+      "Actual Total Time": 10.289,
+      "Actual Rows": 632,
+      "Actual Loops": 1,
+      "Filter": "(wr_return_amt > 10000::numeric)",
+      "Rows Removed by Filter": 71131
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 10.313
+  }
+]

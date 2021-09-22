@@ -1,0 +1,167 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Nested Loop",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 2626.59,
+      "Total Cost": 20300.05,
+      "Plan Rows": 417,
+      "Plan Width": 478,
+      "Actual Startup Time": 42.669,
+      "Actual Total Time": 234.238,
+      "Actual Rows": 533,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 2626.16,
+          "Total Cost": 8956.23,
+          "Plan Rows": 7415,
+          "Plan Width": 422,
+          "Actual Startup Time": 42.640,
+          "Actual Total Time": 141.977,
+          "Actual Rows": 6985,
+          "Actual Loops": 1,
+          "Hash Cond": "(customer.c_current_addr_sk = customer_address.ca_address_sk)",
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 171.00,
+              "Total Cost": 4633.30,
+              "Plan Rows": 16965,
+              "Plan Width": 277,
+              "Actual Startup Time": 2.244,
+              "Actual Total Time": 70.616,
+              "Actual Rows": 16173,
+              "Actual Loops": 1,
+              "Hash Cond": "(customer.c_current_hdemo_sk = household_demographics.hd_demo_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "customer",
+                  "Alias": "customer",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 3916.91,
+                  "Plan Rows": 101791,
+                  "Plan Width": 245,
+                  "Actual Startup Time": 0.036,
+                  "Actual Total Time": 26.918,
+                  "Actual Rows": 100000,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 156.00,
+                  "Total Cost": 156.00,
+                  "Plan Rows": 1200,
+                  "Plan Width": 32,
+                  "Actual Startup Time": 2.193,
+                  "Actual Total Time": 2.193,
+                  "Actual Rows": 1200,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 2048,
+                  "Original Hash Buckets": 2048,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 91,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "household_demographics",
+                      "Alias": "household_demographics",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 156.00,
+                      "Plan Rows": 1200,
+                      "Plan Width": 32,
+                      "Actual Startup Time": 0.014,
+                      "Actual Total Time": 1.961,
+                      "Actual Rows": 1200,
+                      "Actual Loops": 1,
+                      "Filter": "(hd_buy_potential = 'gt10000'::bpchar)",
+                      "Rows Removed by Filter": 6000
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 1712.00,
+              "Total Cost": 1712.00,
+              "Plan Rows": 21853,
+              "Plan Width": 145,
+              "Actual Startup Time": 40.364,
+              "Actual Total Time": 40.364,
+              "Actual Rows": 21901,
+              "Actual Loops": 1,
+              "Hash Buckets": 32768,
+              "Original Hash Buckets": 32768,
+              "Hash Batches": 2,
+              "Original Hash Batches": 2,
+              "Peak Memory Usage": 2192,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "customer_address",
+                  "Alias": "customer_address",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 1712.00,
+                  "Plan Rows": 21853,
+                  "Plan Width": 145,
+                  "Actual Startup Time": 0.010,
+                  "Actual Total Time": 31.355,
+                  "Actual Rows": 21901,
+                  "Actual Loops": 1,
+                  "Filter": "(ca_gmt_offset = '-6'::numeric)",
+                  "Rows Removed by Filter": 28099
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Index Scan",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Scan Direction": "Forward",
+          "Index Name": "customer_demographics_pkey",
+          "Relation Name": "customer_demographics",
+          "Alias": "customer_demographics",
+          "Startup Cost": 0.43,
+          "Total Cost": 1.52,
+          "Plan Rows": 1,
+          "Plan Width": 56,
+          "Actual Startup Time": 0.013,
+          "Actual Total Time": 0.013,
+          "Actual Rows": 0,
+          "Actual Loops": 6985,
+          "Index Cond": "(cd_demo_sk = customer.c_current_cdemo_sk)",
+          "Rows Removed by Index Recheck": 0,
+          "Filter": "(((cd_marital_status = 'M'::bpchar) AND (cd_education_status = 'Unknown'::bpchar)) OR ((cd_marital_status = 'W'::bpchar) AND (cd_education_status = 'Advanced Degree'::bpchar)))",
+          "Rows Removed by Filter": 1
+        }
+      ]
+    },
+    "Planning Time": 64.697,
+    "Triggers": [
+    ],
+    "Execution Time": 234.463
+  }
+]

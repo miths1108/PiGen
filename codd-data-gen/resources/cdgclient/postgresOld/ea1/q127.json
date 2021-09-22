@@ -1,0 +1,22 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Relation Name": "customer_address",
+      "Alias": "customer_address",
+      "Startup Cost": 0.00,
+      "Total Cost": 1712.00,
+      "Plan Rows": 21807,
+      "Plan Width": 145,
+      "Actual Startup Time": 0.005,
+      "Actual Total Time": 8.894,
+      "Actual Rows": 21901,
+      "Actual Loops": 1,
+      "Filter": "(ca_gmt_offset = (-6)::numeric)",
+      "Rows Removed by Filter": 28099
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 9.403
+  }
+]

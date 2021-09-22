@@ -1,0 +1,70 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 1483.94,
+      "Total Cost": 31944.07,
+      "Plan Rows": 73337,
+      "Plan Width": 674,
+      "Actual Startup Time": 4.985,
+      "Actual Total Time": 189.827,
+      "Actual Rows": 73652,
+      "Actual Loops": 1,
+      "Hash Cond": "(web_sales.ws_item_sk = item.i_item_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "web_sales",
+          "Alias": "web_sales",
+          "Startup Cost": 0.00,
+          "Total Cost": 26129.84,
+          "Plan Rows": 719384,
+          "Plan Width": 171,
+          "Actual Startup Time": 0.008,
+          "Actual Total Time": 77.325,
+          "Actual Rows": 719071,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 1461.00,
+          "Total Cost": 1461.00,
+          "Plan Rows": 1835,
+          "Plan Width": 503,
+          "Actual Startup Time": 4.948,
+          "Actual Total Time": 4.948,
+          "Actual Rows": 1835,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 983,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "item",
+              "Alias": "item",
+              "Startup Cost": 0.00,
+              "Total Cost": 1461.00,
+              "Plan Rows": 1835,
+              "Plan Width": 503,
+              "Actual Startup Time": 0.008,
+              "Actual Total Time": 4.740,
+              "Actual Rows": 1835,
+              "Actual Loops": 1,
+              "Filter": "(i_category = 'Shoes'::bpchar)",
+              "Rows Removed by Filter": 16165
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 191.857
+  }
+]

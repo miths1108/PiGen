@@ -1,0 +1,7 @@
+codd-data-gen/bin/
+.metadata
+.recommenders
+.classpath
+.gitignore
+.project
+.settings

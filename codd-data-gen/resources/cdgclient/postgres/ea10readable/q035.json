@@ -1,0 +1,23 @@
+Hash Join  (cost=583407.91..3498162.04 rows=683 width=805) (actual time=52396.682..52396.682 rows=0 loops=1)
+  Hash Cond: (inventory.inv_item_sk = item.i_item_sk)
+  ->  Hash Join  (cost=2501.46..2908386.29 rows=40085 width=134) (actual time=31726.593..40302.847 rows=1553188 loops=1)
+        Hash Cond: (inventory.inv_date_sk = date_dim.d_date_sk)
+        ->  Seq Scan on inventory  (cost=0.00..2716164.00 rows=50485329 width=16) (actual time=0.009..35570.472 rows=50661572 loops=1)
+              Filter: ((inv_quantity_on_hand >= 100) AND (inv_quantity_on_hand <= 500))
+              Rows Removed by Filter: 82448428
+        ->  Hash  (cost=2500.73..2500.73 rows=58 width=118) (actual time=17.309..17.309 rows=60 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 10kB
+              ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=58 width=118) (actual time=7.865..17.293 rows=60 loops=1)
+                    Filter: ((d_date >= '2002-01-18'::date) AND (d_date <= '2002-03-18'::date))
+                    Rows Removed by Filter: 72989
+  ->  Hash  (cost=580755.04..580755.04 rows=1553 width=671) (actual time=11224.143..11224.143 rows=184 loops=1)
+        Buckets: 1024  Batches: 2  Memory Usage: 122kB
+        ->  Hash Join  (cost=9038.14..580755.04 rows=1553 width=671) (actual time=73.600..11222.779 rows=184 loops=1)
+              Hash Cond: (catalog_sales.cs_item_sk = item.i_item_sk)
+              ->  Seq Scan on catalog_sales  (cost=0.00..517696.36 rows=14401336 width=167) (actual time=0.457..8514.006 rows=14401261 loops=1)
+              ->  Hash  (cost=9038.00..9038.00 rows=11 width=504) (actual time=49.071..49.071 rows=1 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 1kB
+                    ->  Seq Scan on item  (cost=0.00..9038.00 rows=11 width=504) (actual time=33.599..49.067 rows=1 loops=1)
+                          Filter: ((i_current_price >= 42::numeric) AND (i_current_price <= 72::numeric) AND (i_manufact_id = ANY ('{744,691,853,946}'::integer[])))
+                          Rows Removed by Filter: 101999
+Total runtime: 52396.792 ms

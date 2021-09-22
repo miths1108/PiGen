@@ -1,0 +1,72 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 9645.77,
+      "Total Cost": 65960.68,
+      "Plan Rows": 46359,
+      "Plan Width": 390,
+      "Actual Startup Time": 90.029,
+      "Actual Total Time": 505.799,
+      "Actual Rows": 45290,
+      "Actual Loops": 1,
+      "Hash Cond": "(c.c_current_addr_sk = ca.ca_address_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "customer",
+          "Alias": "c",
+          "Startup Cost": 0.00,
+          "Total Cost": 19607.23,
+          "Plan Rows": 509623,
+          "Plan Width": 245,
+          "Actual Startup Time": 0.864,
+          "Actual Total Time": 125.998,
+          "Actual Rows": 500000,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 8872.50,
+          "Total Cost": 8872.50,
+          "Plan Rows": 22742,
+          "Plan Width": 145,
+          "Actual Startup Time": 88.798,
+          "Actual Total Time": 88.798,
+          "Actual Rows": 22645,
+          "Actual Loops": 1,
+          "Hash Buckets": 32768,
+          "Original Hash Buckets": 32768,
+          "Hash Batches": 2,
+          "Original Hash Batches": 2,
+          "Peak Memory Usage": 2196,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "customer_address",
+              "Alias": "ca",
+              "Startup Cost": 0.00,
+              "Total Cost": 8872.50,
+              "Plan Rows": 22742,
+              "Plan Width": 145,
+              "Actual Startup Time": 0.019,
+              "Actual Total Time": 77.282,
+              "Actual Rows": 22645,
+              "Actual Loops": 1,
+              "Filter": "(ca_state = ANY ('{SD,KY,MO}'::bpchar[]))",
+              "Rows Removed by Filter": 227355
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 1.096,
+    "Triggers": [
+    ],
+    "Execution Time": 507.799
+  }
+]

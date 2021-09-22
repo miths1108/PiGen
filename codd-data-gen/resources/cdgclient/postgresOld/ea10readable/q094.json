@@ -1,0 +1,23 @@
+Hash Join  (cost=2980.37..916363.14 rows=3692 width=548) (actual time=28.892..11408.053 rows=76926 loops=1)
+  Hash Cond: (store_sales.ss_store_sk = store.s_store_sk)
+  ->  Hash Join  (cost=2972.87..916299.76 rows=5057 width=261) (actual time=28.801..11330.615 rows=229332 loops=1)
+        Hash Cond: (store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk)
+        ->  Hash Join  (cost=2775.53..915954.40 rows=25987 width=229) (actual time=25.640..11122.954 rows=1054617 loops=1)
+              Hash Cond: (store_sales.ss_sold_date_sk = date_dim.d_date_sk)
+              ->  Seq Scan on store_sales  (cost=0.00..804916.00 rows=28800800 width=111) (actual time=0.007..7561.470 rows=28800991 loops=1)
+              ->  Hash  (cost=2774.67..2774.67 rows=69 width=118) (actual time=25.539..25.539 rows=72 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 11kB
+                    ->  Seq Scan on date_dim  (cost=0.00..2774.67 rows=69 width=118) (actual time=11.141..25.512 rows=72 loops=1)
+                          Filter: ((d_dom >= 1) AND (d_dom <= 2) AND (d_year = ANY ('{1998,1999,2000}'::integer[])))
+                          Rows Removed by Filter: 72977
+        ->  Hash  (cost=179.00..179.00 rows=1467 width=32) (actual time=2.435..2.435 rows=1600 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 100kB
+              ->  Seq Scan on household_demographics  (cost=0.00..179.00 rows=1467 width=32) (actual time=0.211..2.188 rows=1600 loops=1)
+                    Filter: ((hd_vehicle_count > 0) AND ((hd_buy_potential = 'gt10000'::bpchar) OR (hd_buy_potential = 'from5001to10000'::bpchar)))
+                    Rows Removed by Filter: 5600
+  ->  Hash  (cost=6.53..6.53 rows=78 width=287) (actual time=0.081..0.081 rows=31 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 11kB
+        ->  Seq Scan on store  (cost=0.00..6.53 rows=78 width=287) (actual time=0.008..0.072 rows=31 loops=1)
+              Filter: ((s_county)::text = ANY ('{"Williamson County","Williamson County","Williamson County","Williamson County"}'::text[]))
+              Rows Removed by Filter: 71
+Total runtime: 11411.819 ms

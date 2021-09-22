@@ -1,0 +1,22 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Relation Name": "lineitem",
+      "Alias": "lineitem",
+      "Startup Cost": 0.00,
+      "Total Cost": 247530.34,
+      "Plan Rows": 114188,
+      "Plan Width": 117,
+      "Actual Startup Time": 0.013,
+      "Actual Total Time": 957.137,
+      "Actual Rows": 114547,
+      "Actual Loops": 1,
+      "Filter": "((l_shipdate >= '1995-01-01'::date) AND (l_shipdate < '1996-01-01'::date) AND (l_discount >= 0.08) AND (l_discount <= 0.10) AND (l_quantity < 24::numeric))",
+      "Rows Removed by Filter": 5886668
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 960.873
+  }
+]

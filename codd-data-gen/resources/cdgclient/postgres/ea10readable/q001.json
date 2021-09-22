@@ -1,0 +1,23 @@
+Hash Join  (cost=2873.86..957876.50 rows=7140 width=533) (actual time=55.698..14459.900 rows=7395 loops=1)
+  Hash Cond: (store_sales.ss_store_sk = store.s_store_sk)
+  ->  Hash Join  (cost=2867.41..957594.28 rows=54497 width=246) (actual time=41.084..14447.900 rows=53899 loops=1)
+        Hash Cond: (store_sales.ss_sold_time_sk = time_dim.t_time_sk)
+        ->  Hash Join  (cost=152.00..940579.60 rows=2750860 width=143) (actual time=1.599..14058.859 rows=2753007 loops=1)
+              Hash Cond: (store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk)
+              ->  Seq Scan on store_sales  (cost=0.00..804916.00 rows=28800800 width=111) (actual time=0.026..9055.777 rows=28800991 loops=1)
+              ->  Hash  (cost=143.00..143.00 rows=720 width=32) (actual time=1.562..1.562 rows=720 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 45kB
+                    ->  Seq Scan on household_demographics  (cost=0.00..143.00 rows=720 width=32) (actual time=0.098..1.443 rows=720 loops=1)
+                          Filter: (hd_dep_count = 5)
+                          Rows Removed by Filter: 6480
+        ->  Hash  (cost=2693.00..2693.00 rows=1793 width=103) (actual time=22.419..22.419 rows=1800 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 243kB
+              ->  Seq Scan on time_dim  (cost=0.00..2693.00 rows=1793 width=103) (actual time=7.782..21.894 rows=1800 loops=1)
+                    Filter: ((t_minute >= 30) AND (t_hour = 8))
+                    Rows Removed by Filter: 84600
+  ->  Hash  (cost=6.28..6.28 rows=14 width=287) (actual time=0.056..0.056 rows=14 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 5kB
+        ->  Seq Scan on store  (cost=0.00..6.28 rows=14 width=287) (actual time=0.018..0.050 rows=14 loops=1)
+              Filter: ((s_store_name)::text = 'ese'::text)
+              Rows Removed by Filter: 88
+Total runtime: 14460.663 ms

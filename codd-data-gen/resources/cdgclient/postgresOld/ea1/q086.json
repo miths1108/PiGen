@@ -1,0 +1,120 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 5147.06,
+      "Total Cost": 98759.58,
+      "Plan Rows": 22,
+      "Plan Width": 736,
+      "Actual Startup Time": 20.158,
+      "Actual Total Time": 511.068,
+      "Actual Rows": 29999,
+      "Actual Loops": 1,
+      "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 1911.36,
+          "Total Cost": 95506.26,
+          "Plan Rows": 4641,
+          "Plan Width": 618,
+          "Actual Startup Time": 11.386,
+          "Actual Total Time": 482.077,
+          "Actual Rows": 109446,
+          "Actual Loops": 1,
+          "Hash Cond": "(store_sales.ss_item_sk = item.i_item_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "store_sales",
+              "Alias": "store_sales",
+              "Startup Cost": 0.00,
+              "Total Cost": 82746.99,
+              "Plan Rows": 2880399,
+              "Plan Width": 115,
+              "Actual Startup Time": 0.007,
+              "Actual Total Time": 224.161,
+              "Actual Rows": 2622614,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 1911.00,
+              "Total Cost": 1911.00,
+              "Plan Rows": 29,
+              "Plan Width": 503,
+              "Actual Startup Time": 11.372,
+              "Actual Total Time": 11.372,
+              "Actual Rows": 934,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 498,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "item",
+                  "Alias": "item",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 1911.00,
+                  "Plan Rows": 29,
+                  "Plan Width": 503,
+                  "Actual Startup Time": 0.006,
+                  "Actual Total Time": 11.265,
+                  "Actual Rows": 934,
+                  "Actual Loops": 1,
+                  "Filter": "(((i_category = ANY ('{Books,Children,Electronics}'::bpchar[])) AND (i_class = ANY ('{personal,portable,reference,self-help}'::bpchar[])) AND (i_brand = ANY ('{\"scholaramalgamalg #14\",\"scholaramalgamalg #7\",\"exportiunivamalg #9\",\"scholaramalgamalg #9\"}'::bpchar[]))) OR ((i_category = ANY ('{Women,Music,Men}'::bpchar[])) AND (i_class = ANY ('{accessories,classical,fragrances,pants}'::bpchar[])) AND (i_brand = ANY ('{\"amalgimporto #1\",\"edu packscholar #1\",\"exportiimporto #1\",\"importoamalg #1\"}'::bpchar[]))))",
+                  "Rows Removed by Filter": 17066
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 3231.23,
+          "Total Cost": 3231.23,
+          "Plan Rows": 358,
+          "Plan Width": 118,
+          "Actual Startup Time": 8.762,
+          "Actual Total Time": 8.762,
+          "Actual Rows": 366,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 56,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "date_dim",
+              "Alias": "date_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 3231.23,
+              "Plan Rows": 358,
+              "Plan Width": 118,
+              "Actual Startup Time": 4.378,
+              "Actual Total Time": 8.733,
+              "Actual Rows": 366,
+              "Actual Loops": 1,
+              "Filter": "(d_month_seq = ANY ('{1195,1196,1197,1198,1199,1200,1201,1202,1203,1204,1205,1206}'::integer[]))",
+              "Rows Removed by Filter": 72683
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 511.945
+  }
+]

@@ -1,0 +1,23 @@
+Hash Join  (cost=2965.67..916364.62 rows=1684 width=548) (actual time=26.434..10121.225 rows=73556 loops=1)
+  Hash Cond: (store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk)
+  ->  Hash Join  (cost=2782.17..916129.02 rows=7053 width=516) (actual time=23.687..10048.195 rows=300252 loops=1)
+        Hash Cond: (store_sales.ss_store_sk = store.s_store_sk)
+        ->  Hash Join  (cost=2775.53..915954.40 rows=25987 width=229) (actual time=22.846..9749.728 rows=1054617 loops=1)
+              Hash Cond: (store_sales.ss_sold_date_sk = date_dim.d_date_sk)
+              ->  Seq Scan on store_sales  (cost=0.00..804916.00 rows=28800800 width=111) (actual time=0.004..6408.416 rows=28800991 loops=1)
+              ->  Hash  (cost=2774.67..2774.67 rows=69 width=118) (actual time=22.759..22.759 rows=72 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 11kB
+                    ->  Seq Scan on date_dim  (cost=0.00..2774.67 rows=69 width=118) (actual time=11.257..22.739 rows=72 loops=1)
+                          Filter: ((d_dom >= 1) AND (d_dom <= 2) AND (d_year = ANY ('{1998,1999,2000}'::integer[])))
+                          Rows Removed by Filter: 72977
+        ->  Hash  (cost=6.28..6.28 rows=29 width=287) (actual time=0.069..0.069 rows=29 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 10kB
+              ->  Seq Scan on store  (cost=0.00..6.28 rows=29 width=287) (actual time=0.004..0.057 rows=29 loops=1)
+                    Filter: ((s_city)::text = ANY ('{Midway,Fairview}'::text[]))
+                    Rows Removed by Filter: 73
+  ->  Hash  (cost=161.00..161.00 rows=1800 width=32) (actual time=1.907..1.907 rows=1800 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 113kB
+        ->  Seq Scan on household_demographics  (cost=0.00..161.00 rows=1800 width=32) (actual time=0.191..1.692 rows=1800 loops=1)
+              Filter: ((hd_dep_count = 9) OR (hd_vehicle_count = 3))
+              Rows Removed by Filter: 5400
+Total runtime: 10124.631 ms

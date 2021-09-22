@@ -1,0 +1,72 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 9520.83,
+      "Total Cost": 31077.18,
+      "Plan Rows": 3804,
+      "Plan Width": 390,
+      "Actual Startup Time": 447.164,
+      "Actual Total Time": 762.329,
+      "Actual Rows": 3693,
+      "Actual Loops": 1,
+      "Hash Cond": "(c.c_current_addr_sk = ca.ca_address_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "customer",
+          "Alias": "c",
+          "Startup Cost": 0.00,
+          "Total Cost": 19607.23,
+          "Plan Rows": 509623,
+          "Plan Width": 245,
+          "Actual Startup Time": 0.463,
+          "Actual Total Time": 233.136,
+          "Actual Rows": 500000,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 9497.50,
+          "Total Cost": 9497.50,
+          "Plan Rows": 1866,
+          "Plan Width": 145,
+          "Actual Startup Time": 445.501,
+          "Actual Total Time": 445.501,
+          "Actual Rows": 1867,
+          "Actual Loops": 1,
+          "Hash Buckets": 2048,
+          "Original Hash Buckets": 2048,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 346,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "customer_address",
+              "Alias": "ca",
+              "Startup Cost": 0.00,
+              "Total Cost": 9497.50,
+              "Plan Rows": 1866,
+              "Plan Width": 145,
+              "Actual Startup Time": 1.674,
+              "Actual Total Time": 443.542,
+              "Actual Rows": 1867,
+              "Actual Loops": 1,
+              "Filter": "((ca_county)::text = ANY ('{\"Yellowstone County\",\"Montgomery County\",\"Divide County\",\"Cedar County\",\"Manassas Park city\"}'::text[]))",
+              "Rows Removed by Filter": 248133
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 4.895,
+    "Triggers": [
+    ],
+    "Execution Time": 762.595
+  }
+]

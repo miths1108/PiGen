@@ -1,0 +1,4 @@
+Seq Scan on store_sales  (cost=0.00..1380932.00 rows=352000 width=111) (actual time=0.011..9862.525 rows=272705 loops=1)
+  Filter: ((ss_quantity >= 16) AND (ss_quantity <= 20) AND (((ss_list_price >= 16::numeric) AND (ss_list_price <= 26::numeric)) OR ((ss_coupon_amt >= 13313::numeric) AND (ss_coupon_amt <= 14313::numeric)) OR ((ss_wholesale_cost >= 8::numeric) AND (ss_wholesale_cost <= 28::numeric))))
+  Rows Removed by Filter: 28528286
+Total runtime: 9879.031 ms

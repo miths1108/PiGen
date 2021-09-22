@@ -1,0 +1,23 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Relation Name": "item",
+      "Alias": "item",
+      "Startup Cost": 0.00,
+      "Total Cost": 8528.00,
+      "Plan Rows": 1282,
+      "Plan Width": 504,
+      "Actual Startup Time": 0.069,
+      "Actual Total Time": 56.286,
+      "Actual Rows": 1299,
+      "Actual Loops": 1,
+      "Filter": "((i_manufact_id >= 770) AND (i_manufact_id <= 810))",
+      "Rows Removed by Filter": 100701
+    },
+    "Planning Time": 0.675,
+    "Triggers": [
+    ],
+    "Execution Time": 56.483
+  }
+]

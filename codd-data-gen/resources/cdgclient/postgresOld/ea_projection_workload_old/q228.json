@@ -1,0 +1,146 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Partial Mode": "Simple",
+      "Parallel Aware": false,
+      "Startup Cost": 13999.78,
+      "Total Cost": 14000.54,
+      "Plan Rows": 76,
+      "Plan Width": 17,
+      "Actual Startup Time": 85.022,
+      "Actual Total Time": 85.256,
+      "Actual Rows": 2414,
+      "Actual Loops": 1,
+      "Group Key": ["item.i_item_id"],
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 12515.33,
+          "Total Cost": 13999.59,
+          "Plan Rows": 76,
+          "Plan Width": 17,
+          "Actual Startup Time": 79.958,
+          "Actual Total Time": 84.211,
+          "Actual Rows": 2816,
+          "Actual Loops": 1,
+          "Hash Cond": "(item.i_item_sk = store_returns.sr_item_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "item",
+              "Alias": "item",
+              "Startup Cost": 0.00,
+              "Total Cost": 1416.00,
+              "Plan Rows": 18000,
+              "Plan Width": 21,
+              "Actual Startup Time": 0.005,
+              "Actual Total Time": 1.949,
+              "Actual Rows": 18000,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 12514.38,
+              "Total Cost": 12514.38,
+              "Plan Rows": 76,
+              "Plan Width": 4,
+              "Actual Startup Time": 79.947,
+              "Actual Total Time": 79.947,
+              "Actual Rows": 2816,
+              "Actual Loops": 1,
+              "Hash Buckets": 4096,
+              "Original Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 131,
+              "Plans": [
+                {
+                  "Node Type": "Hash Join",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 3961.97,
+                  "Total Cost": 12514.38,
+                  "Plan Rows": 76,
+                  "Plan Width": 4,
+                  "Actual Startup Time": 20.077,
+                  "Actual Total Time": 79.236,
+                  "Actual Rows": 2816,
+                  "Actual Loops": 1,
+                  "Hash Cond": "(store_returns.sr_returned_date_sk = date_dim.d_date_sk)",
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "store_returns",
+                      "Alias": "store_returns",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 7511.02,
+                      "Plan Rows": 277502,
+                      "Plan Width": 8,
+                      "Actual Startup Time": 0.021,
+                      "Actual Total Time": 34.602,
+                      "Actual Rows": 263253,
+                      "Actual Loops": 1
+                    },
+                    {
+                      "Node Type": "Hash",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Startup Cost": 3961.72,
+                      "Total Cost": 3961.72,
+                      "Plan Rows": 20,
+                      "Plan Width": 4,
+                      "Actual Startup Time": 19.974,
+                      "Actual Total Time": 19.974,
+                      "Actual Rows": 20,
+                      "Actual Loops": 1,
+                      "Hash Buckets": 1024,
+                      "Original Hash Buckets": 1024,
+                      "Hash Batches": 1,
+                      "Original Hash Batches": 1,
+                      "Peak Memory Usage": 9,
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Relation Name": "date_dim",
+                          "Alias": "date_dim",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 3961.72,
+                          "Plan Rows": 20,
+                          "Plan Width": 4,
+                          "Actual Startup Time": 10.873,
+                          "Actual Total Time": 19.966,
+                          "Actual Rows": 20,
+                          "Actual Loops": 1,
+                          "Filter": "(d_date = ANY ('{1999-11-11,1999-10-02,1999-04-17,1999-09-29,1999-11-14,1999-04-15,1999-11-10,1999-11-13,1999-09-28,1999-10-03,1999-04-13,1999-11-12,1999-11-15,1999-04-16,1999-10-01,1999-04-19,1999-04-18,1999-11-09,1999-04-14,1999-09-30}'::date[]))",
+                          "Rows Removed by Filter": 73029
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.241,
+    "Triggers": [
+    ],
+    "Execution Time": 85.377
+  }
+]

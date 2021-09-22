@@ -1,0 +1,72 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 2501.12,
+      "Total Cost": 25839.27,
+      "Plan Rows": 291,
+      "Plan Width": 236,
+      "Actual Startup Time": 15.742,
+      "Actual Total Time": 252.399,
+      "Actual Rows": 5253,
+      "Actual Loops": 1,
+      "Hash Cond": "(web_returns.wr_returned_date_sk = date_dim.d_date_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "web_returns",
+          "Alias": "web_returns",
+          "Startup Cost": 0.00,
+          "Total Cost": 20638.17,
+          "Plan Rows": 719217,
+          "Plan Width": 118,
+          "Actual Startup Time": 0.298,
+          "Actual Total Time": 171.497,
+          "Actual Rows": 719217,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 2500.73,
+          "Total Cost": 2500.73,
+          "Plan Rows": 31,
+          "Plan Width": 118,
+          "Actual Startup Time": 13.936,
+          "Actual Total Time": 13.936,
+          "Actual Rows": 32,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 13,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "date_dim",
+              "Alias": "date_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 2500.73,
+              "Plan Rows": 31,
+              "Plan Width": 118,
+              "Actual Startup Time": 6.712,
+              "Actual Total Time": 13.911,
+              "Actual Rows": 32,
+              "Actual Loops": 1,
+              "Filter": "((d_date >= '1998-08-14'::date) AND (d_date <= '1998-09-14'::date))",
+              "Rows Removed by Filter": 73017
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 2.830,
+    "Triggers": [
+    ],
+    "Execution Time": 252.789
+  }
+]

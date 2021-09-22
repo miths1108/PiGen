@@ -1,0 +1,2584 @@
+(declare-fun var0_0 () Int)
+(declare-fun var0_1 () Int)
+(declare-fun var0_2 () Int)
+(declare-fun var0_3 () Int)
+(declare-fun var0_4 () Int)
+(declare-fun var0_5 () Int)
+(declare-fun var0_6 () Int)
+(declare-fun var0_7 () Int)
+(declare-fun var0_8 () Int)
+(declare-fun var0_9 () Int)
+(declare-fun var0_10 () Int)
+(declare-fun var0_11 () Int)
+(declare-fun var0_12 () Int)
+(declare-fun var0_13 () Int)
+(declare-fun var0_14 () Int)
+(declare-fun var0_15 () Int)
+(declare-fun var0_16 () Int)
+(declare-fun var0_17 () Int)
+(declare-fun var0_18 () Int)
+(declare-fun var0_19 () Int)
+(declare-fun var0_20 () Int)
+(declare-fun var0_21 () Int)
+(declare-fun var0_22 () Int)
+(declare-fun var0_23 () Int)
+(declare-fun var0_24 () Int)
+(declare-fun var0_25 () Int)
+(declare-fun var0_26 () Int)
+(declare-fun var0_27 () Int)
+(declare-fun var0_28 () Int)
+(declare-fun var0_29 () Int)
+(declare-fun var0_30 () Int)
+(declare-fun var0_31 () Int)
+(declare-fun var0_32 () Int)
+(declare-fun var0_33 () Int)
+(declare-fun var0_34 () Int)
+(declare-fun var0_35 () Int)
+(declare-fun var0_36 () Int)
+(declare-fun var0_37 () Int)
+(declare-fun var0_38 () Int)
+(declare-fun var0_39 () Int)
+(declare-fun var0_40 () Int)
+(declare-fun var0_41 () Int)
+(declare-fun var0_42 () Int)
+(declare-fun var0_43 () Int)
+(declare-fun var0_44 () Int)
+(declare-fun var0_45 () Int)
+(declare-fun var0_46 () Int)
+(declare-fun var0_47 () Int)
+(declare-fun var0_48 () Int)
+(declare-fun var0_49 () Int)
+(declare-fun var0_50 () Int)
+(declare-fun var0_51 () Int)
+(declare-fun var0_52 () Int)
+(declare-fun var0_53 () Int)
+(declare-fun var0_54 () Int)
+(declare-fun var0_55 () Int)
+(declare-fun var0_56 () Int)
+(declare-fun var0_57 () Int)
+(declare-fun var0_58 () Int)
+(declare-fun var0_59 () Int)
+(declare-fun var0_60 () Int)
+(declare-fun var0_61 () Int)
+(declare-fun var0_62 () Int)
+(declare-fun var0_63 () Int)
+(declare-fun var0_64 () Int)
+(declare-fun var0_65 () Int)
+(declare-fun var0_66 () Int)
+(declare-fun var0_67 () Int)
+(declare-fun var0_68 () Int)
+(declare-fun var0_69 () Int)
+(declare-fun var0_70 () Int)
+(declare-fun var0_71 () Int)
+(declare-fun var0_72 () Int)
+(declare-fun var0_73 () Int)
+(declare-fun var0_74 () Int)
+(declare-fun var0_75 () Int)
+(declare-fun var0_76 () Int)
+(declare-fun var0_77 () Int)
+(declare-fun var0_78 () Int)
+(declare-fun var0_79 () Int)
+(declare-fun var0_80 () Int)
+(declare-fun var0_81 () Int)
+(declare-fun var0_82 () Int)
+(declare-fun var0_83 () Int)
+(declare-fun var0_84 () Int)
+(declare-fun var0_85 () Int)
+(declare-fun var0_86 () Int)
+(declare-fun var0_87 () Int)
+(declare-fun var0_88 () Int)
+(declare-fun var0_89 () Int)
+(declare-fun var0_90 () Int)
+(declare-fun var0_91 () Int)
+(declare-fun var0_92 () Int)
+(declare-fun var0_93 () Int)
+(declare-fun var0_94 () Int)
+(declare-fun var0_95 () Int)
+(declare-fun var0_96 () Int)
+(declare-fun var0_97 () Int)
+(declare-fun var0_98 () Int)
+(declare-fun var0_99 () Int)
+(declare-fun var0_100 () Int)
+(declare-fun var0_101 () Int)
+(declare-fun var0_102 () Int)
+(declare-fun var0_103 () Int)
+(declare-fun var0_104 () Int)
+(declare-fun var0_105 () Int)
+(declare-fun var0_106 () Int)
+(declare-fun var0_107 () Int)
+(declare-fun var0_108 () Int)
+(declare-fun var0_109 () Int)
+(declare-fun var0_110 () Int)
+(declare-fun var0_111 () Int)
+(declare-fun var0_112 () Int)
+(declare-fun var0_113 () Int)
+(declare-fun var0_114 () Int)
+(declare-fun var0_115 () Int)
+(declare-fun var0_116 () Int)
+(declare-fun var0_117 () Int)
+(declare-fun var0_118 () Int)
+(declare-fun var0_119 () Int)
+(declare-fun var0_120 () Int)
+(declare-fun var0_121 () Int)
+(declare-fun var0_122 () Int)
+(declare-fun var0_123 () Int)
+(declare-fun var0_124 () Int)
+(declare-fun var0_125 () Int)
+(declare-fun var0_126 () Int)
+(declare-fun var0_127 () Int)
+(declare-fun var0_128 () Int)
+(declare-fun var0_129 () Int)
+(declare-fun var0_130 () Int)
+(declare-fun var0_131 () Int)
+(declare-fun var0_132 () Int)
+(declare-fun var0_133 () Int)
+(declare-fun var0_134 () Int)
+(declare-fun var0_135 () Int)
+(declare-fun var0_136 () Int)
+(declare-fun var0_137 () Int)
+(declare-fun var0_138 () Int)
+(declare-fun var0_139 () Int)
+(declare-fun var0_140 () Int)
+(declare-fun var0_141 () Int)
+(declare-fun var0_142 () Int)
+(declare-fun var0_143 () Int)
+(declare-fun var0_144 () Int)
+(declare-fun var0_145 () Int)
+(declare-fun var0_146 () Int)
+(declare-fun var0_147 () Int)
+(declare-fun var0_148 () Int)
+(declare-fun var0_149 () Int)
+(declare-fun var0_150 () Int)
+(declare-fun var0_151 () Int)
+(declare-fun var0_152 () Int)
+(declare-fun var0_153 () Int)
+(declare-fun var0_154 () Int)
+(declare-fun var0_155 () Int)
+(declare-fun var0_156 () Int)
+(declare-fun var0_157 () Int)
+(declare-fun var0_158 () Int)
+(declare-fun var0_159 () Int)
+(declare-fun var0_160 () Int)
+(declare-fun var0_161 () Int)
+(declare-fun var0_162 () Int)
+(declare-fun var0_163 () Int)
+(declare-fun var0_164 () Int)
+(declare-fun var0_165 () Int)
+(declare-fun var0_166 () Int)
+(declare-fun var0_167 () Int)
+(declare-fun var0_168 () Int)
+(declare-fun var0_169 () Int)
+(declare-fun var0_170 () Int)
+(declare-fun var0_171 () Int)
+(declare-fun var0_172 () Int)
+(declare-fun var0_173 () Int)
+(declare-fun var0_174 () Int)
+(declare-fun var0_175 () Int)
+(declare-fun var0_176 () Int)
+(declare-fun var0_177 () Int)
+(declare-fun var0_178 () Int)
+(declare-fun var0_179 () Int)
+(declare-fun var0_180 () Int)
+(declare-fun var0_181 () Int)
+(declare-fun var0_182 () Int)
+(declare-fun var0_183 () Int)
+(declare-fun var1_0 () Int)
+(declare-fun var1_1 () Int)
+(declare-fun var1_2 () Int)
+(declare-fun var1_3 () Int)
+(declare-fun var1_4 () Int)
+(declare-fun var1_5 () Int)
+(declare-fun var1_6 () Int)
+(declare-fun var1_7 () Int)
+(declare-fun var1_8 () Int)
+(declare-fun var1_9 () Int)
+(declare-fun var1_10 () Int)
+(declare-fun var1_11 () Int)
+(declare-fun var1_12 () Int)
+(declare-fun var1_13 () Int)
+(declare-fun var1_14 () Int)
+(declare-fun var1_15 () Int)
+(declare-fun var1_16 () Int)
+(declare-fun var1_17 () Int)
+(declare-fun var1_18 () Int)
+(declare-fun var1_19 () Int)
+(declare-fun var1_20 () Int)
+(declare-fun var1_21 () Int)
+(declare-fun var1_22 () Int)
+(declare-fun var1_23 () Int)
+(declare-fun var1_24 () Int)
+(declare-fun var1_25 () Int)
+(declare-fun var1_26 () Int)
+(declare-fun var1_27 () Int)
+(declare-fun var1_28 () Int)
+(declare-fun var1_29 () Int)
+(declare-fun var1_30 () Int)
+(declare-fun var1_31 () Int)
+(declare-fun var1_32 () Int)
+(declare-fun var1_33 () Int)
+(declare-fun var1_34 () Int)
+(declare-fun var1_35 () Int)
+(declare-fun var1_36 () Int)
+(declare-fun var1_37 () Int)
+(declare-fun var1_38 () Int)
+(declare-fun var1_39 () Int)
+(declare-fun var1_40 () Int)
+(declare-fun var1_41 () Int)
+(declare-fun var1_42 () Int)
+(declare-fun var1_43 () Int)
+(declare-fun var1_44 () Int)
+(declare-fun var1_45 () Int)
+(declare-fun var1_46 () Int)
+(declare-fun var1_47 () Int)
+(declare-fun var1_48 () Int)
+(declare-fun var1_49 () Int)
+(declare-fun var1_50 () Int)
+(declare-fun var1_51 () Int)
+(declare-fun var1_52 () Int)
+(declare-fun var1_53 () Int)
+(declare-fun var1_54 () Int)
+(declare-fun var1_55 () Int)
+(declare-fun var1_56 () Int)
+(declare-fun var1_57 () Int)
+(declare-fun var1_58 () Int)
+(declare-fun var1_59 () Int)
+(declare-fun var1_60 () Int)
+(declare-fun var1_61 () Int)
+(declare-fun var1_62 () Int)
+(declare-fun var1_63 () Int)
+(declare-fun var1_64 () Int)
+(declare-fun var1_65 () Int)
+(declare-fun var1_66 () Int)
+(declare-fun var1_67 () Int)
+(declare-fun var1_68 () Int)
+(declare-fun var1_69 () Int)
+(declare-fun var1_70 () Int)
+(declare-fun var1_71 () Int)
+(declare-fun var1_72 () Int)
+(declare-fun var1_73 () Int)
+(declare-fun var1_74 () Int)
+(declare-fun var1_75 () Int)
+(declare-fun var1_76 () Int)
+(declare-fun var1_77 () Int)
+(declare-fun var1_78 () Int)
+(declare-fun var1_79 () Int)
+(declare-fun var1_80 () Int)
+(declare-fun var1_81 () Int)
+(declare-fun var1_82 () Int)
+(declare-fun var1_83 () Int)
+(declare-fun var1_84 () Int)
+(declare-fun var1_85 () Int)
+(declare-fun var1_86 () Int)
+(declare-fun var1_87 () Int)
+(declare-fun var1_88 () Int)
+(declare-fun var1_89 () Int)
+(declare-fun var1_90 () Int)
+(declare-fun var1_91 () Int)
+(declare-fun var1_92 () Int)
+(declare-fun var1_93 () Int)
+(declare-fun var1_94 () Int)
+(declare-fun var1_95 () Int)
+(declare-fun var1_96 () Int)
+(declare-fun var1_97 () Int)
+(declare-fun var1_98 () Int)
+(declare-fun var1_99 () Int)
+(declare-fun var1_100 () Int)
+(declare-fun var1_101 () Int)
+(declare-fun var1_102 () Int)
+(declare-fun var1_103 () Int)
+(declare-fun var1_104 () Int)
+(declare-fun var1_105 () Int)
+(declare-fun var1_106 () Int)
+(declare-fun var1_107 () Int)
+(declare-fun var1_108 () Int)
+(declare-fun var1_109 () Int)
+(declare-fun var1_110 () Int)
+(declare-fun var1_111 () Int)
+(declare-fun var1_112 () Int)
+(declare-fun var1_113 () Int)
+(declare-fun var1_114 () Int)
+(declare-fun var1_115 () Int)
+(declare-fun var1_116 () Int)
+(declare-fun var1_117 () Int)
+(declare-fun var1_118 () Int)
+(declare-fun var1_119 () Int)
+(declare-fun var1_120 () Int)
+(declare-fun var1_121 () Int)
+(declare-fun var1_122 () Int)
+(declare-fun var1_123 () Int)
+(declare-fun var1_124 () Int)
+(declare-fun var1_125 () Int)
+(declare-fun var1_126 () Int)
+(declare-fun var1_127 () Int)
+(declare-fun var1_128 () Int)
+(declare-fun var1_129 () Int)
+(declare-fun var1_130 () Int)
+(declare-fun var1_131 () Int)
+(declare-fun var1_132 () Int)
+(declare-fun var1_133 () Int)
+(declare-fun var1_134 () Int)
+(declare-fun var1_135 () Int)
+(declare-fun var1_136 () Int)
+(declare-fun var1_137 () Int)
+(declare-fun var1_138 () Int)
+(declare-fun var1_139 () Int)
+(declare-fun var1_140 () Int)
+(declare-fun var1_141 () Int)
+(declare-fun var1_142 () Int)
+(declare-fun var1_143 () Int)
+(declare-fun var1_144 () Int)
+(declare-fun var1_145 () Int)
+(declare-fun var1_146 () Int)
+(declare-fun var1_147 () Int)
+(declare-fun var1_148 () Int)
+(declare-fun var1_149 () Int)
+(declare-fun var1_150 () Int)
+(declare-fun var1_151 () Int)
+(declare-fun var1_152 () Int)
+(declare-fun var1_153 () Int)
+(declare-fun var1_154 () Int)
+(declare-fun var1_155 () Int)
+(declare-fun var1_156 () Int)
+(declare-fun var1_157 () Int)
+(declare-fun var1_158 () Int)
+(declare-fun var1_159 () Int)
+(declare-fun var1_160 () Int)
+(declare-fun var1_161 () Int)
+(declare-fun var1_162 () Int)
+(declare-fun var1_163 () Int)
+(declare-fun var1_164 () Int)
+(declare-fun var1_165 () Int)
+(declare-fun var1_166 () Int)
+(declare-fun var1_167 () Int)
+(declare-fun var1_168 () Int)
+(declare-fun var1_169 () Int)
+(declare-fun var1_170 () Int)
+(declare-fun var1_171 () Int)
+(declare-fun var1_172 () Int)
+(declare-fun var1_173 () Int)
+(declare-fun var1_174 () Int)
+(declare-fun var1_175 () Int)
+(declare-fun var1_176 () Int)
+(declare-fun var1_177 () Int)
+(declare-fun var1_178 () Int)
+(declare-fun var1_179 () Int)
+(declare-fun var2_0 () Int)
+(declare-fun var2_1 () Int)
+(declare-fun var2_2 () Int)
+(declare-fun var2_3 () Int)
+(declare-fun var2_4 () Int)
+(declare-fun var2_5 () Int)
+(declare-fun var2_6 () Int)
+(declare-fun var2_7 () Int)
+(declare-fun var2_8 () Int)
+(declare-fun var2_9 () Int)
+(declare-fun var2_10 () Int)
+(declare-fun var2_11 () Int)
+(declare-fun var2_12 () Int)
+(declare-fun var2_13 () Int)
+(declare-fun var2_14 () Int)
+(declare-fun var2_15 () Int)
+(declare-fun var2_16 () Int)
+(declare-fun var2_17 () Int)
+(declare-fun var2_18 () Int)
+(declare-fun var2_19 () Int)
+(declare-fun var2_20 () Int)
+(declare-fun var2_21 () Int)
+(declare-fun var2_22 () Int)
+(declare-fun var2_23 () Int)
+(declare-fun var2_24 () Int)
+(declare-fun var2_25 () Int)
+(declare-fun var2_26 () Int)
+(declare-fun var2_27 () Int)
+(declare-fun var3_0 () Int)
+(declare-fun var3_1 () Int)
+(declare-fun var3_2 () Int)
+(declare-fun var3_3 () Int)
+(declare-fun var3_4 () Int)
+(declare-fun var3_5 () Int)
+(declare-fun var3_6 () Int)
+(declare-fun var3_7 () Int)
+(declare-fun var3_8 () Int)
+(declare-fun var3_9 () Int)
+(declare-fun var3_10 () Int)
+(declare-fun var3_11 () Int)
+(declare-fun var3_12 () Int)
+(declare-fun var3_13 () Int)
+(declare-fun var3_14 () Int)
+(declare-fun var4_0 () Int)
+(declare-fun var4_1 () Int)
+(declare-fun var4_2 () Int)
+(declare-fun var4_3 () Int)
+(declare-fun var4_4 () Int)
+(declare-fun var4_5 () Int)
+(declare-fun var4_6 () Int)
+(declare-fun var4_7 () Int)
+(declare-fun var4_8 () Int)
+(declare-fun var5_0 () Int)
+(declare-fun var5_1 () Int)
+(declare-fun var5_2 () Int)
+(declare-fun var5_3 () Int)
+(declare-fun var5_4 () Int)
+(declare-fun var5_5 () Int)
+(declare-fun var5_6 () Int)
+(declare-fun var6_0 () Int)
+(declare-fun var6_1 () Int)
+(declare-fun var6_2 () Int)
+(declare-fun var6_3 () Int)
+(declare-fun var6_4 () Int)
+(assert (>= var0_0 0))
+(assert (>= var0_1 0))
+(assert (>= var0_2 0))
+(assert (>= var0_3 0))
+(assert (>= var0_4 0))
+(assert (>= var0_5 0))
+(assert (>= var0_6 0))
+(assert (>= var0_7 0))
+(assert (>= var0_8 0))
+(assert (>= var0_9 0))
+(assert (>= var0_10 0))
+(assert (>= var0_11 0))
+(assert (>= var0_12 0))
+(assert (>= var0_13 0))
+(assert (>= var0_14 0))
+(assert (>= var0_15 0))
+(assert (>= var0_16 0))
+(assert (>= var0_17 0))
+(assert (>= var0_18 0))
+(assert (>= var0_19 0))
+(assert (>= var0_20 0))
+(assert (>= var0_21 0))
+(assert (>= var0_22 0))
+(assert (>= var0_23 0))
+(assert (>= var0_24 0))
+(assert (>= var0_25 0))
+(assert (>= var0_26 0))
+(assert (>= var0_27 0))
+(assert (>= var0_28 0))
+(assert (>= var0_29 0))
+(assert (>= var0_30 0))
+(assert (>= var0_31 0))
+(assert (>= var0_32 0))
+(assert (>= var0_33 0))
+(assert (>= var0_34 0))
+(assert (>= var0_35 0))
+(assert (>= var0_36 0))
+(assert (>= var0_37 0))
+(assert (>= var0_38 0))
+(assert (>= var0_39 0))
+(assert (>= var0_40 0))
+(assert (>= var0_41 0))
+(assert (>= var0_42 0))
+(assert (>= var0_43 0))
+(assert (>= var0_44 0))
+(assert (>= var0_45 0))
+(assert (>= var0_46 0))
+(assert (>= var0_47 0))
+(assert (>= var0_48 0))
+(assert (>= var0_49 0))
+(assert (>= var0_50 0))
+(assert (>= var0_51 0))
+(assert (>= var0_52 0))
+(assert (>= var0_53 0))
+(assert (>= var0_54 0))
+(assert (>= var0_55 0))
+(assert (>= var0_56 0))
+(assert (>= var0_57 0))
+(assert (>= var0_58 0))
+(assert (>= var0_59 0))
+(assert (>= var0_60 0))
+(assert (>= var0_61 0))
+(assert (>= var0_62 0))
+(assert (>= var0_63 0))
+(assert (>= var0_64 0))
+(assert (>= var0_65 0))
+(assert (>= var0_66 0))
+(assert (>= var0_67 0))
+(assert (>= var0_68 0))
+(assert (>= var0_69 0))
+(assert (>= var0_70 0))
+(assert (>= var0_71 0))
+(assert (>= var0_72 0))
+(assert (>= var0_73 0))
+(assert (>= var0_74 0))
+(assert (>= var0_75 0))
+(assert (>= var0_76 0))
+(assert (>= var0_77 0))
+(assert (>= var0_78 0))
+(assert (>= var0_79 0))
+(assert (>= var0_80 0))
+(assert (>= var0_81 0))
+(assert (>= var0_82 0))
+(assert (>= var0_83 0))
+(assert (>= var0_84 0))
+(assert (>= var0_85 0))
+(assert (>= var0_86 0))
+(assert (>= var0_87 0))
+(assert (>= var0_88 0))
+(assert (>= var0_89 0))
+(assert (>= var0_90 0))
+(assert (>= var0_91 0))
+(assert (>= var0_92 0))
+(assert (>= var0_93 0))
+(assert (>= var0_94 0))
+(assert (>= var0_95 0))
+(assert (>= var0_96 0))
+(assert (>= var0_97 0))
+(assert (>= var0_98 0))
+(assert (>= var0_99 0))
+(assert (>= var0_100 0))
+(assert (>= var0_101 0))
+(assert (>= var0_102 0))
+(assert (>= var0_103 0))
+(assert (>= var0_104 0))
+(assert (>= var0_105 0))
+(assert (>= var0_106 0))
+(assert (>= var0_107 0))
+(assert (>= var0_108 0))
+(assert (>= var0_109 0))
+(assert (>= var0_110 0))
+(assert (>= var0_111 0))
+(assert (>= var0_112 0))
+(assert (>= var0_113 0))
+(assert (>= var0_114 0))
+(assert (>= var0_115 0))
+(assert (>= var0_116 0))
+(assert (>= var0_117 0))
+(assert (>= var0_118 0))
+(assert (>= var0_119 0))
+(assert (>= var0_120 0))
+(assert (>= var0_121 0))
+(assert (>= var0_122 0))
+(assert (>= var0_123 0))
+(assert (>= var0_124 0))
+(assert (>= var0_125 0))
+(assert (>= var0_126 0))
+(assert (>= var0_127 0))
+(assert (>= var0_128 0))
+(assert (>= var0_129 0))
+(assert (>= var0_130 0))
+(assert (>= var0_131 0))
+(assert (>= var0_132 0))
+(assert (>= var0_133 0))
+(assert (>= var0_134 0))
+(assert (>= var0_135 0))
+(assert (>= var0_136 0))
+(assert (>= var0_137 0))
+(assert (>= var0_138 0))
+(assert (>= var0_139 0))
+(assert (>= var0_140 0))
+(assert (>= var0_141 0))
+(assert (>= var0_142 0))
+(assert (>= var0_143 0))
+(assert (>= var0_144 0))
+(assert (>= var0_145 0))
+(assert (>= var0_146 0))
+(assert (>= var0_147 0))
+(assert (>= var0_148 0))
+(assert (>= var0_149 0))
+(assert (>= var0_150 0))
+(assert (>= var0_151 0))
+(assert (>= var0_152 0))
+(assert (>= var0_153 0))
+(assert (>= var0_154 0))
+(assert (>= var0_155 0))
+(assert (>= var0_156 0))
+(assert (>= var0_157 0))
+(assert (>= var0_158 0))
+(assert (>= var0_159 0))
+(assert (>= var0_160 0))
+(assert (>= var0_161 0))
+(assert (>= var0_162 0))
+(assert (>= var0_163 0))
+(assert (>= var0_164 0))
+(assert (>= var0_165 0))
+(assert (>= var0_166 0))
+(assert (>= var0_167 0))
+(assert (>= var0_168 0))
+(assert (>= var0_169 0))
+(assert (>= var0_170 0))
+(assert (>= var0_171 0))
+(assert (>= var0_172 0))
+(assert (>= var0_173 0))
+(assert (>= var0_174 0))
+(assert (>= var0_175 0))
+(assert (>= var0_176 0))
+(assert (>= var0_177 0))
+(assert (>= var0_178 0))
+(assert (>= var0_179 0))
+(assert (>= var0_180 0))
+(assert (>= var0_181 0))
+(assert (>= var0_182 0))
+(assert (>= var0_183 0))
+(assert (= (+ var0_4
+      var0_5
+      var0_11
+      var0_12
+      var0_13
+      var0_20
+      var0_21
+      var0_22
+      var0_24
+      var0_28
+      var0_29
+      var0_30
+      var0_32
+      var0_33
+      var0_37
+      var0_39
+      var0_53
+      var0_54
+      var0_56
+      var0_58
+      var0_71
+      var0_79
+      var0_82
+      var0_84
+      var0_89
+      var0_95
+      var0_96
+      var0_103
+      var0_109
+      var0_112
+      var0_116
+      var0_120
+      var0_121
+      var0_122
+      var0_124
+      var0_126
+      var0_129
+      var0_140
+      var0_142
+      var0_144
+      var0_145
+      var0_150
+      var0_153
+      var0_154
+      var0_162
+      var0_163
+      var0_164
+      var0_168
+      var0_172
+      var0_178
+      var0_182)
+   14860))
+(assert (= (+ var0_0
+      var0_1
+      var0_2
+      var0_3
+      var0_4
+      var0_7
+      var0_10
+      var0_13
+      var0_17
+      var0_23
+      var0_24
+      var0_26
+      var0_27
+      var0_28
+      var0_29
+      var0_31
+      var0_34
+      var0_35
+      var0_39
+      var0_42
+      var0_43
+      var0_44
+      var0_45
+      var0_46
+      var0_47
+      var0_49
+      var0_51
+      var0_52
+      var0_54
+      var0_55
+      var0_56
+      var0_62
+      var0_63
+      var0_66
+      var0_68
+      var0_70
+      var0_72
+      var0_74
+      var0_76
+      var0_78
+      var0_79
+      var0_80
+      var0_81
+      var0_85
+      var0_88
+      var0_90
+      var0_96
+      var0_99
+      var0_101
+      var0_103
+      var0_105
+      var0_107
+      var0_111
+      var0_112
+      var0_113
+      var0_117
+      var0_118
+      var0_122
+      var0_123
+      var0_127
+      var0_129
+      var0_130
+      var0_131
+      var0_134
+      var0_135
+      var0_137
+      var0_139
+      var0_143
+      var0_145
+      var0_146
+      var0_150
+      var0_153
+      var0_157
+      var0_158
+      var0_159
+      var0_161
+      var0_162
+      var0_163
+      var0_164
+      var0_165
+      var0_168
+      var0_170
+      var0_172
+      var0_175
+      var0_180
+      var0_182)
+   431699))
+(assert (= (+ var0_18
+      var0_33
+      var0_58
+      var0_82
+      var0_100
+      var0_110
+      var0_138
+      var0_169
+      var0_173
+      var0_176
+      var0_177
+      var0_179)
+   15620))
+(assert (= (+ var0_0
+      var0_2
+      var0_3
+      var0_4
+      var0_6
+      var0_7
+      var0_8
+      var0_9
+      var0_10
+      var0_12
+      var0_13
+      var0_15
+      var0_17
+      var0_19
+      var0_20
+      var0_21
+      var0_27
+      var0_29
+      var0_34
+      var0_35
+      var0_37
+      var0_38
+      var0_42
+      var0_43
+      var0_45
+      var0_49
+      var0_51
+      var0_52
+      var0_53
+      var0_55
+      var0_56
+      var0_57
+      var0_59
+      var0_64
+      var0_68
+      var0_69
+      var0_70
+      var0_72
+      var0_73
+      var0_74
+      var0_75
+      var0_76
+      var0_77
+      var0_78
+      var0_80
+      var0_81
+      var0_85
+      var0_86
+      var0_88
+      var0_89
+      var0_90
+      var0_96
+      var0_97
+      var0_98
+      var0_99
+      var0_101
+      var0_102
+      var0_103
+      var0_105
+      var0_107
+      var0_114
+      var0_116
+      var0_117
+      var0_118
+      var0_119
+      var0_123
+      var0_124
+      var0_126
+      var0_127
+      var0_129
+      var0_130
+      var0_131
+      var0_132
+      var0_134
+      var0_137
+      var0_139
+      var0_140
+      var0_144
+      var0_145
+      var0_148
+      var0_151
+      var0_152
+      var0_153
+      var0_155
+      var0_156
+      var0_157
+      var0_161
+      var0_162
+      var0_163
+      var0_164
+      var0_166
+      var0_168
+      var0_172
+      var0_175
+      var0_178
+      var0_182)
+   432058))
+(assert (= (+ var0_13
+      var0_17
+      var0_43
+      var0_51
+      var0_52
+      var0_56
+      var0_74
+      var0_76
+      var0_88
+      var0_96
+      var0_117
+      var0_127
+      var0_139
+      var0_168)
+   82560))
+(assert (= (+ var0_0
+      var0_1
+      var0_2
+      var0_3
+      var0_4
+      var0_5
+      var0_6
+      var0_11
+      var0_12
+      var0_13
+      var0_15
+      var0_18
+      var0_19
+      var0_20
+      var0_21
+      var0_22
+      var0_24
+      var0_25
+      var0_27
+      var0_28
+      var0_29
+      var0_30
+      var0_32
+      var0_33
+      var0_35
+      var0_37
+      var0_39
+      var0_41
+      var0_44
+      var0_46
+      var0_47
+      var0_51
+      var0_52
+      var0_53
+      var0_54
+      var0_56
+      var0_58
+      var0_60
+      var0_62
+      var0_67
+      var0_68
+      var0_69
+      var0_71
+      var0_73
+      var0_75
+      var0_77
+      var0_79
+      var0_82
+      var0_83
+      var0_84
+      var0_87
+      var0_89
+      var0_95
+      var0_96
+      var0_99
+      var0_103
+      var0_104
+      var0_106
+      var0_108
+      var0_109
+      var0_112
+      var0_114
+      var0_116
+      var0_118
+      var0_119
+      var0_120
+      var0_121
+      var0_122
+      var0_124
+      var0_125
+      var0_126
+      var0_127
+      var0_129
+      var0_134
+      var0_138
+      var0_139
+      var0_140
+      var0_142
+      var0_144
+      var0_145
+      var0_146
+      var0_147
+      var0_148
+      var0_149
+      var0_150
+      var0_151
+      var0_152
+      var0_153
+      var0_154
+      var0_157
+      var0_159
+      var0_162
+      var0_163
+      var0_164
+      var0_165
+      var0_168
+      var0_171
+      var0_172
+      var0_175
+      var0_178
+      var0_179
+      var0_182)
+   32582))
+(assert (= (+ var0_25
+      var0_32
+      var0_67
+      var0_108
+      var0_109
+      var0_128
+      var0_133
+      var0_136
+      var0_154
+      var0_160
+      var0_174
+      var0_183)
+   6977))
+(assert (= (+ var0_2
+      var0_27
+      var0_42
+      var0_78
+      var0_90
+      var0_99
+      var0_105
+      var0_123
+      var0_129
+      var0_137
+      var0_153
+      var0_182)
+   6726))
+(assert (= (+ var0_12 var0_20 var0_21 var0_53 var0_89 var0_124 var0_126 var0_144) 6532))
+(assert (= (+ var0_6
+      var0_9
+      var0_12
+      var0_21
+      var0_38
+      var0_53
+      var0_69
+      var0_73
+      var0_102
+      var0_126
+      var0_152
+      var0_166)
+   7004))
+(assert (= (+ var0_0
+      var0_1
+      var0_2
+      var0_3
+      var0_4
+      var0_5
+      var0_6
+      var0_10
+      var0_11
+      var0_12
+      var0_13
+      var0_15
+      var0_16
+      var0_18
+      var0_19
+      var0_20
+      var0_21
+      var0_22
+      var0_23
+      var0_24
+      var0_25
+      var0_26
+      var0_27
+      var0_28
+      var0_29
+      var0_30
+      var0_32
+      var0_33
+      var0_34
+      var0_35
+      var0_36
+      var0_37
+      var0_39
+      var0_41
+      var0_43
+      var0_44
+      var0_45
+      var0_46
+      var0_47
+      var0_50
+      var0_51
+      var0_52
+      var0_53
+      var0_54
+      var0_55
+      var0_56
+      var0_58
+      var0_60
+      var0_62
+      var0_64
+      var0_66
+      var0_67
+      var0_68
+      var0_69
+      var0_71
+      var0_73
+      var0_75
+      var0_77
+      var0_78
+      var0_79
+      var0_80
+      var0_82
+      var0_83
+      var0_84
+      var0_85
+      var0_87
+      var0_89
+      var0_90
+      var0_94
+      var0_95
+      var0_96
+      var0_99
+      var0_100
+      var0_103
+      var0_104
+      var0_105
+      var0_106
+      var0_108
+      var0_109
+      var0_112
+      var0_114
+      var0_115
+      var0_116
+      var0_117
+      var0_118
+      var0_119
+      var0_120
+      var0_121
+      var0_122
+      var0_124
+      var0_125
+      var0_126
+      var0_127
+      var0_129
+      var0_134
+      var0_136
+      var0_138
+      var0_139
+      var0_140
+      var0_142
+      var0_144
+      var0_145
+      var0_146
+      var0_147
+      var0_148
+      var0_149
+      var0_150
+      var0_151
+      var0_152
+      var0_153
+      var0_154
+      var0_156
+      var0_157
+      var0_159
+      var0_160
+      var0_162
+      var0_163
+      var0_164
+      var0_165
+      var0_167
+      var0_168
+      var0_171
+      var0_172
+      var0_173
+      var0_175
+      var0_177
+      var0_178
+      var0_179
+      var0_180
+      var0_182
+      var0_183)
+   71718))
+(assert (= (+ var0_6
+      var0_9
+      var0_12
+      var0_15
+      var0_19
+      var0_20
+      var0_21
+      var0_38
+      var0_53
+      var0_57
+      var0_69
+      var0_73
+      var0_86
+      var0_89
+      var0_102
+      var0_114
+      var0_124
+      var0_126
+      var0_132
+      var0_144
+      var0_148
+      var0_152
+      var0_155
+      var0_166)
+   142857))
+(assert (= (+ var0_4
+      var0_11
+      var0_21
+      var0_29
+      var0_30
+      var0_32
+      var0_37
+      var0_53
+      var0_54
+      var0_58
+      var0_79
+      var0_84
+      var0_96
+      var0_120
+      var0_122
+      var0_124
+      var0_129
+      var0_142
+      var0_144
+      var0_145
+      var0_150
+      var0_162
+      var0_168
+      var0_178)
+   6502))
+(assert (= (+ var0_9
+      var0_12
+      var0_15
+      var0_20
+      var0_53
+      var0_57
+      var0_69
+      var0_102
+      var0_144
+      var0_148
+      var0_152
+      var0_155)
+   20731))
+(assert (= (+ var0_23 var0_24 var0_46 var0_63 var0_122 var0_135 var0_146 var0_180)
+   23789))
+(assert (= (+ var0_14 var0_50 var0_65 var0_71 var0_94 var0_120 var0_147 var0_171) 0))
+(assert (= (+ var0_2
+      var0_4
+      var0_7
+      var0_27
+      var0_34
+      var0_42
+      var0_78
+      var0_80
+      var0_90
+      var0_99
+      var0_105
+      var0_123
+      var0_129
+      var0_131
+      var0_134
+      var0_137
+      var0_153
+      var0_172
+      var0_175
+      var0_182)
+   27959))
+(assert (= (+ var0_6
+      var0_12
+      var0_15
+      var0_19
+      var0_20
+      var0_21
+      var0_53
+      var0_69
+      var0_73
+      var0_89
+      var0_114
+      var0_124
+      var0_126
+      var0_144
+      var0_148
+      var0_152)
+   14246))
+(assert (= (+ var0_1 var0_28 var0_31 var0_79 var0_158 var0_159) 24796))
+(assert (= (+ var0_108 var0_109 var0_128 var0_136) 2510))
+(assert (= (+ var0_6
+      var0_9
+      var0_12
+      var0_15
+      var0_18
+      var0_19
+      var0_20
+      var0_21
+      var0_22
+      var0_25
+      var0_30
+      var0_32
+      var0_33
+      var0_36
+      var0_38
+      var0_40
+      var0_41
+      var0_53
+      var0_57
+      var0_58
+      var0_60
+      var0_61
+      var0_67
+      var0_69
+      var0_73
+      var0_82
+      var0_83
+      var0_86
+      var0_89
+      var0_92
+      var0_95
+      var0_100
+      var0_102
+      var0_108
+      var0_109
+      var0_110
+      var0_114
+      var0_124
+      var0_125
+      var0_126
+      var0_128
+      var0_132
+      var0_133
+      var0_136
+      var0_138
+      var0_141
+      var0_142
+      var0_144
+      var0_148
+      var0_152
+      var0_154
+      var0_155
+      var0_160
+      var0_166
+      var0_167
+      var0_169
+      var0_173
+      var0_174
+      var0_176
+      var0_177
+      var0_179
+      var0_183)
+   285957))
+(assert (= (+ var0_0
+      var0_1
+      var0_2
+      var0_3
+      var0_4
+      var0_5
+      var0_6
+      var0_7
+      var0_8
+      var0_9
+      var0_10
+      var0_11
+      var0_12
+      var0_13
+      var0_14
+      var0_15
+      var0_16
+      var0_17
+      var0_18
+      var0_19
+      var0_20
+      var0_21
+      var0_22
+      var0_23
+      var0_24
+      var0_25
+      var0_26
+      var0_27
+      var0_28
+      var0_29
+      var0_30
+      var0_31
+      var0_32
+      var0_33
+      var0_34
+      var0_35
+      var0_36
+      var0_37
+      var0_38
+      var0_39
+      var0_40
+      var0_41
+      var0_42
+      var0_43
+      var0_44
+      var0_45
+      var0_46
+      var0_47
+      var0_48
+      var0_49
+      var0_50
+      var0_51
+      var0_52
+      var0_53
+      var0_54
+      var0_55
+      var0_56
+      var0_57
+      var0_58
+      var0_59
+      var0_60
+      var0_61
+      var0_62
+      var0_63
+      var0_64
+      var0_65
+      var0_66
+      var0_67
+      var0_68
+      var0_69
+      var0_70
+      var0_71
+      var0_72
+      var0_73
+      var0_74
+      var0_75
+      var0_76
+      var0_77
+      var0_78
+      var0_79
+      var0_80
+      var0_81
+      var0_82
+      var0_83
+      var0_84
+      var0_85
+      var0_86
+      var0_87
+      var0_88
+      var0_89
+      var0_90
+      var0_91
+      var0_92
+      var0_93
+      var0_94
+      var0_95
+      var0_96
+      var0_97
+      var0_98
+      var0_99
+      var0_100
+      var0_101
+      var0_102
+      var0_103
+      var0_104
+      var0_105
+      var0_106
+      var0_107
+      var0_108
+      var0_109
+      var0_110
+      var0_111
+      var0_112
+      var0_113
+      var0_114
+      var0_115
+      var0_116
+      var0_117
+      var0_118
+      var0_119
+      var0_120
+      var0_121
+      var0_122
+      var0_123
+      var0_124
+      var0_125
+      var0_126
+      var0_127
+      var0_128
+      var0_129
+      var0_130
+      var0_131
+      var0_132
+      var0_133
+      var0_134
+      var0_135
+      var0_136
+      var0_137
+      var0_138
+      var0_139
+      var0_140
+      var0_141
+      var0_142
+      var0_143
+      var0_144
+      var0_145
+      var0_146
+      var0_147
+      var0_148
+      var0_149
+      var0_150
+      var0_151
+      var0_152
+      var0_153
+      var0_154
+      var0_155
+      var0_156
+      var0_157
+      var0_158
+      var0_159
+      var0_160
+      var0_161
+      var0_162
+      var0_163
+      var0_164
+      var0_165
+      var0_166
+      var0_167
+      var0_168
+      var0_169
+      var0_170
+      var0_171
+      var0_172
+      var0_173
+      var0_174
+      var0_175
+      var0_176
+      var0_177
+      var0_178
+      var0_179
+      var0_180
+      var0_181
+      var0_182
+      var0_183)
+   719384))
+(assert (>= var1_0 0))
+(assert (>= var1_1 0))
+(assert (>= var1_2 0))
+(assert (>= var1_3 0))
+(assert (>= var1_4 0))
+(assert (>= var1_5 0))
+(assert (>= var1_6 0))
+(assert (>= var1_7 0))
+(assert (>= var1_8 0))
+(assert (>= var1_9 0))
+(assert (>= var1_10 0))
+(assert (>= var1_11 0))
+(assert (>= var1_12 0))
+(assert (>= var1_13 0))
+(assert (>= var1_14 0))
+(assert (>= var1_15 0))
+(assert (>= var1_16 0))
+(assert (>= var1_17 0))
+(assert (>= var1_18 0))
+(assert (>= var1_19 0))
+(assert (>= var1_20 0))
+(assert (>= var1_21 0))
+(assert (>= var1_22 0))
+(assert (>= var1_23 0))
+(assert (>= var1_24 0))
+(assert (>= var1_25 0))
+(assert (>= var1_26 0))
+(assert (>= var1_27 0))
+(assert (>= var1_28 0))
+(assert (>= var1_29 0))
+(assert (>= var1_30 0))
+(assert (>= var1_31 0))
+(assert (>= var1_32 0))
+(assert (>= var1_33 0))
+(assert (>= var1_34 0))
+(assert (>= var1_35 0))
+(assert (>= var1_36 0))
+(assert (>= var1_37 0))
+(assert (>= var1_38 0))
+(assert (>= var1_39 0))
+(assert (>= var1_40 0))
+(assert (>= var1_41 0))
+(assert (>= var1_42 0))
+(assert (>= var1_43 0))
+(assert (>= var1_44 0))
+(assert (>= var1_45 0))
+(assert (>= var1_46 0))
+(assert (>= var1_47 0))
+(assert (>= var1_48 0))
+(assert (>= var1_49 0))
+(assert (>= var1_50 0))
+(assert (>= var1_51 0))
+(assert (>= var1_52 0))
+(assert (>= var1_53 0))
+(assert (>= var1_54 0))
+(assert (>= var1_55 0))
+(assert (>= var1_56 0))
+(assert (>= var1_57 0))
+(assert (>= var1_58 0))
+(assert (>= var1_59 0))
+(assert (>= var1_60 0))
+(assert (>= var1_61 0))
+(assert (>= var1_62 0))
+(assert (>= var1_63 0))
+(assert (>= var1_64 0))
+(assert (>= var1_65 0))
+(assert (>= var1_66 0))
+(assert (>= var1_67 0))
+(assert (>= var1_68 0))
+(assert (>= var1_69 0))
+(assert (>= var1_70 0))
+(assert (>= var1_71 0))
+(assert (>= var1_72 0))
+(assert (>= var1_73 0))
+(assert (>= var1_74 0))
+(assert (>= var1_75 0))
+(assert (>= var1_76 0))
+(assert (>= var1_77 0))
+(assert (>= var1_78 0))
+(assert (>= var1_79 0))
+(assert (>= var1_80 0))
+(assert (>= var1_81 0))
+(assert (>= var1_82 0))
+(assert (>= var1_83 0))
+(assert (>= var1_84 0))
+(assert (>= var1_85 0))
+(assert (>= var1_86 0))
+(assert (>= var1_87 0))
+(assert (>= var1_88 0))
+(assert (>= var1_89 0))
+(assert (>= var1_90 0))
+(assert (>= var1_91 0))
+(assert (>= var1_92 0))
+(assert (>= var1_93 0))
+(assert (>= var1_94 0))
+(assert (>= var1_95 0))
+(assert (>= var1_96 0))
+(assert (>= var1_97 0))
+(assert (>= var1_98 0))
+(assert (>= var1_99 0))
+(assert (>= var1_100 0))
+(assert (>= var1_101 0))
+(assert (>= var1_102 0))
+(assert (>= var1_103 0))
+(assert (>= var1_104 0))
+(assert (>= var1_105 0))
+(assert (>= var1_106 0))
+(assert (>= var1_107 0))
+(assert (>= var1_108 0))
+(assert (>= var1_109 0))
+(assert (>= var1_110 0))
+(assert (>= var1_111 0))
+(assert (>= var1_112 0))
+(assert (>= var1_113 0))
+(assert (>= var1_114 0))
+(assert (>= var1_115 0))
+(assert (>= var1_116 0))
+(assert (>= var1_117 0))
+(assert (>= var1_118 0))
+(assert (>= var1_119 0))
+(assert (>= var1_120 0))
+(assert (>= var1_121 0))
+(assert (>= var1_122 0))
+(assert (>= var1_123 0))
+(assert (>= var1_124 0))
+(assert (>= var1_125 0))
+(assert (>= var1_126 0))
+(assert (>= var1_127 0))
+(assert (>= var1_128 0))
+(assert (>= var1_129 0))
+(assert (>= var1_130 0))
+(assert (>= var1_131 0))
+(assert (>= var1_132 0))
+(assert (>= var1_133 0))
+(assert (>= var1_134 0))
+(assert (>= var1_135 0))
+(assert (>= var1_136 0))
+(assert (>= var1_137 0))
+(assert (>= var1_138 0))
+(assert (>= var1_139 0))
+(assert (>= var1_140 0))
+(assert (>= var1_141 0))
+(assert (>= var1_142 0))
+(assert (>= var1_143 0))
+(assert (>= var1_144 0))
+(assert (>= var1_145 0))
+(assert (>= var1_146 0))
+(assert (>= var1_147 0))
+(assert (>= var1_148 0))
+(assert (>= var1_149 0))
+(assert (>= var1_150 0))
+(assert (>= var1_151 0))
+(assert (>= var1_152 0))
+(assert (>= var1_153 0))
+(assert (>= var1_154 0))
+(assert (>= var1_155 0))
+(assert (>= var1_156 0))
+(assert (>= var1_157 0))
+(assert (>= var1_158 0))
+(assert (>= var1_159 0))
+(assert (>= var1_160 0))
+(assert (>= var1_161 0))
+(assert (>= var1_162 0))
+(assert (>= var1_163 0))
+(assert (>= var1_164 0))
+(assert (>= var1_165 0))
+(assert (>= var1_166 0))
+(assert (>= var1_167 0))
+(assert (>= var1_168 0))
+(assert (>= var1_169 0))
+(assert (>= var1_170 0))
+(assert (>= var1_171 0))
+(assert (>= var1_172 0))
+(assert (>= var1_173 0))
+(assert (>= var1_174 0))
+(assert (>= var1_175 0))
+(assert (>= var1_176 0))
+(assert (>= var1_177 0))
+(assert (>= var1_178 0))
+(assert (>= var1_179 0))
+(assert (= (+ var1_48) 220))
+(assert (= (+ var1_3
+      var1_5
+      var1_8
+      var1_10
+      var1_11
+      var1_12
+      var1_13
+      var1_14
+      var1_15
+      var1_16
+      var1_17
+      var1_18
+      var1_20
+      var1_21
+      var1_22
+      var1_24
+      var1_25
+      var1_26
+      var1_28
+      var1_29
+      var1_32
+      var1_35
+      var1_36
+      var1_37
+      var1_38
+      var1_40
+      var1_42
+      var1_43
+      var1_44
+      var1_46
+      var1_47
+      var1_48
+      var1_49
+      var1_52
+      var1_56
+      var1_64
+      var1_65
+      var1_67
+      var1_68
+      var1_71
+      var1_76
+      var1_78
+      var1_83
+      var1_85
+      var1_87
+      var1_88
+      var1_89
+      var1_90
+      var1_93
+      var1_94
+      var1_95
+      var1_99
+      var1_100
+      var1_105
+      var1_106
+      var1_107
+      var1_109
+      var1_110
+      var1_111
+      var1_112
+      var1_114
+      var1_116
+      var1_117
+      var1_123
+      var1_125
+      var1_129
+      var1_130
+      var1_134
+      var1_137
+      var1_138
+      var1_140
+      var1_141
+      var1_142
+      var1_143
+      var1_150
+      var1_153
+      var1_154
+      var1_160
+      var1_163
+      var1_165
+      var1_170
+      var1_171
+      var1_177
+      var1_179)
+   431699))
+(assert (= (+ var1_1
+      var1_4
+      var1_7
+      var1_23
+      var1_75
+      var1_81
+      var1_86
+      var1_126
+      var1_127
+      var1_133
+      var1_135
+      var1_136)
+   15620))
+(assert (= (+ var1_3
+      var1_9
+      var1_10
+      var1_16
+      var1_18
+      var1_20
+      var1_21
+      var1_28
+      var1_29
+      var1_32
+      var1_34
+      var1_36
+      var1_38
+      var1_43
+      var1_44
+      var1_46
+      var1_47
+      var1_48
+      var1_49
+      var1_54
+      var1_55
+      var1_56
+      var1_59
+      var1_60
+      var1_61
+      var1_62
+      var1_63
+      var1_64
+      var1_65
+      var1_67
+      var1_68
+      var1_71
+      var1_74
+      var1_76
+      var1_77
+      var1_78
+      var1_79
+      var1_80
+      var1_83
+      var1_85
+      var1_87
+      var1_88
+      var1_89
+      var1_91
+      var1_92
+      var1_94
+      var1_99
+      var1_105
+      var1_106
+      var1_109
+      var1_111
+      var1_114
+      var1_122
+      var1_123
+      var1_129
+      var1_130
+      var1_132
+      var1_134
+      var1_137
+      var1_138
+      var1_139
+      var1_140
+      var1_142
+      var1_143
+      var1_144
+      var1_146
+      var1_147
+      var1_150
+      var1_151
+      var1_153
+      var1_155
+      var1_156
+      var1_160
+      var1_161
+      var1_163
+      var1_166
+      var1_167
+      var1_168
+      var1_170
+      var1_171
+      var1_173
+      var1_174
+      var1_175
+      var1_178)
+   432058))
+(assert (= (+ var1_20 var1_48 var1_56) 635))
+(assert (= (+ var1_0
+      var1_19
+      var1_31
+      var1_50
+      var1_51
+      var1_53
+      var1_66
+      var1_72
+      var1_73
+      var1_98
+      var1_103
+      var1_158)
+   6977))
+(assert (= (+ var1_16
+      var1_20
+      var1_48
+      var1_56
+      var1_71
+      var1_109
+      var1_114
+      var1_129
+      var1_140
+      var1_160
+      var1_163
+      var1_170)
+   6726))
+(assert (= (+ var1_34 var1_55 var1_79 var1_80 var1_139 var1_146 var1_155 var1_156) 7004))
+(assert (= (+ var1_34
+      var1_55
+      var1_60
+      var1_62
+      var1_74
+      var1_77
+      var1_79
+      var1_80
+      var1_139
+      var1_146
+      var1_151
+      var1_155
+      var1_156
+      var1_161
+      var1_173
+      var1_178)
+   142857))
+(assert (= (+ var1_24 var1_26 var1_40 var1_90 var1_110 var1_112 var1_116 var1_165)
+   23789))
+(assert (= (+ var1_2 var1_45 var1_113 var1_115 var1_118 var1_120 var1_121 var1_145) 0))
+(assert (= (+ var1_1 var1_4 var1_133) 1463))
+(assert (= (+ var1_3
+      var1_16
+      var1_18
+      var1_20
+      var1_21
+      var1_36
+      var1_38
+      var1_46
+      var1_48
+      var1_56
+      var1_71
+      var1_109
+      var1_114
+      var1_129
+      var1_140
+      var1_142
+      var1_143
+      var1_160
+      var1_163
+      var1_170)
+   27959))
+(assert (= (+ var1_13 var1_17 var1_22 var1_25 var1_93 var1_95 var1_107 var1_154) 24796))
+(assert (= (+ var1_31 var1_50 var1_66 var1_98) 2510))
+(assert (= (+ var1_0
+      var1_1
+      var1_4
+      var1_6
+      var1_7
+      var1_19
+      var1_23
+      var1_31
+      var1_34
+      var1_39
+      var1_41
+      var1_50
+      var1_51
+      var1_53
+      var1_55
+      var1_60
+      var1_62
+      var1_66
+      var1_72
+      var1_73
+      var1_74
+      var1_75
+      var1_77
+      var1_79
+      var1_80
+      var1_81
+      var1_84
+      var1_86
+      var1_96
+      var1_98
+      var1_101
+      var1_102
+      var1_103
+      var1_104
+      var1_108
+      var1_124
+      var1_126
+      var1_127
+      var1_128
+      var1_131
+      var1_133
+      var1_135
+      var1_136
+      var1_139
+      var1_146
+      var1_148
+      var1_149
+      var1_151
+      var1_152
+      var1_155
+      var1_156
+      var1_158
+      var1_161
+      var1_173
+      var1_176
+      var1_178)
+   285957))
+(assert (= (+ var1_4) 556))
+(assert (= (+ var1_0
+      var1_1
+      var1_2
+      var1_3
+      var1_4
+      var1_5
+      var1_6
+      var1_7
+      var1_8
+      var1_9
+      var1_10
+      var1_11
+      var1_12
+      var1_13
+      var1_14
+      var1_15
+      var1_16
+      var1_17
+      var1_18
+      var1_19
+      var1_20
+      var1_21
+      var1_22
+      var1_23
+      var1_24
+      var1_25
+      var1_26
+      var1_27
+      var1_28
+      var1_29
+      var1_30
+      var1_31
+      var1_32
+      var1_33
+      var1_34
+      var1_35
+      var1_36
+      var1_37
+      var1_38
+      var1_39
+      var1_40
+      var1_41
+      var1_42
+      var1_43
+      var1_44
+      var1_45
+      var1_46
+      var1_47
+      var1_48
+      var1_49
+      var1_50
+      var1_51
+      var1_52
+      var1_53
+      var1_54
+      var1_55
+      var1_56
+      var1_57
+      var1_58
+      var1_59
+      var1_60
+      var1_61
+      var1_62
+      var1_63
+      var1_64
+      var1_65
+      var1_66
+      var1_67
+      var1_68
+      var1_69
+      var1_70
+      var1_71
+      var1_72
+      var1_73
+      var1_74
+      var1_75
+      var1_76
+      var1_77
+      var1_78
+      var1_79
+      var1_80
+      var1_81
+      var1_82
+      var1_83
+      var1_84
+      var1_85
+      var1_86
+      var1_87
+      var1_88
+      var1_89
+      var1_90
+      var1_91
+      var1_92
+      var1_93
+      var1_94
+      var1_95
+      var1_96
+      var1_97
+      var1_98
+      var1_99
+      var1_100
+      var1_101
+      var1_102
+      var1_103
+      var1_104
+      var1_105
+      var1_106
+      var1_107
+      var1_108
+      var1_109
+      var1_110
+      var1_111
+      var1_112
+      var1_113
+      var1_114
+      var1_115
+      var1_116
+      var1_117
+      var1_118
+      var1_119
+      var1_120
+      var1_121
+      var1_122
+      var1_123
+      var1_124
+      var1_125
+      var1_126
+      var1_127
+      var1_128
+      var1_129
+      var1_130
+      var1_131
+      var1_132
+      var1_133
+      var1_134
+      var1_135
+      var1_136
+      var1_137
+      var1_138
+      var1_139
+      var1_140
+      var1_141
+      var1_142
+      var1_143
+      var1_144
+      var1_145
+      var1_146
+      var1_147
+      var1_148
+      var1_149
+      var1_150
+      var1_151
+      var1_152
+      var1_153
+      var1_154
+      var1_155
+      var1_156
+      var1_157
+      var1_158
+      var1_159
+      var1_160
+      var1_161
+      var1_162
+      var1_163
+      var1_164
+      var1_165
+      var1_166
+      var1_167
+      var1_168
+      var1_169
+      var1_170
+      var1_171
+      var1_172
+      var1_173
+      var1_174
+      var1_175
+      var1_176
+      var1_177
+      var1_178
+      var1_179)
+   719384))
+(assert (>= var2_0 0))
+(assert (>= var2_1 0))
+(assert (>= var2_2 0))
+(assert (>= var2_3 0))
+(assert (>= var2_4 0))
+(assert (>= var2_5 0))
+(assert (>= var2_6 0))
+(assert (>= var2_7 0))
+(assert (>= var2_8 0))
+(assert (>= var2_9 0))
+(assert (>= var2_10 0))
+(assert (>= var2_11 0))
+(assert (>= var2_12 0))
+(assert (>= var2_13 0))
+(assert (>= var2_14 0))
+(assert (>= var2_15 0))
+(assert (>= var2_16 0))
+(assert (>= var2_17 0))
+(assert (>= var2_18 0))
+(assert (>= var2_19 0))
+(assert (>= var2_20 0))
+(assert (>= var2_21 0))
+(assert (>= var2_22 0))
+(assert (>= var2_23 0))
+(assert (>= var2_24 0))
+(assert (>= var2_25 0))
+(assert (>= var2_26 0))
+(assert (>= var2_27 0))
+(assert (= (+ var2_1 var2_18 var2_23 var2_26) 7112))
+(assert (= (+ var2_6 var2_12 var2_13 var2_17) 16358))
+(assert (= (+ var2_1 var2_7 var2_16 var2_18 var2_20 var2_23 var2_25 var2_26) 16199))
+(assert (= (+ var2_3 var2_5 var2_8 var2_10 var2_14 var2_19 var2_22 var2_27) 30304))
+(assert (= (+ var2_5 var2_9 var2_10 var2_11 var2_19 var2_21 var2_24 var2_27) 20463))
+(assert (= (+ var2_18 var2_26) 2158))
+(assert (= (+ var2_0
+      var2_1
+      var2_2
+      var2_3
+      var2_4
+      var2_5
+      var2_6
+      var2_7
+      var2_8
+      var2_9
+      var2_10
+      var2_11
+      var2_12
+      var2_13
+      var2_14
+      var2_15
+      var2_16
+      var2_17
+      var2_18
+      var2_19
+      var2_20
+      var2_21
+      var2_22
+      var2_23
+      var2_24
+      var2_25
+      var2_26
+      var2_27)
+   719384))
+(assert (>= var3_0 0))
+(assert (>= var3_1 0))
+(assert (>= var3_2 0))
+(assert (>= var3_3 0))
+(assert (>= var3_4 0))
+(assert (>= var3_5 0))
+(assert (>= var3_6 0))
+(assert (>= var3_7 0))
+(assert (>= var3_8 0))
+(assert (>= var3_9 0))
+(assert (>= var3_10 0))
+(assert (>= var3_11 0))
+(assert (>= var3_12 0))
+(assert (>= var3_13 0))
+(assert (>= var3_14 0))
+(assert (= (+ var3_8 var3_13 var3_14) 7112))
+(assert (= (+ var3_0 var3_11) 110))
+(assert (= (+ var3_1) 16358))
+(assert (= (+ var3_4 var3_14) 54))
+(assert (= (+ var3_2 var3_4 var3_8 var3_10 var3_13 var3_14) 16199))
+(assert (= (+ var3_4 var3_10 var3_13 var3_14) 404))
+(assert (= (+ var3_0 var3_3 var3_6 var3_9 var3_11 var3_12) 30304))
+(assert (= (+ var3_0 var3_9 var3_11 var3_12) 940))
+(assert (= (+ var3_3 var3_7 var3_9 var3_11) 20463))
+(assert (= (+ var3_0
+      var3_1
+      var3_2
+      var3_3
+      var3_4
+      var3_5
+      var3_6
+      var3_7
+      var3_8
+      var3_9
+      var3_10
+      var3_11
+      var3_12
+      var3_13
+      var3_14)
+   719384))
+(assert (>= var4_0 0))
+(assert (>= var4_1 0))
+(assert (>= var4_2 0))
+(assert (>= var4_3 0))
+(assert (>= var4_4 0))
+(assert (>= var4_5 0))
+(assert (>= var4_6 0))
+(assert (>= var4_7 0))
+(assert (>= var4_8 0))
+(assert (= (+ var4_0) 7112))
+(assert (= (+ var4_2) 16358))
+(assert (= (+ var4_0 var4_1) 16199))
+(assert (= (+ var4_4 var4_6 var4_8) 30304))
+(assert (= (+ var4_4 var4_5 var4_7 var4_8) 20463))
+(assert (= (+ var4_7 var4_8) 46))
+(assert (= (+ var4_0 var4_1 var4_2 var4_3 var4_4 var4_5 var4_6 var4_7 var4_8) 719384))
+(assert (>= var5_0 0))
+(assert (>= var5_1 0))
+(assert (>= var5_2 0))
+(assert (>= var5_3 0))
+(assert (>= var5_4 0))
+(assert (>= var5_5 0))
+(assert (>= var5_6 0))
+(assert (= (+ var5_5) 143325))
+(assert (= (+ var5_2 var5_4 var5_6) 146914))
+(assert (= (+ var5_1 var5_2 var5_6) 145004))
+(assert (= (+ var5_0 var5_1 var5_6) 145491))
+(assert (= (+ var5_0 var5_1 var5_2 var5_3 var5_4 var5_5 var5_6) 719384))
+(assert (>= var6_0 0))
+(assert (>= var6_1 0))
+(assert (>= var6_2 0))
+(assert (>= var6_3 0))
+(assert (>= var6_4 0))
+(assert (= (+ var6_0 var6_2 var6_3 var6_4) 14053))
+(assert (= (+ var6_4) 111))
+(assert (= (+ var6_3) 174))
+(assert (= (+ var6_0 var6_3 var6_4) 1434))
+(assert (= (+ var6_0 var6_1 var6_2 var6_3 var6_4) 719384))
+(assert (= (+ var0_81 var0_139 var0_88 var0_45 var0_43 var0_56)
+   (+ var1_83 var1_32 var1_43 var1_44)))
+(assert (= (+ var0_34 var0_175 var0_4 var0_131) (+ var1_21 var1_142 var1_143 var1_18)))
+(assert (= (+ var0_173 var0_110 var0_18 var0_82) (+ var1_75 var1_126 var1_4 var1_127)))
+(assert (= (+ var0_90 var0_42 var0_153 var0_2) (+ var1_71 var1_20 var1_16 var1_160)))
+(assert (= (+ var0_91 var0_104 var0_11 var0_115) (+ var1_30 var1_119 var1_33 var1_157)))
+(assert (= (+ var0_127 var0_17 var0_68 var0_162 var0_96 var0_130)
+   (+ var1_88 var1_134 var1_137 var1_171)))
+(assert (= (+ var0_140 var0_59 var0_151 var0_156)
+   (+ var1_122 var1_167 var1_166 var1_147)))
+(assert (= (+ var0_138 var0_177 var0_33 var0_169) (+ var1_135 var1_133 var1_7 var1_136)))
+(assert (= (+ var0_113 var0_112 var0_44) (+ var1_35 var1_12 var1_37 var1_100)))
+(assert (= (+ var0_116 var0_97 var0_77) (+ var1_132 var1_63 var1_174 var1_61)))
+(assert (= (+ var0_142 var0_41 var0_36 var0_61) (+ var1_128 var1_176 var1_148 var1_149)))
+(assert (= (+ var0_60 var0_22 var0_92) (+ var1_104 var1_102 var1_6 var1_96)))
+(assert (= (+ var0_180 var0_135 var0_24 var0_146)
+   (+ var1_112 var1_165 var1_90 var1_116)))
+(assert (= (+ var0_154 var0_25 var0_183 var0_174) (+ var1_0 var1_53 var1_51 var1_158)))
+(assert (= (+ var0_141 var0_30 var0_83) (+ var1_39 var1_124 var1_84 var1_41)))
+(assert (= (+ var0_109 var0_128 var0_136 var0_108) (+ var1_31 var1_98 var1_50 var1_66)))
+(assert (= (+ var0_0 var0_70 var0_163) (+ var1_28 var1_138 var1_29 var1_78)))
+(assert (= (+ var0_31 var0_159 var0_79) (+ var1_95 var1_107 var1_93 var1_25)))
+(assert (= (+ var0_107 var0_74 var0_164 var0_51 var0_13 var0_35)
+   (+ var1_47 var1_106 var1_99 var1_150)))
+(assert (= (+ var0_20 var0_86 var0_148 var0_114 var0_57 var0_89)
+   (+ var1_178 var1_173 var1_77 var1_74)))
+(assert (= (+ var0_134 var0_80 var0_7 var0_172) (+ var1_3 var1_36 var1_46 var1_38)))
+(assert (= (+ var0_119 var0_8 var0_178) (+ var1_9 var1_144 var1_54 var1_59)))
+(assert (= (+ var0_95 var0_40 var0_125 var0_167)
+   (+ var1_152 var1_131 var1_101 var1_108)))
+(assert (= (+ var0_145 var0_161 var0_118) (+ var1_153 var1_130 var1_85 var1_111)))
+(assert (= (+ var0_155 var0_124 var0_15 var0_19 var0_132 var0_144)
+   (+ var1_161 var1_60 var1_62 var1_151)))
+(assert (= (+ var0_106 var0_5 var0_93) (+ var1_82 var1_70 var1_69 var1_159)))
+(assert (= (+ var0_94 var0_120 var0_171 var0_14) (+ var1_113 var1_45 var1_115 var1_118)))
+(assert (= (+ var0_123 var0_27 var0_129 var0_78) (+ var1_163 var1_114 var1_170 var1_56)))
+(assert (= (+ var0_26 var0_143 var0_39 var0_165) (+ var1_52 var1_5 var1_8 var1_42)))
+(assert (= (+ var0_99 var0_182 var0_137 var0_105)
+   (+ var1_109 var1_140 var1_129 var1_48)))
+(assert (= (+ var0_150 var0_111 var0_66 var0_47) (+ var1_141 var1_15 var1_14 var1_11)))
+(assert (= (+ var0_64 var0_98 var0_37 var0_75) (+ var1_175 var1_92 var1_168 var1_91)))
+(assert (= (+ var0_32 var0_67 var0_133 var0_160) (+ var1_73 var1_103 var1_19 var1_72)))
+(assert (= (+ var0_49 var0_103 var0_157 var0_10) (+ var1_65 var1_105 var1_67 var1_123)))
+(assert (= (+ var0_50 var0_147 var0_71 var0_65) (+ var1_120 var1_121 var1_145 var1_2)))
+(assert (= (+ var0_87 var0_121 var0_48 var0_16) (+ var1_27 var1_169 var1_172 var1_162)))
+(assert (= (+ var0_1 var0_28 var0_158) (+ var1_154 var1_22 var1_13 var1_17)))
+(assert (= (+ var0_6 var0_38 var0_126 var0_152 var0_12 var0_102)
+   (+ var1_155 var1_156 var1_139 var1_34)))
+(assert (= (+ var0_21 var0_166 var0_73 var0_9 var0_53 var0_69)
+   (+ var1_80 var1_146 var1_55 var1_79)))
+(assert (= (+ var0_179 var0_176 var0_58 var0_100) (+ var1_1 var1_23 var1_86 var1_81)))
+(assert (= (+ var0_29 var0_55 var0_3 var0_72) (+ var1_76 var1_64 var1_68 var1_94)))
+(assert (= (+ var0_23 var0_46 var0_63 var0_122) (+ var1_24 var1_26 var1_40 var1_110)))
+(assert (= (+ var0_85 var0_168 var0_52 var0_101 var0_76 var0_117)
+   (+ var1_10 var1_89 var1_49 var1_87)))
+(assert (= (+ var0_181 var0_149 var0_84) (+ var1_58 var1_97 var1_57 var1_164)))
+(assert (= (+ var0_170 var0_54 var0_62) (+ var1_179 var1_177 var1_125 var1_117)))
+(assert (= (+ var1_109
+      var1_163
+      var1_119
+      var1_3
+      var1_165
+      var1_133
+      var1_146
+      var1_22
+      var1_45
+      var1_122
+      var1_9
+      var1_132
+      var1_32
+      var1_178
+      var1_82
+      var1_107
+      var1_1
+      var1_151
+      var1_141
+      var1_138
+      var1_97
+      var1_168
+      var1_130
+      var1_31
+      var1_145
+      var1_10
+      var1_84
+      var1_105
+      var1_19
+      var1_162
+      var1_40
+      var1_131
+      var1_4
+      var1_150
+      var1_139
+      var1_100
+      var1_117
+      var1_96
+      var1_18
+      var1_42
+      var1_149
+      var1_158
+      var1_171
+      var1_94
+      var1_160)
+   (+ var2_4 var2_10 var2_11 var2_8 var2_18 var2_12 var2_25)))
+(assert (= (+ var1_35
+      var1_112
+      var1_135
+      var1_104
+      var1_142
+      var1_113
+      var1_24
+      var1_179
+      var1_60
+      var1_166
+      var1_65
+      var1_153
+      var1_39
+      var1_33
+      var1_36
+      var1_53
+      var1_43
+      var1_28
+      var1_70
+      var1_121
+      var1_56
+      var1_57
+      var1_54
+      var1_20
+      var1_172
+      var1_68
+      var1_156
+      var1_5
+      var1_99
+      var1_72
+      var1_93
+      var1_79
+      var1_50
+      var1_148
+      var1_17
+      var1_108
+      var1_77
+      var1_14
+      var1_61
+      var1_137
+      var1_48
+      var1_91
+      var1_127
+      var1_86
+      var1_87)
+   (+ var2_5 var2_1 var2_24 var2_2 var2_20 var2_6 var2_3)))
+(assert (= (+ var1_21
+      var1_83
+      var1_154
+      var1_75
+      var1_12
+      var1_52
+      var1_114
+      var1_161
+      var1_175
+      var1_27
+      var1_76
+      var1_152
+      var1_144
+      var1_0
+      var1_88
+      var1_157
+      var1_6
+      var1_46
+      var1_174
+      var1_7
+      var1_124
+      var1_103
+      var1_47
+      var1_125
+      var1_173
+      var1_16
+      var1_140
+      var1_55
+      var1_98
+      var1_49
+      var1_110
+      var1_85
+      var1_176
+      var1_23
+      var1_164
+      var1_25
+      var1_123
+      var1_90
+      var1_159
+      var1_78
+      var1_34
+      var1_147
+      var1_11
+      var1_118
+      var1_2)
+   (+ var2_22 var2_21 var2_23 var2_16 var2_19 var2_15 var2_17)))
+(assert (= (+ var1_58
+      var1_155
+      var1_30
+      var1_80
+      var1_95
+      var1_37
+      var1_167
+      var1_92
+      var1_128
+      var1_63
+      var1_71
+      var1_13
+      var1_120
+      var1_62
+      var1_102
+      var1_73
+      var1_169
+      var1_26
+      var1_38
+      var1_44
+      var1_134
+      var1_170
+      var1_51
+      var1_29
+      var1_64
+      var1_106
+      var1_177
+      var1_89
+      var1_115
+      var1_59
+      var1_126
+      var1_67
+      var1_129
+      var1_41
+      var1_8
+      var1_66
+      var1_101
+      var1_69
+      var1_15
+      var1_111
+      var1_74
+      var1_136
+      var1_143
+      var1_116
+      var1_81)
+   (+ var2_26 var2_14 var2_0 var2_7 var2_9 var2_13 var2_27)))
+(assert (= (+ var2_22 var2_8 var2_14 var2_3) (+ var3_12 var3_6 var3_0)))
+(assert (= (+ var2_10 var2_5 var2_19 var2_27) (+ var3_9 var3_3 var3_11)))
+(assert (= (+ var2_21 var2_11 var2_24 var2_9) (+ var3_7)))
+(assert (= (+ var2_4 var2_2 var2_0 var2_15) (+ var3_5)))
+(assert (= (+ var2_12 var2_6 var2_13 var2_17) (+ var3_1)))
+(assert (= (+ var2_20 var2_7 var2_16 var2_25) (+ var3_4 var3_2 var3_10)))
+(assert (= (+ var2_1 var2_26 var2_23 var2_18) (+ var3_14 var3_8 var3_13)))
+(assert (= (+ var2_22 var2_8 var2_14 var2_3) (+ var4_6)))
+(assert (= (+ var2_10 var2_5 var2_19 var2_27) (+ var4_4 var4_8)))
+(assert (= (+ var2_21 var2_11 var2_24 var2_9) (+ var4_5 var4_7)))
+(assert (= (+ var2_4 var2_2 var2_0 var2_15) (+ var4_3)))
+(assert (= (+ var2_12 var2_6 var2_13 var2_17) (+ var4_2)))
+(assert (= (+ var2_20 var2_7 var2_16 var2_25) (+ var4_1)))
+(assert (= (+ var2_1 var2_26 var2_23 var2_18) (+ var4_0)))
+(assert (= (+ var3_12 var3_6 var3_0) (+ var4_6)))
+(assert (= (+ var3_9 var3_3 var3_11) (+ var4_4 var4_8)))
+(assert (= (+ var3_7) (+ var4_5 var4_7)))
+(assert (= (+ var3_5) (+ var4_3)))
+(assert (= (+ var3_1) (+ var4_2)))
+(assert (= (+ var3_4 var3_2 var3_10) (+ var4_1)))
+(assert (= (+ var3_14 var3_8 var3_13) (+ var4_0)))
+(check-sat)

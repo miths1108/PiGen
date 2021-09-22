@@ -1,0 +1,120 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 4399.96,
+      "Total Cost": 98382.11,
+      "Plan Rows": 316,
+      "Plan Width": 736,
+      "Actual Startup Time": 14.063,
+      "Actual Total Time": 417.777,
+      "Actual Rows": 7673,
+      "Actual Loops": 1,
+      "Hash Cond": "(store_sales.ss_item_sk = item.i_item_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 2501.08,
+          "Total Cost": 96060.12,
+          "Plan Rows": 1055,
+          "Plan Width": 233,
+          "Actual Startup Time": 5.950,
+          "Actual Total Time": 385.487,
+          "Actual Rows": 25666,
+          "Actual Loops": 1,
+          "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "store_sales",
+              "Alias": "store_sales",
+              "Startup Cost": 0.00,
+              "Total Cost": 82746.99,
+              "Plan Rows": 2880399,
+              "Plan Width": 115,
+              "Actual Startup Time": 0.006,
+              "Actual Total Time": 227.867,
+              "Actual Rows": 2622614,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 2500.73,
+              "Total Cost": 2500.73,
+              "Plan Rows": 28,
+              "Plan Width": 118,
+              "Actual Startup Time": 5.860,
+              "Actual Total Time": 5.860,
+              "Actual Rows": 31,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 5,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "date_dim",
+                  "Alias": "date_dim",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 2500.73,
+                  "Plan Rows": 28,
+                  "Plan Width": 118,
+                  "Actual Startup Time": 2.620,
+                  "Actual Total Time": 5.854,
+                  "Actual Rows": 31,
+                  "Actual Loops": 1,
+                  "Filter": "((d_date >= '1999-04-26'::date) AND (d_date <= '1999-05-26'::date))",
+                  "Rows Removed by Filter": 73018
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 1483.50,
+          "Total Cost": 1483.50,
+          "Plan Rows": 5390,
+          "Plan Width": 503,
+          "Actual Startup Time": 7.675,
+          "Actual Total Time": 7.675,
+          "Actual Rows": 5390,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Hash Batches": 4,
+          "Original Hash Batches": 4,
+          "Peak Memory Usage": 731,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "item",
+              "Alias": "item",
+              "Startup Cost": 0.00,
+              "Total Cost": 1483.50,
+              "Plan Rows": 5390,
+              "Plan Width": 503,
+              "Actual Startup Time": 0.004,
+              "Actual Total Time": 5.991,
+              "Actual Rows": 5390,
+              "Actual Loops": 1,
+              "Filter": "(i_category = ANY ('{Music,Jewelry,Women}'::bpchar[]))",
+              "Rows Removed by Filter": 12610
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 418.091
+  }
+]

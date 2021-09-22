@@ -1,0 +1,1 @@
+SELECT * FROM company_name AS cn2, kind_type AS kt2, movie_companies AS mc2, title AS t2 WHERE kt2.kt_kind  in ('tv series') AND t2.t_production_year  between 2005 and 2008 AND kt2.kt_id = t2.t_kind_id AND cn2.cn1_id = mc2.mc_company_id AND t2.t_id = mc2.mc_movie_id;

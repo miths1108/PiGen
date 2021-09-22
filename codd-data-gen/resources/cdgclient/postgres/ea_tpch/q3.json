@@ -1,0 +1,214 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 29540.50,
+      "Total Cost": 37956.86,
+      "Plan Rows": 31936,
+      "Plan Width": 1281,
+      "Actual Startup Time": 268.332,
+      "Actual Total Time": 693.890,
+      "Actual Rows": 158960,
+      "Actual Loops": 1,
+      "Hash Cond": "(part.p_partkey = partsupp.ps_partkey)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "part",
+          "Alias": "part",
+          "Startup Cost": 0.00,
+          "Total Cost": 6097.00,
+          "Plan Rows": 200000,
+          "Plan Width": 130,
+          "Actual Startup Time": 0.002,
+          "Actual Total Time": 14.987,
+          "Actual Rows": 200000,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 29141.30,
+          "Total Cost": 29141.30,
+          "Plan Rows": 31936,
+          "Plan Width": 1151,
+          "Actual Startup Time": 268.310,
+          "Actual Total Time": 268.310,
+          "Actual Rows": 158960,
+          "Actual Loops": 1,
+          "Hash Buckets": 4096,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 79446,
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Join Type": "Inner",
+              "Startup Cost": 370.94,
+              "Total Cost": 29141.30,
+              "Plan Rows": 31936,
+              "Plan Width": 1151,
+              "Actual Startup Time": 2.483,
+              "Actual Total Time": 177.919,
+              "Actual Rows": 158960,
+              "Actual Loops": 1,
+              "Hash Cond": "(partsupp.ps_suppkey = supplier.s_suppkey)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "partsupp",
+                  "Alias": "partsupp",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 25451.00,
+                  "Plan Rows": 800000,
+                  "Plan Width": 143,
+                  "Actual Startup Time": 0.002,
+                  "Actual Total Time": 57.651,
+                  "Actual Rows": 800000,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Startup Cost": 365.94,
+                  "Total Cost": 365.94,
+                  "Plan Rows": 400,
+                  "Plan Width": 1008,
+                  "Actual Startup Time": 2.478,
+                  "Actual Total Time": 2.478,
+                  "Actual Rows": 1987,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 708,
+                  "Plans": [
+                    {
+                      "Node Type": "Hash Join",
+                      "Parent Relationship": "Outer",
+                      "Join Type": "Inner",
+                      "Startup Cost": 2.44,
+                      "Total Cost": 365.94,
+                      "Plan Rows": 400,
+                      "Plan Width": 1008,
+                      "Actual Startup Time": 0.017,
+                      "Actual Total Time": 1.944,
+                      "Actual Rows": 1987,
+                      "Actual Loops": 1,
+                      "Hash Cond": "(supplier.s_nationkey = nation.n_nationkey)",
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Relation Name": "supplier",
+                          "Alias": "supplier",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 322.00,
+                          "Plan Rows": 10000,
+                          "Plan Width": 144,
+                          "Actual Startup Time": 0.002,
+                          "Actual Total Time": 0.780,
+                          "Actual Rows": 10000,
+                          "Actual Loops": 1
+                        },
+                        {
+                          "Node Type": "Hash",
+                          "Parent Relationship": "Inner",
+                          "Startup Cost": 2.43,
+                          "Total Cost": 2.43,
+                          "Plan Rows": 1,
+                          "Plan Width": 864,
+                          "Actual Startup Time": 0.013,
+                          "Actual Total Time": 0.013,
+                          "Actual Rows": 5,
+                          "Actual Loops": 1,
+                          "Hash Buckets": 1024,
+                          "Hash Batches": 1,
+                          "Original Hash Batches": 1,
+                          "Peak Memory Usage": 2,
+                          "Plans": [
+                            {
+                              "Node Type": "Hash Join",
+                              "Parent Relationship": "Outer",
+                              "Join Type": "Inner",
+                              "Startup Cost": 1.07,
+                              "Total Cost": 2.43,
+                              "Plan Rows": 1,
+                              "Plan Width": 864,
+                              "Actual Startup Time": 0.007,
+                              "Actual Total Time": 0.010,
+                              "Actual Rows": 5,
+                              "Actual Loops": 1,
+                              "Hash Cond": "(nation.n_regionkey = region.r_regionkey)",
+                              "Plans": [
+                                {
+                                  "Node Type": "Seq Scan",
+                                  "Parent Relationship": "Outer",
+                                  "Relation Name": "nation",
+                                  "Alias": "nation",
+                                  "Startup Cost": 0.00,
+                                  "Total Cost": 1.25,
+                                  "Plan Rows": 25,
+                                  "Plan Width": 434,
+                                  "Actual Startup Time": 0.001,
+                                  "Actual Total Time": 0.002,
+                                  "Actual Rows": 25,
+                                  "Actual Loops": 1
+                                },
+                                {
+                                  "Node Type": "Hash",
+                                  "Parent Relationship": "Inner",
+                                  "Startup Cost": 1.06,
+                                  "Total Cost": 1.06,
+                                  "Plan Rows": 1,
+                                  "Plan Width": 430,
+                                  "Actual Startup Time": 0.004,
+                                  "Actual Total Time": 0.004,
+                                  "Actual Rows": 1,
+                                  "Actual Loops": 1,
+                                  "Hash Buckets": 1024,
+                                  "Hash Batches": 1,
+                                  "Original Hash Batches": 1,
+                                  "Peak Memory Usage": 1,
+                                  "Plans": [
+                                    {
+                                      "Node Type": "Seq Scan",
+                                      "Parent Relationship": "Outer",
+                                      "Relation Name": "region",
+                                      "Alias": "region",
+                                      "Startup Cost": 0.00,
+                                      "Total Cost": 1.06,
+                                      "Plan Rows": 1,
+                                      "Plan Width": 430,
+                                      "Actual Startup Time": 0.003,
+                                      "Actual Total Time": 0.003,
+                                      "Actual Rows": 1,
+                                      "Actual Loops": 1,
+                                      "Filter": "(r_name = 'EUROPE'::bpchar)",
+                                      "Rows Removed by Filter": 4
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 703.407
+  }
+]

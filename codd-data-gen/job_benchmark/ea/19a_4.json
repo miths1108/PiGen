@@ -1,0 +1,76 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 165942.06,
+      "Total Cost": 249778.56,
+      "Plan Rows": 247319,
+      "Plan Width": 188,
+      "Actual Startup Time": 917.653,
+      "Actual Total Time": 1477.638,
+      "Actual Rows": 233457,
+      "Actual Loops": 1,
+      "Hash Cond": "(an.an_person_id = n.n_id)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "aka_name",
+          "Alias": "an",
+          "Startup Cost": 0.00,
+          "Total Cost": 24282.68,
+          "Plan Rows": 1072968,
+          "Plan Width": 113,
+          "Actual Startup Time": 0.043,
+          "Actual Total Time": 105.823,
+          "Actual Rows": 1072968,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 135508.69,
+          "Total Cost": 135508.69,
+          "Plan Rows": 1207870,
+          "Plan Width": 75,
+          "Actual Startup Time": 916.256,
+          "Actual Total Time": 916.256,
+          "Actual Rows": 1204907,
+          "Actual Loops": 1,
+          "Hash Buckets": 65536,
+          "Original Hash Buckets": 65536,
+          "Hash Batches": 64,
+          "Original Hash Batches": 64,
+          "Peak Memory Usage": 2530,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "name",
+              "Alias": "n",
+              "Startup Cost": 0.00,
+              "Total Cost": 135508.69,
+              "Plan Rows": 1207870,
+              "Plan Width": 75,
+              "Actual Startup Time": 306.287,
+              "Actual Total Time": 672.335,
+              "Actual Rows": 1204907,
+              "Actual Loops": 1,
+              "Filter": "((n_gender)::text = 'f'::text)",
+              "Rows Removed by Filter": 4035953
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 66.350,
+    "Triggers": [
+    ],
+    "Execution Time": 1484.451
+  }
+]

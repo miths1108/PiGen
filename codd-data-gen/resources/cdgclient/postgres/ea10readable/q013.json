@@ -1,0 +1,23 @@
+Hash Join  (cost=11292.89..298444.44 rows=31 width=776) (actual time=216.067..5878.680 rows=627 loops=1)
+  Hash Cond: (ws1.ws_ship_addr_sk = customer_address.ca_address_sk)
+  ->  Hash Join  (cost=2505.13..289317.11 rows=1163 width=631) (actual time=18.136..5651.969 rows=23278 loops=1)
+        Hash Cond: (ws1.ws_web_site_sk = web_site.web_site_sk)
+        ->  Hash Join  (cost=2501.51..289278.95 rows=6108 width=284) (actual time=18.089..5608.833 rows=163259 loops=1)
+              Hash Cond: (ws1.ws_ship_date_sk = date_dim.d_date_sk)
+              ->  Seq Scan on web_sales ws1  (cost=0.00..259724.99 rows=7197699 width=166) (actual time=0.184..4572.205 rows=7197566 loops=1)
+              ->  Hash  (cost=2500.73..2500.73 rows=62 width=118) (actual time=17.585..17.585 rows=62 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 10kB
+                    ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=62 width=118) (actual time=8.122..17.564 rows=62 loops=1)
+                          Filter: ((d_date >= '2002-04-01'::date) AND (d_date <= '2002-06-01'::date))
+                          Rows Removed by Filter: 72987
+        ->  Hash  (cost=3.52..3.52 rows=8 width=347) (actual time=0.038..0.038 rows=8 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 4kB
+              ->  Seq Scan on web_site  (cost=0.00..3.52 rows=8 width=347) (actual time=0.022..0.035 rows=8 loops=1)
+                    Filter: (web_company_name = 'pri'::bpchar)
+                    Rows Removed by Filter: 34
+  ->  Hash  (cost=8560.00..8560.00 rows=6700 width=145) (actual time=158.066..158.066 rows=6737 loops=1)
+        Buckets: 1024  Batches: 2  Memory Usage: 589kB
+        ->  Seq Scan on customer_address  (cost=0.00..8560.00 rows=6700 width=145) (actual time=0.259..154.825 rows=6737 loops=1)
+              Filter: (ca_state = 'MN'::bpchar)
+              Rows Removed by Filter: 243263
+Total runtime: 5878.913 ms

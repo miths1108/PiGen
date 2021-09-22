@@ -1,0 +1,22 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Relation Name": "store_sales",
+      "Alias": "store_sales",
+      "Startup Cost": 0.00,
+      "Total Cost": 97148.99,
+      "Plan Rows": 535274,
+      "Plan Width": 115,
+      "Actual Startup Time": 0.010,
+      "Actual Total Time": 390.224,
+      "Actual Rows": 524304,
+      "Actual Loops": 1,
+      "Filter": "((ss_quantity >= 1) AND (ss_quantity <= 20))",
+      "Rows Removed by Filter": 2098310
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 403.712
+  }
+]

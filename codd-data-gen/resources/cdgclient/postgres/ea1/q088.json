@@ -1,0 +1,22 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Relation Name": "date_dim",
+      "Alias": "date_dim",
+      "Startup Cost": 0.00,
+      "Total Cost": 2500.73,
+      "Plan Rows": 62,
+      "Plan Width": 118,
+      "Actual Startup Time": 2.843,
+      "Actual Total Time": 6.215,
+      "Actual Rows": 62,
+      "Actual Loops": 1,
+      "Filter": "((d_date >= '2000-03-01'::date) AND (d_date <= '2000-05-01'::date))",
+      "Rows Removed by Filter": 72987
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 6.230
+  }
+]

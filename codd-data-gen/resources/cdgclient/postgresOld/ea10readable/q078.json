@@ -1,0 +1,23 @@
+Hash Join  (cost=2969.40..960931.94 rows=11494 width=533) (actual time=33.934..9412.682 rows=20456 loops=1)
+  Hash Cond: (store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk)
+  ->  Hash Join  (cost=2722.00..960287.56 rows=75211 width=501) (actual time=22.698..9387.053 rows=128864 loops=1)
+        Hash Cond: (store_sales.ss_store_sk = store.s_store_sk)
+        ->  Hash Join  (cost=2715.55..957376.24 rows=574069 width=214) (actual time=21.640..9217.565 rows=956288 loops=1)
+              Hash Cond: (store_sales.ss_sold_time_sk = time_dim.t_time_sk)
+              ->  Seq Scan on store_sales  (cost=0.00..804916.00 rows=28800800 width=111) (actual time=0.003..5838.662 rows=28800991 loops=1)
+              ->  Hash  (cost=2693.00..2693.00 rows=1804 width=103) (actual time=21.625..21.625 rows=1800 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 220kB
+                    ->  Seq Scan on time_dim  (cost=0.00..2693.00 rows=1804 width=103) (actual time=10.185..21.336 rows=1800 loops=1)
+                          Filter: ((t_minute >= 30) AND (t_hour = 11))
+                          Rows Removed by Filter: 84600
+        ->  Hash  (cost=6.28..6.28 rows=14 width=287) (actual time=0.038..0.038 rows=14 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 5kB
+              ->  Seq Scan on store  (cost=0.00..6.28 rows=14 width=287) (actual time=0.004..0.034 rows=14 loops=1)
+                    Filter: ((s_store_name)::text = 'ese'::text)
+                    Rows Removed by Filter: 88
+  ->  Hash  (cost=233.00..233.00 rows=1152 width=32) (actual time=2.147..2.147 rows=1200 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 75kB
+        ->  Seq Scan on household_demographics  (cost=0.00..233.00 rows=1152 width=32) (actual time=0.007..1.993 rows=1200 loops=1)
+              Filter: (((hd_dep_count = 4) AND (hd_vehicle_count <= 6)) OR ((hd_dep_count = (-1)) AND (hd_vehicle_count <= 1)) OR ((hd_dep_count = 0) AND (hd_vehicle_count <= 2)))
+              Rows Removed by Filter: 6000
+Total runtime: 9413.790 ms

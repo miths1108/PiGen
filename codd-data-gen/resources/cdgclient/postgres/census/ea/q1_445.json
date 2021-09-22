@@ -1,0 +1,58 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Unique",
+      "Parallel Aware": false,
+      "Startup Cost": 27782.73,
+      "Total Cost": 27782.74,
+      "Plan Rows": 2,
+      "Plan Width": 8,
+      "Actual Startup Time": 86.906,
+      "Actual Total Time": 86.917,
+      "Actual Rows": 3,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Sort",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Startup Cost": 27782.73,
+          "Total Cost": 27782.74,
+          "Plan Rows": 2,
+          "Plan Width": 8,
+          "Actual Startup Time": 86.906,
+          "Actual Total Time": 86.910,
+          "Actual Rows": 89,
+          "Actual Loops": 1,
+          "Sort Key": ["agep", "sex"],
+          "Sort Method": "quicksort",
+          "Sort Space Used": 29,
+          "Sort Space Type": "Memory",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "jointable",
+              "Alias": "jointable",
+              "Startup Cost": 0.00,
+              "Total Cost": 27782.72,
+              "Plan Rows": 2,
+              "Plan Width": 8,
+              "Actual Startup Time": 7.021,
+              "Actual Total Time": 86.863,
+              "Actual Rows": 89,
+              "Actual Loops": 1,
+              "Filter": "((agep >= 65) AND (agep <= 114) AND (relp = 6) AND (puma10 = 3737))",
+              "Rows Removed by Filter": 1015597
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.091,
+    "Triggers": [
+    ],
+    "Execution Time": 86.934
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 1596.33,
+      "Total Cost": 58814.28,
+      "Plan Rows": 2062,
+      "Plan Width": 673,
+      "Actual Startup Time": 10.068,
+      "Actual Total Time": 323.449,
+      "Actual Rows": 532,
+      "Actual Loops": 1,
+      "Hash Cond": "(catalog_sales.cs_item_sk = item.i_item_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "catalog_sales",
+          "Alias": "catalog_sales",
+          "Startup Cost": 0.00,
+          "Total Cost": 51844.70,
+          "Plan Rows": 1427370,
+          "Plan Width": 170,
+          "Actual Startup Time": 0.006,
+          "Actual Total Time": 126.072,
+          "Actual Rows": 1343336,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 1596.00,
+          "Total Cost": 1596.00,
+          "Plan Rows": 26,
+          "Plan Width": 503,
+          "Actual Startup Time": 8.328,
+          "Actual Total Time": 8.328,
+          "Actual Rows": 8,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 13,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "item",
+              "Alias": "item",
+              "Startup Cost": 0.00,
+              "Total Cost": 1596.00,
+              "Plan Rows": 26,
+              "Plan Width": 503,
+              "Actual Startup Time": 0.067,
+              "Actual Total Time": 8.320,
+              "Actual Rows": 8,
+              "Actual Loops": 1,
+              "Filter": "((i_current_price >= '4'::numeric) AND (i_current_price <= '10'::numeric) AND (i_manufact_id = ANY ('{744,691,853,946}'::integer[])))",
+              "Rows Removed by Filter": 17992
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.321,
+    "Triggers": [
+    ],
+    "Execution Time": 323.563
+  }
+]

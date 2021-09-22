@@ -1,0 +1,130 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 115139.53,
+      "Total Cost": 206691.33,
+      "Plan Rows": 1,
+      "Plan Width": 132,
+      "Actual Startup Time": 814.182,
+      "Actual Total Time": 1214.850,
+      "Actual Rows": 18,
+      "Actual Loops": 1,
+      "Hash Cond": "(t.t_id = mk.mk_movie_id)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "title",
+          "Alias": "t",
+          "Startup Cost": 0.00,
+          "Total Cost": 91057.10,
+          "Plan Rows": 131917,
+          "Plan Width": 94,
+          "Actual Startup Time": 0.009,
+          "Actual Total Time": 393.895,
+          "Actual Rows": 131475,
+          "Actual Loops": 1,
+          "Filter": "(t_production_year > 2014)",
+          "Rows Removed by Filter": 3271735
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 115139.11,
+          "Total Cost": 115139.11,
+          "Plan Rows": 33,
+          "Plan Width": 38,
+          "Actual Startup Time": 811.845,
+          "Actual Total Time": 811.845,
+          "Actual Rows": 43,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 12,
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 3467.04,
+              "Total Cost": 115139.11,
+              "Plan Rows": 33,
+              "Plan Width": 38,
+              "Actual Startup Time": 20.071,
+              "Actual Total Time": 811.813,
+              "Actual Rows": 43,
+              "Actual Loops": 1,
+              "Hash Cond": "(mk.mk_keyword_id = k.k_id)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "movie_keyword",
+                  "Alias": "mk",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 89810.27,
+                  "Plan Rows": 5829727,
+                  "Plan Width": 12,
+                  "Actual Startup Time": 0.010,
+                  "Actual Total Time": 391.188,
+                  "Actual Rows": 5829736,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 3467.03,
+                  "Total Cost": 3467.03,
+                  "Plan Rows": 1,
+                  "Plan Width": 26,
+                  "Actual Startup Time": 14.033,
+                  "Actual Total Time": 14.033,
+                  "Actual Rows": 1,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Original Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 9,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "keyword",
+                      "Alias": "k",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 3467.03,
+                      "Plan Rows": 1,
+                      "Plan Width": 26,
+                      "Actual Startup Time": 1.147,
+                      "Actual Total Time": 14.031,
+                      "Actual Rows": 1,
+                      "Actual Loops": 1,
+                      "Filter": "(k_keyword = 'marvel-cinematic-universe'::text)",
+                      "Rows Removed by Filter": 175841
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.194,
+    "Triggers": [
+    ],
+    "Execution Time": 1214.879
+  }
+]

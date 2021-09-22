@@ -1,0 +1,184 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 99170.34,
+      "Total Cost": 101774.01,
+      "Plan Rows": 439,
+      "Plan Width": 248,
+      "Actual Startup Time": 792.209,
+      "Actual Total Time": 902.430,
+      "Actual Rows": 6234,
+      "Actual Loops": 1,
+      "Hash Cond": "(cc.cc_subject_id = cct1.cct_id)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 99144.76,
+          "Total Cost": 101741.10,
+          "Plan Rows": 790,
+          "Plan Width": 162,
+          "Actual Startup Time": 792.196,
+          "Actual Total Time": 900.950,
+          "Actual Rows": 6234,
+          "Actual Loops": 1,
+          "Hash Cond": "(cc.cc_movie_id = t.t_id)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "complete_cast",
+              "Alias": "cc",
+              "Startup Cost": 0.00,
+              "Total Cost": 2081.86,
+              "Plan Rows": 135086,
+              "Plan Width": 16,
+              "Actual Startup Time": 0.004,
+              "Actual Total Time": 9.268,
+              "Actual Rows": 135086,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 98895.85,
+              "Total Cost": 98895.85,
+              "Plan Rows": 19913,
+              "Plan Width": 146,
+              "Actual Startup Time": 792.027,
+              "Actual Total Time": 792.027,
+              "Actual Rows": 426358,
+              "Actual Loops": 1,
+              "Hash Buckets": 32768,
+              "Original Hash Buckets": 32768,
+              "Hash Batches": 16,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 3841,
+              "Plans": [
+                {
+                  "Node Type": "Hash Join",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 22.88,
+                  "Total Cost": 98895.85,
+                  "Plan Rows": 19913,
+                  "Plan Width": 146,
+                  "Actual Startup Time": 343.951,
+                  "Actual Total Time": 663.684,
+                  "Actual Rows": 426358,
+                  "Actual Loops": 1,
+                  "Hash Cond": "(t.t_kind_id = kt.kt_id)",
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "title",
+                      "Alias": "t",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 91057.10,
+                      "Plan Rows": 2031132,
+                      "Plan Width": 94,
+                      "Actual Startup Time": 0.005,
+                      "Actual Total Time": 475.371,
+                      "Actual Rows": 2027079,
+                      "Actual Loops": 1,
+                      "Filter": "(t_production_year > 2000)",
+                      "Rows Removed by Filter": 1376131
+                    },
+                    {
+                      "Node Type": "Hash",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Startup Cost": 22.75,
+                      "Total Cost": 22.75,
+                      "Plan Rows": 10,
+                      "Plan Width": 52,
+                      "Actual Startup Time": 0.004,
+                      "Actual Total Time": 0.004,
+                      "Actual Rows": 1,
+                      "Actual Loops": 1,
+                      "Hash Buckets": 1024,
+                      "Original Hash Buckets": 1024,
+                      "Hash Batches": 1,
+                      "Original Hash Batches": 1,
+                      "Peak Memory Usage": 9,
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Relation Name": "kind_type",
+                          "Alias": "kt",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 22.75,
+                          "Plan Rows": 10,
+                          "Plan Width": 52,
+                          "Actual Startup Time": 0.003,
+                          "Actual Total Time": 0.004,
+                          "Actual Rows": 1,
+                          "Actual Loops": 1,
+                          "Filter": "((kt_kind)::text = ANY ('{movie,episode}'::text[]))",
+                          "Rows Removed by Filter": 6
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 20.65,
+          "Total Cost": 20.65,
+          "Plan Rows": 394,
+          "Plan Width": 86,
+          "Actual Startup Time": 0.009,
+          "Actual Total Time": 0.009,
+          "Actual Rows": 3,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 9,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "comp_cast_type",
+              "Alias": "cct1",
+              "Startup Cost": 0.00,
+              "Total Cost": 20.65,
+              "Plan Rows": 394,
+              "Plan Width": 86,
+              "Actual Startup Time": 0.006,
+              "Actual Total Time": 0.008,
+              "Actual Rows": 3,
+              "Actual Loops": 1,
+              "Filter": "(((cct_kind)::text < 'complete+verified'::text) OR ((cct_kind)::text > 'complete+verified'::text))",
+              "Rows Removed by Filter": 1
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.228,
+    "Triggers": [
+    ],
+    "Execution Time": 902.675
+  }
+]

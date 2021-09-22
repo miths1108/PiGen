@@ -1,0 +1,39 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Startup Cost": 9850757.95,
+      "Total Cost": 9851052.29,
+      "Plan Rows": 29434,
+      "Plan Width": 6,
+      "Actual Startup Time": 298102.429,
+      "Actual Total Time": 298338.732,
+      "Actual Rows": 925139,
+      "Actual Loops": 1,
+      "Group Key": ["ss_net_paid_inc_tax"],
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "store_sales",
+          "Alias": "store_sales",
+          "Startup Cost": 0.00,
+          "Total Cost": 9713863.36,
+          "Plan Rows": 54757834,
+          "Plan Width": 6,
+          "Actual Startup Time": 0.012,
+          "Actual Total Time": 260342.193,
+          "Actual Rows": 52453732,
+          "Actual Loops": 1,
+          "Filter": "((ss_quantity >= 41) AND (ss_quantity <= 60))",
+          "Rows Removed by Filter": 209832409
+        }
+      ]
+    },
+    "Planning Time": 12.478,
+    "Triggers": [
+    ],
+    "Execution Time": 298368.383
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 1732.38,
+      "Total Cost": 5987.98,
+      "Plan Rows": 3260,
+      "Plan Width": 390,
+      "Actual Startup Time": 15.174,
+      "Actual Total Time": 57.694,
+      "Actual Rows": 3200,
+      "Actual Loops": 1,
+      "Hash Cond": "(customer.c_current_addr_sk = customer_address.ca_address_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "customer",
+          "Alias": "customer",
+          "Startup Cost": 0.00,
+          "Total Cost": 3848.00,
+          "Plan Rows": 100000,
+          "Plan Width": 245,
+          "Actual Startup Time": 0.017,
+          "Actual Total Time": 20.263,
+          "Actual Rows": 100000,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 1712.00,
+          "Total Cost": 1712.00,
+          "Plan Rows": 1630,
+          "Plan Width": 145,
+          "Actual Startup Time": 15.117,
+          "Actual Total Time": 15.117,
+          "Actual Rows": 1596,
+          "Actual Loops": 1,
+          "Hash Buckets": 2048,
+          "Original Hash Buckets": 2048,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 293,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "customer_address",
+              "Alias": "customer_address",
+              "Startup Cost": 0.00,
+              "Total Cost": 1712.00,
+              "Plan Rows": 1630,
+              "Plan Width": 145,
+              "Actual Startup Time": 0.020,
+              "Actual Total Time": 14.724,
+              "Actual Rows": 1596,
+              "Actual Loops": 1,
+              "Filter": "(ca_state = 'IL'::bpchar)",
+              "Rows Removed by Filter": 48404
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.300,
+    "Triggers": [
+    ],
+    "Execution Time": 57.877
+  }
+]

@@ -1,0 +1,1 @@
+SELECT * FROM keyword AS k, movie_keyword AS mk, title AS t WHERE k.k_keyword  = 'computer-animation' AND t.t_title  = 'Shrek 2' AND t.t_production_year  between 2000 and 2005 AND t.t_id = mk.mk_movie_id AND k.k_id = mk.mk_keyword_id;

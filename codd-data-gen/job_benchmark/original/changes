@@ -1,0 +1,27 @@
+like removed
+self join
+check all tables present in condition
+pk - fk join only (optimiser can introduce fk-fk by simplifying 2 pk-fk joins..see query 1a) (if join not pk-fk = > Break query)
+is not null removed or converted to (col_name < EMPTYSTRING OR col_name > EMPTYSTRING)
+is null changed to = EMPTYSTRING	// check appropriate replaced string
+update name set n_gender = 'n' where n_gender is null;
+update movie_companies set mc_note = 'EMPTYSTRING' where mc_note is null;
+Breaking queries ( If C.y is in condition (A.fk = B.pk && C.fk = B.pk && C.y = 100)(C.y is that column) but has foreign key then A can't pull columns of C)
+
+
+mii_movie_id not unique
+mc_movie_id not unique
+mk_movie_id not unique
+mi_movie_id not unique
+ci_movie_id not unique
+
+have null
+	ci.ci_person_role_id -> adding condition chn.cn_name IN ('Himself', 'Herself', 'Narrator')
+
+
+does not have null :
+	ci_role_id
+	mi_info
+
+TODO:
+	If there are two different fk columns to a single pk table -> inconsistency

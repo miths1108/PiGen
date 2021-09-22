@@ -1,0 +1,162 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Unique",
+      "Parallel Aware": false,
+      "Startup Cost": 10000041012.40,
+      "Total Cost": 10000042111.97,
+      "Plan Rows": 73305,
+      "Plan Width": 20,
+      "Actual Startup Time": 346.355,
+      "Actual Total Time": 362.196,
+      "Actual Rows": 4548,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Sort",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Startup Cost": 10000041012.40,
+          "Total Cost": 10000041195.66,
+          "Plan Rows": 73305,
+          "Plan Width": 20,
+          "Actual Startup Time": 346.353,
+          "Actual Total Time": 354.368,
+          "Actual Rows": 66379,
+          "Actual Loops": 1,
+          "Sort Key": ["date_dim.d_year", "item.i_brand_id", "item.i_class_id", "item.i_category_id", "item.i_manufact_id"],
+          "Sort Method": "external merge",
+          "Sort Space Used": 1936,
+          "Sort Space Type": "Disk",
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 4532.54,
+              "Total Cost": 35088.76,
+              "Plan Rows": 73305,
+              "Plan Width": 20,
+              "Actual Startup Time": 26.321,
+              "Actual Total Time": 248.272,
+              "Actual Rows": 66379,
+              "Actual Loops": 1,
+              "Hash Cond": "(web_sales.ws_sold_date_sk = date_dim.d_date_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Hash Join",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 1483.94,
+                  "Total Cost": 31032.21,
+                  "Plan Rows": 73305,
+                  "Plan Width": 20,
+                  "Actual Startup Time": 5.738,
+                  "Actual Total Time": 204.071,
+                  "Actual Rows": 66379,
+                  "Actual Loops": 1,
+                  "Hash Cond": "(web_sales.ws_item_sk = item.i_item_sk)",
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "web_sales",
+                      "Alias": "web_sales",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 26118.71,
+                      "Plan Rows": 719071,
+                      "Plan Width": 8,
+                      "Actual Startup Time": 0.031,
+                      "Actual Total Time": 98.926,
+                      "Actual Rows": 648065,
+                      "Actual Loops": 1
+                    },
+                    {
+                      "Node Type": "Hash",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Startup Cost": 1461.00,
+                      "Total Cost": 1461.00,
+                      "Plan Rows": 1835,
+                      "Plan Width": 20,
+                      "Actual Startup Time": 5.675,
+                      "Actual Total Time": 5.675,
+                      "Actual Rows": 1835,
+                      "Actual Loops": 1,
+                      "Hash Buckets": 2048,
+                      "Original Hash Buckets": 2048,
+                      "Hash Batches": 1,
+                      "Original Hash Batches": 1,
+                      "Peak Memory Usage": 110,
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Relation Name": "item",
+                          "Alias": "item",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 1461.00,
+                          "Plan Rows": 1835,
+                          "Plan Width": 20,
+                          "Actual Startup Time": 0.013,
+                          "Actual Total Time": 5.348,
+                          "Actual Rows": 1835,
+                          "Actual Loops": 1,
+                          "Filter": "(i_category = 'Shoes'::bpchar)",
+                          "Rows Removed by Filter": 16165
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 2135.49,
+                  "Total Cost": 2135.49,
+                  "Plan Rows": 73049,
+                  "Plan Width": 8,
+                  "Actual Startup Time": 20.532,
+                  "Actual Total Time": 20.532,
+                  "Actual Rows": 73049,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 131072,
+                  "Original Hash Buckets": 131072,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 3878,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "date_dim",
+                      "Alias": "date_dim",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 2135.49,
+                      "Plan Rows": 73049,
+                      "Plan Width": 8,
+                      "Actual Startup Time": 0.005,
+                      "Actual Total Time": 10.723,
+                      "Actual Rows": 73049,
+                      "Actual Loops": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.191,
+    "Triggers": [
+    ],
+    "Execution Time": 362.706
+  }
+]

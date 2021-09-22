@@ -1,0 +1,21 @@
+Hash Join  (cost=303148.82..311560.47 rows=1115 width=933) (actual time=5817.954..6039.727 rows=23833 loops=1)
+  Hash Cond: (item.i_item_sk = web_sales.ws_item_sk)
+  ->  Seq Scan on item  (cost=0.00..8018.00 rows=102000 width=504) (actual time=0.006..44.173 rows=102000 loops=1)
+  ->  Hash  (cost=303134.89..303134.89 rows=1115 width=429) (actual time=5817.779..5817.779 rows=23833 loops=1)
+        Buckets: 1024  Batches: 16 (originally 1)  Memory Usage: 1025kB
+        ->  Hash Join  (cost=14162.75..303134.89 rows=1115 width=429) (actual time=409.088..5769.016 rows=23833 loops=1)
+              Hash Cond: (web_sales.ws_bill_addr_sk = customer_address.ca_address_sk)
+              ->  Hash Join  (cost=2501.12..289248.02 rows=3054 width=284) (actual time=18.576..5420.933 rows=67418 loops=1)
+                    Hash Cond: (web_sales.ws_sold_date_sk = date_dim.d_date_sk)
+                    ->  Seq Scan on web_sales  (cost=0.00..259724.99 rows=7197699 width=166) (actual time=0.351..4548.426 rows=7197566 loops=1)
+                    ->  Hash  (cost=2500.73..2500.73 rows=31 width=118) (actual time=16.779..16.779 rows=31 loops=1)
+                          Buckets: 1024  Batches: 1  Memory Usage: 5kB
+                          ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=31 width=118) (actual time=8.269..16.763 rows=31 loops=1)
+                                Filter: ((d_year = 1998) AND (d_moy = 1))
+                                Rows Removed by Filter: 73018
+              ->  Hash  (cost=8560.00..8560.00 rows=91250 width=145) (actual time=139.044..139.044 rows=90666 loops=1)
+                    Buckets: 1024  Batches: 32  Memory Usage: 505kB
+                    ->  Seq Scan on customer_address  (cost=0.00..8560.00 rows=91250 width=145) (actual time=0.010..99.249 rows=90666 loops=1)
+                          Filter: (ca_gmt_offset = (-5)::numeric)
+                          Rows Removed by Filter: 159334
+Total runtime: 6040.887 ms

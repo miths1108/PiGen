@@ -1,0 +1,16 @@
+Hash Join  (cost=74946.83..136658.88 rows=11917 width=446) (actual time=979.988..1629.122 rows=12048 loops=1)
+  Hash Cond: (customer.c_current_addr_sk = customer_address.ca_address_sk)
+  ->  Hash Join  (cost=62646.10..119536.80 rows=27070 width=301) (actual time=763.416..1378.528 rows=27685 loops=1)
+        Hash Cond: (customer.c_current_cdemo_sk = customer_demographics.cd_demo_sk)
+        ->  Seq Scan on customer  (cost=0.00..19237.00 rows=500000 width=245) (actual time=0.032..198.580 rows=500000 loops=1)
+        ->  Hash  (cost=60244.00..60244.00 rows=107848 width=56) (actual time=761.127..761.127 rows=109760 loops=1)
+              Buckets: 2048  Batches: 16  Memory Usage: 632kB
+              ->  Seq Scan on customer_demographics  (cost=0.00..60244.00 rows=107848 width=56) (actual time=0.028..728.078 rows=109760 loops=1)
+                    Filter: (((cd_marital_status = 'M'::bpchar) AND (cd_education_status = 'Unknown'::bpchar)) OR ((cd_marital_status = 'W'::bpchar) AND (cd_education_status = 'Advanced Degree'::bpchar)))
+                    Rows Removed by Filter: 1811040
+  ->  Hash  (cost=8560.00..8560.00 rows=110058 width=145) (actual time=171.462..171.462 rows=110471 loops=1)
+        Buckets: 1024  Batches: 32  Memory Usage: 623kB
+        ->  Seq Scan on customer_address  (cost=0.00..8560.00 rows=110058 width=145) (actual time=0.014..126.609 rows=110471 loops=1)
+              Filter: (ca_gmt_offset = (-6)::numeric)
+              Rows Removed by Filter: 139529
+Total runtime: 1629.817 ms

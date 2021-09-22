@@ -1,0 +1,9 @@
+Hash Join  (cost=9652.16..66169.82 rows=45866 width=390) (actual time=108.023..701.421 rows=45290 loops=1)
+  Hash Cond: (c.c_current_addr_sk = ca.ca_address_sk)
+  ->  Seq Scan on customer c  (cost=0.00..19237.00 rows=500000 width=245) (actual time=0.006..194.960 rows=500000 loops=1)
+  ->  Hash  (cost=8872.50..8872.50 rows=22933 width=145) (actual time=106.027..106.027 rows=22645 loops=1)
+        Buckets: 1024  Batches: 8  Memory Usage: 503kB
+        ->  Seq Scan on customer_address ca  (cost=0.00..8872.50 rows=22933 width=145) (actual time=0.007..97.305 rows=22645 loops=1)
+              Filter: (ca_state = ANY ('{SD,KY,MO}'::bpchar[]))
+              Rows Removed by Filter: 227355
+Total runtime: 703.810 ms

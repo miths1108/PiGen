@@ -1,0 +1,113 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Nested Loop",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 2435.44,
+      "Total Cost": 41424.26,
+      "Plan Rows": 1520,
+      "Plan Width": 315,
+      "Actual Startup Time": 49.489,
+      "Actual Total Time": 280.440,
+      "Actual Rows": 1615,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 2435.01,
+          "Total Cost": 4925.19,
+          "Plan Rows": 18430,
+          "Plan Width": 259,
+          "Actual Startup Time": 49.354,
+          "Actual Total Time": 108.613,
+          "Actual Rows": 19511,
+          "Actual Loops": 1,
+          "Hash Cond": "(web_returns.wr_refunded_addr_sk = customer_address.ca_address_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "web_returns",
+              "Alias": "web_returns",
+              "Startup Cost": 0.00,
+              "Total Cost": 2044.63,
+              "Plan Rows": 71763,
+              "Plan Width": 114,
+              "Actual Startup Time": 0.010,
+              "Actual Total Time": 13.952,
+              "Actual Rows": 71763,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 2274.50,
+              "Total Cost": 2274.50,
+              "Plan Rows": 12841,
+              "Plan Width": 145,
+              "Actual Startup Time": 49.327,
+              "Actual Total Time": 49.327,
+              "Actual Rows": 14287,
+              "Actual Loops": 1,
+              "Hash Buckets": 16384,
+              "Original Hash Buckets": 16384,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 2621,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "customer_address",
+                  "Alias": "customer_address",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 2274.50,
+                  "Plan Rows": 12841,
+                  "Plan Width": 145,
+                  "Actual Startup Time": 0.018,
+                  "Actual Total Time": 45.434,
+                  "Actual Rows": 14287,
+                  "Actual Loops": 1,
+                  "Filter": "(((ca_country)::text = 'United States'::text) AND ((ca_state = ANY ('{IL,MT,AR}'::bpchar[])) OR (ca_state = ANY ('{WI,TX,GA}'::bpchar[])) OR (ca_state = ANY ('{RI,KY,IN}'::bpchar[]))))",
+                  "Rows Removed by Filter": 35713
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Index Scan",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Scan Direction": "Forward",
+          "Index Name": "customer_demographics_pkey",
+          "Relation Name": "customer_demographics",
+          "Alias": "customer_demographics",
+          "Startup Cost": 0.43,
+          "Total Cost": 1.97,
+          "Plan Rows": 1,
+          "Plan Width": 56,
+          "Actual Startup Time": 0.008,
+          "Actual Total Time": 0.008,
+          "Actual Rows": 0,
+          "Actual Loops": 19511,
+          "Index Cond": "(cd_demo_sk = web_returns.wr_refunded_cdemo_sk)",
+          "Rows Removed by Index Recheck": 0,
+          "Filter": "(((cd_marital_status = 'S'::bpchar) AND (cd_education_status = '4 yr Degree'::bpchar)) OR ((cd_marital_status = 'M'::bpchar) AND (cd_education_status = 'Primary'::bpchar)) OR ((cd_marital_status = 'U'::bpchar) AND (cd_education_status = '2 yr Degree'::bpchar)))",
+          "Rows Removed by Filter": 1
+        }
+      ]
+    },
+    "Planning Time": 0.509,
+    "Triggers": [
+    ],
+    "Execution Time": 280.609
+  }
+]

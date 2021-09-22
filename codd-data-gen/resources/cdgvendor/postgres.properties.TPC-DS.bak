@@ -1,0 +1,9 @@
+#Postgres Anonymized Schema Input
+postgres.anonymizedschema.info=../codd-data-gen/resources/cdgvendor/input/postgres/anonymizedschema.info
+
+#Postgres Anonymized CCs Input
+postgres.anonymizedcc.info=../codd-data-gen/resources/cdgvendor/input/postgres/anonymizedcc.info
+
+#Postgres DatabaseSummary Output
+postgres.databasesummary.location=../codd-data-gen/resources/cdgvendor/output/postgres/databasesummary
+postgres.databasesummary.staticdumplocation=/media/dsladmin/Disk 1/scratchINUSE/

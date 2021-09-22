@@ -1,0 +1,23 @@
+Hash Join  (cost=2945.01..291384.19 rows=919 width=430) (actual time=25.058..2834.404 rows=908 loops=1)
+  Hash Cond: (web_sales.ws_sold_time_sk = time_dim.t_time_sk)
+  ->  Hash Join  (cost=160.04..288468.60 rows=10793 width=327) (actual time=2.850..2801.598 rows=11524 loops=1)
+        Hash Cond: (web_sales.ws_ship_hdemo_sk = household_demographics.hd_demo_sk)
+        ->  Hash Join  (cost=8.04..287803.87 rows=107947 width=295) (actual time=0.178..2774.868 rows=113933 loops=1)
+              Hash Cond: (web_sales.ws_web_page_sk = web_page.wp_web_page_sk)
+              ->  Seq Scan on web_sales  (cost=0.00..259724.99 rows=7197699 width=166) (actual time=0.041..1681.796 rows=7197566 loops=1)
+              ->  Hash  (cost=8.00..8.00 rows=3 width=129) (actual time=0.071..0.071 rows=3 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 1kB
+                    ->  Seq Scan on web_page  (cost=0.00..8.00 rows=3 width=129) (actual time=0.014..0.070 rows=3 loops=1)
+                          Filter: ((wp_char_count >= 5000) AND (wp_char_count <= 5200))
+                          Rows Removed by Filter: 197
+        ->  Hash  (cost=143.00..143.00 rows=720 width=32) (actual time=1.482..1.482 rows=720 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 45kB
+              ->  Seq Scan on household_demographics  (cost=0.00..143.00 rows=720 width=32) (actual time=0.135..1.419 rows=720 loops=1)
+                    Filter: (hd_dep_count = 8)
+                    Rows Removed by Filter: 6480
+  ->  Hash  (cost=2693.00..2693.00 rows=7358 width=103) (actual time=22.196..22.196 rows=7200 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 971kB
+        ->  Seq Scan on time_dim  (cost=0.00..2693.00 rows=7358 width=103) (actual time=9.827..20.753 rows=7200 loops=1)
+              Filter: ((t_hour >= 13) AND (t_hour <= 14))
+              Rows Removed by Filter: 79200
+Total runtime: 2834.598 ms

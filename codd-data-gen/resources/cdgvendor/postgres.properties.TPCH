@@ -1,0 +1,9 @@
+#Postgres Anonymized Schema Input
+postgres.anonymizedschema.info=/home/shadab/Documents/HydraTemp/hydra/codd-data-gen/resources/cdgclient/postgres/tpch/temp_files/anonymizedschema.info
+
+#Postgres Anonymized CCs Input
+postgres.anonymizedcc.info=/home/shadab/Documents/HydraTemp/hydra/codd-data-gen/resources/cdgclient/postgres/tpch/temp_files/anonymizedcc.info
+
+#Postgres DatabaseSummary Output
+postgres.databasesummary.location=/home/shadab/Documents/HydraTemp/hydra/codd-data-gen/resources/cdgclient/postgres/tpch/temp_files/databasesummary
+postgres.databasesummary.staticdumplocation=/media/dsladmin/Disk 1/scratchINUSE/

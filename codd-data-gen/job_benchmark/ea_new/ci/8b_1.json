@@ -1,0 +1,202 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Partial Mode": "Simple",
+      "Parallel Aware": false,
+      "Startup Cost": 1218311.65,
+      "Total Cost": 1218312.20,
+      "Plan Rows": 55,
+      "Plan Width": 17,
+      "Actual Startup Time": 5327.082,
+      "Actual Total Time": 5327.104,
+      "Actual Rows": 163,
+      "Actual Loops": 1,
+      "Group Key": ["ci.ci_nr_order", "t.t_season_nr", "t.t_series_years"],
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 1030399.85,
+          "Total Cost": 1218311.24,
+          "Plan Rows": 55,
+          "Plan Width": 17,
+          "Actual Startup Time": 4826.988,
+          "Actual Total Time": 5325.962,
+          "Actual Rows": 5846,
+          "Actual Loops": 1,
+          "Hash Cond": "(n.n_id = ci.ci_person_id)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "name",
+              "Alias": "n",
+              "Startup Cost": 0.00,
+              "Total Cost": 122408.15,
+              "Plan Rows": 5240215,
+              "Plan Width": 4,
+              "Actual Startup Time": 0.029,
+              "Actual Total Time": 447.393,
+              "Actual Rows": 5240860,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 1030399.16,
+              "Total Cost": 1030399.16,
+              "Plan Rows": 55,
+              "Plan Width": 21,
+              "Actual Startup Time": 4472.261,
+              "Actual Total Time": 4472.261,
+              "Actual Rows": 5846,
+              "Actual Loops": 1,
+              "Hash Buckets": 8192,
+              "Original Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 297,
+              "Plans": [
+                {
+                  "Node Type": "Hash Join",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 104328.83,
+                  "Total Cost": 1030399.16,
+                  "Plan Rows": 55,
+                  "Plan Width": 21,
+                  "Actual Startup Time": 1692.146,
+                  "Actual Total Time": 4471.416,
+                  "Actual Rows": 5846,
+                  "Actual Loops": 1,
+                  "Hash Cond": "(ci.ci_movie_id = t.t_id)",
+                  "Plans": [
+                    {
+                      "Node Type": "Hash Join",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Join Type": "Inner",
+                      "Startup Cost": 18.93,
+                      "Total Cost": 924564.01,
+                      "Plan Rows": 720,
+                      "Plan Width": 12,
+                      "Actual Startup Time": 1178.899,
+                      "Actual Total Time": 3936.828,
+                      "Actual Rows": 46557,
+                      "Actual Loops": 1,
+                      "Hash Cond": "(ci.ci_role_id = rt.rt_id)",
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Relation Name": "cast_info",
+                          "Alias": "ci",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 924058.45,
+                          "Plan Rows": 127848,
+                          "Plan Width": 16,
+                          "Actual Startup Time": 0.774,
+                          "Actual Total Time": 3922.594,
+                          "Actual Rows": 118142,
+                          "Actual Loops": 1,
+                          "Filter": "(ci_note = '(voice: English version)'::text)",
+                          "Rows Removed by Filter": 47255815
+                        },
+                        {
+                          "Node Type": "Hash",
+                          "Parent Relationship": "Inner",
+                          "Parallel Aware": false,
+                          "Startup Cost": 18.88,
+                          "Total Cost": 18.88,
+                          "Plan Rows": 4,
+                          "Plan Width": 4,
+                          "Actual Startup Time": 0.007,
+                          "Actual Total Time": 0.007,
+                          "Actual Rows": 1,
+                          "Actual Loops": 1,
+                          "Hash Buckets": 1024,
+                          "Original Hash Buckets": 1024,
+                          "Hash Batches": 1,
+                          "Original Hash Batches": 1,
+                          "Peak Memory Usage": 9,
+                          "Plans": [
+                            {
+                              "Node Type": "Seq Scan",
+                              "Parent Relationship": "Outer",
+                              "Parallel Aware": false,
+                              "Relation Name": "role_type",
+                              "Alias": "rt",
+                              "Startup Cost": 0.00,
+                              "Total Cost": 18.88,
+                              "Plan Rows": 4,
+                              "Plan Width": 4,
+                              "Actual Startup Time": 0.005,
+                              "Actual Total Time": 0.006,
+                              "Actual Rows": 1,
+                              "Actual Loops": 1,
+                              "Filter": "((rt_role)::text = 'actress'::text)",
+                              "Rows Removed by Filter": 11
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Node Type": "Hash",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Startup Cost": 99566.12,
+                      "Total Cost": 99566.12,
+                      "Plan Rows": 258383,
+                      "Plan Width": 17,
+                      "Actual Startup Time": 510.482,
+                      "Actual Total Time": 510.482,
+                      "Actual Rows": 248638,
+                      "Actual Loops": 1,
+                      "Hash Buckets": 65536,
+                      "Original Hash Buckets": 65536,
+                      "Hash Batches": 8,
+                      "Original Hash Batches": 8,
+                      "Peak Memory Usage": 1671,
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Relation Name": "title",
+                          "Alias": "t",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 99566.12,
+                          "Plan Rows": 258383,
+                          "Plan Width": 17,
+                          "Actual Startup Time": 0.052,
+                          "Actual Total Time": 469.699,
+                          "Actual Rows": 248638,
+                          "Actual Loops": 1,
+                          "Filter": "((t_production_year >= 2006) AND (t_production_year <= 2007))",
+                          "Rows Removed by Filter": 3154572
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.253,
+    "Triggers": [
+    ],
+    "Execution Time": 5327.145
+  }
+]

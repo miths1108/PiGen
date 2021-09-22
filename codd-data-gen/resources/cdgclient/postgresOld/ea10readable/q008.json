@@ -1,0 +1,9 @@
+Hash Join  (cost=2501.12..51053.78 rows=611 width=244) (actual time=373.134..861.538 rows=24037 loops=1)
+  Hash Cond: (catalog_returns.cr_returned_date_sk = date_dim.d_date_sk)
+  ->  Seq Scan on catalog_returns  (cost=0.00..43147.49 rows=1439749 width=126) (actual time=0.290..666.834 rows=1439749 loops=1)
+  ->  Hash  (cost=2500.73..2500.73 rows=31 width=118) (actual time=17.728..17.728 rows=31 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 5kB
+        ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=31 width=118) (actual time=8.999..17.714 rows=31 loops=1)
+              Filter: ((d_year = 2000) AND (d_moy = 12))
+              Rows Removed by Filter: 73018
+Total runtime: 862.889 ms

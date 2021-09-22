@@ -1,0 +1,16 @@
+Hash Join  (cost=13264.30..587493.28 rows=1771 width=789) (actual time=2819.555..11678.404 rows=42574 loops=1)
+  Hash Cond: (catalog_sales.cs_item_sk = item.i_item_sk)
+  ->  Hash Join  (cost=2501.11..574261.32 rows=5884 width=285) (actual time=2709.601..11246.639 rows=141302 loops=1)
+        Hash Cond: (catalog_sales.cs_sold_date_sk = date_dim.d_date_sk)
+        ->  Seq Scan on catalog_sales  (cost=0.00..517696.36 rows=14401336 width=167) (actual time=0.358..9501.104 rows=14401261 loops=1)
+        ->  Hash  (cost=2500.73..2500.73 rows=30 width=118) (actual time=17.328..17.328 rows=31 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 5kB
+              ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=30 width=118) (actual time=7.721..17.315 rows=31 loops=1)
+                    Filter: ((d_date >= '1999-06-03'::date) AND (d_date <= '1999-07-03'::date))
+                    Rows Removed by Filter: 73018
+  ->  Hash  (cost=8400.50..8400.50 rows=30695 width=504) (actual time=105.111..105.111 rows=30675 loops=1)
+        Buckets: 1024  Batches: 32  Memory Usage: 551kB
+        ->  Seq Scan on item  (cost=0.00..8400.50 rows=30695 width=504) (actual time=0.011..79.557 rows=30675 loops=1)
+              Filter: (i_category = ANY ('{Shoes,Women,Music}'::bpchar[]))
+              Rows Removed by Filter: 71325
+Total runtime: 11680.244 ms

@@ -1,0 +1,72 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 2501.12,
+      "Total Cost": 2870962.45,
+      "Plan Rows": 30551,
+      "Plan Width": 284,
+      "Actual Startup Time": 15.475,
+      "Actual Total Time": 55549.483,
+      "Actual Rows": 2436105,
+      "Actual Loops": 1,
+      "Hash Cond": "(web_sales.ws_sold_date_sk = date_dim.d_date_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "web_sales",
+          "Alias": "web_sales",
+          "Startup Cost": 0.00,
+          "Total Cost": 2598150.96,
+          "Plan Rows": 72001296,
+          "Plan Width": 166,
+          "Actual Startup Time": 0.188,
+          "Actual Total Time": 44046.624,
+          "Actual Rows": 72001237,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 2500.73,
+          "Total Cost": 2500.73,
+          "Plan Rows": 31,
+          "Plan Width": 118,
+          "Actual Startup Time": 15.268,
+          "Actual Total Time": 15.268,
+          "Actual Rows": 31,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 13,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "date_dim",
+              "Alias": "date_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 2500.73,
+              "Plan Rows": 31,
+              "Plan Width": 118,
+              "Actual Startup Time": 7.913,
+              "Actual Total Time": 15.254,
+              "Actual Rows": 31,
+              "Actual Loops": 1,
+              "Filter": "((d_moy = 12) AND (d_year = 2002))",
+              "Rows Removed by Filter": 73018
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.200,
+    "Triggers": [
+    ],
+    "Execution Time": 55689.616
+  }
+]

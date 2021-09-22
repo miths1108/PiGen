@@ -1,0 +1,182 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 9971.35,
+      "Total Cost": 96104.88,
+      "Plan Rows": 56572,
+      "Plan Width": 702,
+      "Actual Startup Time": 173.957,
+      "Actual Total Time": 1580.438,
+      "Actual Rows": 57755,
+      "Actual Loops": 1,
+      "Hash Cond": "(cs.cs_bill_customer_sk = c1.c_customer_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 2148.31,
+          "Total Cost": 62215.84,
+          "Plan Rows": 285571,
+          "Plan Width": 312,
+          "Actual Startup Time": 39.057,
+          "Actual Total Time": 955.652,
+          "Actual Rows": 286604,
+          "Actual Loops": 1,
+          "Hash Cond": "(cs.cs_bill_addr_sk = ca2.ca_address_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "catalog_sales",
+              "Alias": "cs",
+              "Startup Cost": 0.00,
+              "Total Cost": 51820.48,
+              "Plan Rows": 1441548,
+              "Plan Width": 167,
+              "Actual Startup Time": 0.038,
+              "Actual Total Time": 301.626,
+              "Actual Rows": 1441548,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 2024.50,
+              "Total Cost": 2024.50,
+              "Plan Rows": 9905,
+              "Plan Width": 145,
+              "Actual Startup Time": 38.958,
+              "Actual Total Time": 38.958,
+              "Actual Rows": 9924,
+              "Actual Loops": 1,
+              "Hash Buckets": 16384,
+              "Original Hash Buckets": 16384,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 1850,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "customer_address",
+                  "Alias": "ca2",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 2024.50,
+                  "Plan Rows": 9905,
+                  "Plan Width": 145,
+                  "Actual Startup Time": 0.012,
+                  "Actual Total Time": 35.550,
+                  "Actual Rows": 9924,
+                  "Actual Loops": 1,
+                  "Filter": "(ca_state = ANY ('{TN,IL,GA,MO,CO,OH,NM}'::bpchar[]))",
+                  "Rows Removed by Filter": 40076
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 6569.41,
+          "Total Cost": 6569.41,
+          "Plan Rows": 19810,
+          "Plan Width": 390,
+          "Actual Startup Time": 134.283,
+          "Actual Total Time": 134.283,
+          "Actual Rows": 19964,
+          "Actual Loops": 1,
+          "Hash Buckets": 16384,
+          "Original Hash Buckets": 16384,
+          "Hash Batches": 4,
+          "Original Hash Batches": 4,
+          "Peak Memory Usage": 1985,
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 2148.31,
+              "Total Cost": 6569.41,
+              "Plan Rows": 19810,
+              "Plan Width": 390,
+              "Actual Startup Time": 33.414,
+              "Actual Total Time": 104.158,
+              "Actual Rows": 19964,
+              "Actual Loops": 1,
+              "Hash Cond": "(c1.c_current_addr_sk = ca1.ca_address_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "customer",
+                  "Alias": "c1",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 3848.00,
+                  "Plan Rows": 100000,
+                  "Plan Width": 245,
+                  "Actual Startup Time": 0.010,
+                  "Actual Total Time": 18.712,
+                  "Actual Rows": 100000,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 2024.50,
+                  "Total Cost": 2024.50,
+                  "Plan Rows": 9905,
+                  "Plan Width": 145,
+                  "Actual Startup Time": 33.385,
+                  "Actual Total Time": 33.385,
+                  "Actual Rows": 9924,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 16384,
+                  "Original Hash Buckets": 16384,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 1850,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "customer_address",
+                      "Alias": "ca1",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 2024.50,
+                      "Plan Rows": 9905,
+                      "Plan Width": 145,
+                      "Actual Startup Time": 0.009,
+                      "Actual Total Time": 29.701,
+                      "Actual Rows": 9924,
+                      "Actual Loops": 1,
+                      "Filter": "(ca_state = ANY ('{TN,IL,GA,MO,CO,OH,NM}'::bpchar[]))",
+                      "Rows Removed by Filter": 40076
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 2.680,
+    "Triggers": [
+    ],
+    "Execution Time": 1583.067
+  }
+]

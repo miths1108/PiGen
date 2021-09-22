@@ -1,0 +1,67 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{url}
+
+\begin{document}
+
+\noindent
+\pagenumbering{gobble}
+
+\subsection*{Data Generation using Projection Constraints}
+Let $R$ be a relation with $m$ tuples and $n$ attributes $\{a_1, a_2, a_3, ... , a_n\}$. You are given count of distinct tuples for every subset of $n$ attributes i.e., you are given $2^n-1$ constraints of the form: 
+\begin{align*}
+    |\pi_{A_{i}}(R) = k_i| \hspace{10 mm} & \text{where } i \in \{1, 2, 3, ..., (2^n-1)\} \\
+        & k_i \in Z^+ \\
+        & A_i \subseteq \{a_1, a_2, a_3, ... , a_n\}
+\end{align*}
+We want to generate data for relation $R$ which satisfies the above constraints. The goals of the project are:
+\begin{enumerate}[\hspace{10 mm}(a)]
+	\item Implement the algorithm presented in [1] and integrate it in the CODD tool [2]. 
+	\item Extend the algorithm implemented in (a) to handle overlapping projection constraints. 
+	\item Design and implement a novel technique to handle overlapping projection constraints. 
+	\item[\hspace{10 mm}(*)] A bonus goal is to design and implement a strategy to generate data for relation R which satisfies the above constraints approximately i.e., constraints are met within a $\delta$-threshold. 
+\end{enumerate}
+
+\textbf{References}
+\begin{enumerate}[\hspace{10 mm}{[}1{]}]
+	\item Arvind Arasu, Raghav Kaushik, and Jian Li. Data generation using declarative constraints. SIGMOD, 2011. Sec 4.4. 
+	\item CODD Metadata Processor. \url{http://dsl.cds.iisc.ac.in/projects/CODD}, 2015.
+\end{enumerate}
+
+\textbf{Resource Person} \hspace{10 mm} Raghav Sood
+
+
+\pagebreak
+
+
+\subsection*{Incremental Algorithm for Solving Filter Constraints}
+Let $R$ be a relation with $m$ tuples and $n$ attributes $\{a_1, a_2, a_3, ... , a_n\}$.
+\begin{align*}
+\text{dom}(a_j) = \{1, 2, 3, ... , D\} \hspace{10 mm} a_j \in \{a_1, a_2, a_3, ... , a_n\}
+\end{align*}
+We have $c$ filter constraints on $R$. Each constraint $C_i$ ($1 \le i \le c$) is of the form $<\sigma_i, k_i>$, which means that the number of tuples satisfying the condition $\sigma_i$ is equal to $k_i$. $\sigma_i$ is of the form: 
+\begin{align*}
+\cap \hspace{2 mm} l_i^j \le a_j < h_i^j  \hspace{10 mm} \text{where } a_j \in \{a_1, a_2, a_3, ... , a_n\}
+\end{align*}
+For every tuple $t$ $\in$ dom($a_1$) x dom($a_2$) x ... x dom($a_n$), we create a variable$x_t$ the number of copies of $t$ in $R$. Now, for each constraint $C_i$ ($1 \le i \le c$), we create a linear equation of the form: 
+\begin{align*}
+\sum_{t:\sigma_i(t) = \text{true}} x_t = k_i
+\end{align*}
+This forms a system of $c$ linear equations involving $D^n$ variables. This system can be written in $Ax = b$ format. The goals of this project are:
+\begin{enumerate}[\hspace{10 mm}(a)]
+    \item To implement the algorithm presented in [1] for solving the $Ax = b$ formulation efficiently. 
+    \item To design and implement an incremental algorithm for the same. Incremental here means that the filter constraints are given in batches and the algorithm should apply next batch of constraints on the current solution in an incremental fashion. 
+\end{enumerate}
+
+\textbf{References}
+\begin{enumerate}[\hspace{10 mm}{[}1{]}]
+	\item Coleman, Thomas F., and Alex Pothen. The Null Space Problem II. Algorithms. SIAM Journal on Algebraic Discrete Methods, 1987. 
+\end{enumerate}
+
+\textbf{Resource Person} \hspace{10 mm} Raghav Sood
+
+
+
+\end{document}

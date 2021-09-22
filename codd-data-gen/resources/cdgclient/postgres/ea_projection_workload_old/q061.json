@@ -1,0 +1,164 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Unique",
+      "Parallel Aware": false,
+      "Startup Cost": 10000090741.70,
+      "Total Cost": 10000090743.92,
+      "Plan Rows": 445,
+      "Plan Width": 32,
+      "Actual Startup Time": 1266.247,
+      "Actual Total Time": 1414.334,
+      "Actual Rows": 309,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Sort",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Startup Cost": 10000090741.70,
+          "Total Cost": 10000090742.81,
+          "Plan Rows": 445,
+          "Plan Width": 32,
+          "Actual Startup Time": 1266.247,
+          "Actual Total Time": 1383.222,
+          "Actual Rows": 56334,
+          "Actual Loops": 1,
+          "Sort Key": ["(ROW(item.i_category, item.i_class, item.i_brand, date_dim.d_moy))"],
+          "Sort Method": "external merge",
+          "Sort Space Used": 10664,
+          "Sort Space Type": "Disk",
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 4016.33,
+              "Total Cost": 90722.12,
+              "Plan Rows": 445,
+              "Plan Width": 32,
+              "Actual Startup Time": 35.467,
+              "Actual Total Time": 823.205,
+              "Actual Rows": 56334,
+              "Actual Loops": 1,
+              "Hash Cond": "(store_sales.ss_item_sk = item.i_item_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Hash Join",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 2322.65,
+                  "Total Cost": 88975.13,
+                  "Plan Rows": 13032,
+                  "Plan Width": 8,
+                  "Actual Startup Time": 17.996,
+                  "Actual Total Time": 699.402,
+                  "Actual Rows": 496217,
+                  "Actual Loops": 1,
+                  "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)",
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "store_sales",
+                      "Alias": "store_sales",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 76687.57,
+                      "Plan Rows": 2622557,
+                      "Plan Width": 8,
+                      "Actual Startup Time": 0.024,
+                      "Actual Total Time": 345.739,
+                      "Actual Rows": 2485280,
+                      "Actual Loops": 1
+                    },
+                    {
+                      "Node Type": "Hash",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Startup Cost": 2318.11,
+                      "Total Cost": 2318.11,
+                      "Plan Rows": 363,
+                      "Plan Width": 8,
+                      "Actual Startup Time": 17.949,
+                      "Actual Total Time": 17.949,
+                      "Actual Rows": 365,
+                      "Actual Loops": 1,
+                      "Hash Buckets": 1024,
+                      "Original Hash Buckets": 1024,
+                      "Hash Batches": 1,
+                      "Original Hash Batches": 1,
+                      "Peak Memory Usage": 23,
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Relation Name": "date_dim",
+                          "Alias": "date_dim",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 2318.11,
+                          "Plan Rows": 363,
+                          "Plan Width": 8,
+                          "Actual Startup Time": 8.028,
+                          "Actual Total Time": 17.898,
+                          "Actual Rows": 365,
+                          "Actual Loops": 1,
+                          "Filter": "(d_year = 2002)",
+                          "Rows Removed by Filter": 72684
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 1686.00,
+                  "Total Cost": 1686.00,
+                  "Plan Rows": 614,
+                  "Plan Width": 157,
+                  "Actual Startup Time": 17.461,
+                  "Actual Total Time": 17.461,
+                  "Actual Rows": 2060,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 4096,
+                  "Original Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 419,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "item",
+                      "Alias": "item",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 1686.00,
+                      "Plan Rows": 614,
+                      "Plan Width": 157,
+                      "Actual Startup Time": 0.008,
+                      "Actual Total Time": 16.692,
+                      "Actual Rows": 2060,
+                      "Actual Loops": 1,
+                      "Filter": "(((i_category = ANY ('{Jewelry,Women,Shoes}'::bpchar[])) AND (i_class = ANY ('{\"mens watch\",dresses,mens}'::bpchar[]))) OR ((i_category = ANY ('{Men,Sports,Music}'::bpchar[])) AND (i_class = ANY ('{sports-apparel,sailing,pop}'::bpchar[]))))",
+                      "Rows Removed by Filter": 15940
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.347,
+    "Triggers": [
+    ],
+    "Execution Time": 1415.768
+  }
+]

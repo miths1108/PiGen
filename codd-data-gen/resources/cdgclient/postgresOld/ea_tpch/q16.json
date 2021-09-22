@@ -1,0 +1,85 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Startup Cost": 46629.84,
+      "Total Cost": 46661.14,
+      "Plan Rows": 3130,
+      "Plan Width": 36,
+      "Actual Startup Time": 233.986,
+      "Actual Total Time": 236.670,
+      "Actual Rows": 18728,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 8988.19,
+          "Total Cost": 45690.99,
+          "Plan Rows": 125180,
+          "Plan Width": 36,
+          "Actual Startup Time": 39.348,
+          "Actual Total Time": 202.879,
+          "Actual Rows": 122720,
+          "Actual Loops": 1,
+          "Hash Cond": "(partsupp.ps_partkey = part.p_partkey)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "partsupp",
+              "Alias": "partsupp",
+              "Startup Cost": 0.00,
+              "Total Cost": 25451.00,
+              "Plan Rows": 800000,
+              "Plan Width": 4,
+              "Actual Startup Time": 0.002,
+              "Actual Total Time": 56.179,
+              "Actual Rows": 800000,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 8597.00,
+              "Total Cost": 8597.00,
+              "Plan Rows": 31295,
+              "Plan Width": 40,
+              "Actual Startup Time": 39.337,
+              "Actual Total Time": 39.337,
+              "Actual Rows": 30680,
+              "Actual Loops": 1,
+              "Hash Buckets": 4096,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 2221,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "part",
+                  "Alias": "part",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 8597.00,
+                  "Plan Rows": 31295,
+                  "Plan Width": 40,
+                  "Actual Startup Time": 0.003,
+                  "Actual Total Time": 35.177,
+                  "Actual Rows": 30680,
+                  "Actual Loops": 1,
+                  "Filter": "((p_brand <> 'Brand#53'::bpchar) AND (p_size = ANY ('{45,37,43,7,18,13,22,12}'::integer[])))",
+                  "Rows Removed by Filter": 169320
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 237.149
+  }
+]

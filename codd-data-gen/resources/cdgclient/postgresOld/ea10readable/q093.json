@@ -1,0 +1,21 @@
+Hash Join  (cost=8780.11..30590.22 rows=1011 width=434) (actual time=79.624..493.037 rows=849 loops=1)
+  Hash Cond: (customer.c_current_hdemo_sk = household_demographics.hd_demo_sk)
+  ->  Hash Join  (cost=8586.25..30365.25 rows=4200 width=390) (actual time=74.094..488.637 rows=4288 loops=1)
+        Hash Cond: (customer.c_current_addr_sk = customer_address.ca_address_sk)
+        ->  Seq Scan on customer  (cost=0.00..19237.00 rows=500000 width=245) (actual time=0.004..325.033 rows=500000 loops=1)
+        ->  Hash  (cost=8560.00..8560.00 rows=2100 width=145) (actual time=74.070..74.070 rows=2138 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 367kB
+              ->  Seq Scan on customer_address  (cost=0.00..8560.00 rows=2100 width=145) (actual time=0.093..73.356 rows=2138 loops=1)
+                    Filter: ((ca_city)::text = 'Antioch'::text)
+                    Rows Removed by Filter: 247862
+  ->  Hash  (cost=171.36..171.36 rows=1800 width=44) (actual time=2.640..2.640 rows=1440 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 107kB
+        ->  Hash Join  (cost=1.36..171.36 rows=1800 width=44) (actual time=0.170..2.336 rows=1440 loops=1)
+              Hash Cond: (household_demographics.hd_income_band_sk = income_band.ib_income_band_sk)
+              ->  Seq Scan on household_demographics  (cost=0.00..125.00 rows=7200 width=32) (actual time=0.007..1.169 rows=7200 loops=1)
+              ->  Hash  (cost=1.30..1.30 rows=5 width=12) (actual time=0.157..0.157 rows=4 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 1kB
+                    ->  Seq Scan on income_band  (cost=0.00..1.30 rows=5 width=12) (actual time=0.149..0.155 rows=4 loops=1)
+                          Filter: ((ib_lower_bound >= 9901) AND (ib_upper_bound <= 59901))
+                          Rows Removed by Filter: 16
+Total runtime: 493.503 ms

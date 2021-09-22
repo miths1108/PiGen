@@ -1,0 +1,14 @@
+Hash Join  (cost=18374.82..316521.58 rows=47976 width=788) (actual time=151.449..22302.089 rows=4319228 loops=1)
+  Hash Cond: (web_sales.ws_item_sk = iws.i_item_sk)
+  ->  Hash Join  (cost=2506.82..289702.94 rows=47976 width=284) (actual time=19.505..9141.377 rows=4319228 loops=1)
+        Hash Cond: (web_sales.ws_sold_date_sk = d3.d_date_sk)
+        ->  Seq Scan on web_sales  (cost=0.00..259724.99 rows=7197699 width=166) (actual time=0.298..4905.160 rows=7197566 loops=1)
+        ->  Hash  (cost=2500.73..2500.73 rows=487 width=118) (actual time=19.192..19.192 rows=1096 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 165kB
+              ->  Seq Scan on date_dim d3  (cost=0.00..2500.73 rows=487 width=118) (actual time=8.518..18.969 rows=1096 loops=1)
+                    Filter: ((d_year >= 1999) AND (d_year <= 2001))
+                    Rows Removed by Filter: 71953
+  ->  Hash  (cost=8018.00..8018.00 rows=102000 width=504) (actual time=131.215..131.215 rows=102000 loops=1)
+        Buckets: 1024  Batches: 64  Memory Usage: 917kB
+        ->  Seq Scan on item iws  (cost=0.00..8018.00 rows=102000 width=504) (actual time=0.005..43.722 rows=102000 loops=1)
+Total runtime: 22477.441 ms

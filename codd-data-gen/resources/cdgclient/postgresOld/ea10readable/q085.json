@@ -1,0 +1,23 @@
+Hash Join  (cost=2839.20..918008.69 rows=41959 width=548) (actual time=21.893..15694.321 rows=1780404 loops=1)
+  Hash Cond: (store_sales.ss_store_sk = store.s_store_sk)
+  ->  Hash Join  (cost=2831.50..917402.53 rows=47699 width=261) (actual time=21.808..14222.705 rows=1956091 loops=1)
+        Hash Cond: (store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk)
+        ->  Hash Join  (cost=2594.00..916100.52 rows=58752 width=229) (actual time=18.802..13057.553 rows=2355816 loops=1)
+              Hash Cond: (store_sales.ss_sold_date_sk = date_dim.d_date_sk)
+              ->  Seq Scan on store_sales  (cost=0.00..804916.00 rows=28800800 width=111) (actual time=0.004..8335.203 rows=28800991 loops=1)
+              ->  Hash  (cost=2592.05..2592.05 rows=156 width=118) (actual time=18.398..18.398 rows=157 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 24kB
+                    ->  Seq Scan on date_dim  (cost=0.00..2592.05 rows=156 width=118) (actual time=9.086..18.344 rows=157 loops=1)
+                          Filter: ((d_dow = 1) AND (d_year = ANY ('{1999,2000,2001}'::integer[])))
+                          Rows Removed by Filter: 72892
+        ->  Hash  (cost=161.00..161.00 rows=6120 width=32) (actual time=2.766..2.766 rows=6120 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 383kB
+              ->  Seq Scan on household_demographics  (cost=0.00..161.00 rows=6120 width=32) (actual time=0.004..2.042 rows=6120 loops=1)
+                    Filter: ((hd_dep_count = 1) OR (hd_vehicle_count > (-1)))
+                    Rows Removed by Filter: 1080
+  ->  Hash  (cost=6.53..6.53 rows=94 width=287) (actual time=0.075..0.075 rows=94 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 31kB
+        ->  Seq Scan on store  (cost=0.00..6.53 rows=94 width=287) (actual time=0.006..0.048 rows=94 loops=1)
+              Filter: ((s_number_employees >= 200) AND (s_number_employees <= 295))
+              Rows Removed by Filter: 8
+Total runtime: 15777.906 ms

@@ -1,0 +1,5 @@
+SELECT * FROM
+    t07
+WHERE 1=1 
+    AND t07_c005 = 34
+;

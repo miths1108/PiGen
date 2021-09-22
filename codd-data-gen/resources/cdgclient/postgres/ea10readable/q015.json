@@ -1,0 +1,4 @@
+Seq Scan on date_dim  (cost=0.00..2318.11 rows=1 width=118) (actual time=8.059..15.761 rows=1 loops=1)
+  Filter: (d_date = '2002-03-09'::date)
+  Rows Removed by Filter: 73048
+Total runtime: 15.795 ms

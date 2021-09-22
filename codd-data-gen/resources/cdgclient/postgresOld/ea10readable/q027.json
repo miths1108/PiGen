@@ -1,0 +1,16 @@
+Hash Join  (cost=14060.19..927446.66 rows=158 width=733) (actual time=153.669..34261.694 rows=112610 loops=1)
+  Hash Cond: (store_sales.ss_sold_date_sk = date_dim.d_date_sk)
+  ->  Hash Join  (cost=10824.50..924082.33 rows=33883 width=615) (actual time=128.471..34000.224 rows=931421 loops=1)
+        Hash Cond: (store_sales.ss_item_sk = item.i_item_sk)
+        ->  Seq Scan on store_sales  (cost=0.00..804916.00 rows=28800800 width=111) (actual time=0.006..13843.415 rows=28800991 loops=1)
+        ->  Hash  (cost=10823.00..10823.00 rows=120 width=504) (actual time=128.176..128.176 rows=4035 loops=1)
+              Buckets: 1024  Batches: 4 (originally 1)  Memory Usage: 1025kB
+              ->  Seq Scan on item  (cost=0.00..10823.00 rows=120 width=504) (actual time=0.021..123.833 rows=4035 loops=1)
+                    Filter: (((i_category = ANY ('{Books,Children,Electronics}'::bpchar[])) AND (i_class = ANY ('{personal,portable,refernece,self-help}'::bpchar[])) AND (i_brand = ANY ('{"scholaramalgamalg #14","scholaramalgamalg #7","exportiunivamalg #9","scholaramalgamalg #9"}'::bpchar[]))) OR ((i_category = ANY ('{Women,Music,Men}'::bpchar[])) AND (i_class = ANY ('{accessories,classical,fragrances,pants}'::bpchar[])) AND (i_brand = ANY ('{"amalgimporto #1","edu packscholar #1"," exportiimporto #1","importoamalg #1"}'::bpchar[]))))
+                    Rows Removed by Filter: 97965
+  ->  Hash  (cost=3231.23..3231.23 rows=357 width=118) (actual time=22.052..22.052 rows=365 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 55kB
+        ->  Seq Scan on date_dim  (cost=0.00..3231.23 rows=357 width=118) (actual time=11.046..21.971 rows=365 loops=1)
+              Filter: (d_month_seq = ANY ('{1206,1207,1208,1209,1210,1211,1212,1213,1214,1215,1216,1217}'::integer[]))
+              Rows Removed by Filter: 72684
+Total runtime: 34269.686 ms

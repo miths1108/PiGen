@@ -1,0 +1,170 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 2937.91,
+      "Total Cost": 31956.71,
+      "Plan Rows": 100,
+      "Plan Width": 435,
+      "Actual Startup Time": 9.650,
+      "Actual Total Time": 157.673,
+      "Actual Rows": 111,
+      "Actual Loops": 1,
+      "Hash Cond": "(web_sales.ws_sold_time_sk = time_dim.t_time_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 154.91,
+          "Total Cost": 29159.23,
+          "Plan Rows": 1198,
+          "Plan Width": 332,
+          "Actual Startup Time": 0.667,
+          "Actual Total Time": 148.389,
+          "Actual Rows": 1434,
+          "Actual Loops": 1,
+          "Hash Cond": "(web_sales.ws_ship_hdemo_sk = household_demographics.hd_demo_sk)",
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Join Type": "Inner",
+              "Startup Cost": 2.91,
+              "Total Cost": 28950.30,
+              "Plan Rows": 11986,
+              "Plan Width": 300,
+              "Actual Startup Time": 0.044,
+              "Actual Total Time": 145.835,
+              "Actual Rows": 14052,
+              "Actual Loops": 1,
+              "Hash Cond": "(web_sales.ws_web_page_sk = web_page.wp_web_page_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "web_sales",
+                  "Alias": "web_sales",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 26129.84,
+                  "Plan Rows": 719384,
+                  "Plan Width": 171,
+                  "Actual Startup Time": 0.007,
+                  "Actual Total Time": 73.234,
+                  "Actual Rows": 719071,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Startup Cost": 2.90,
+                  "Total Cost": 2.90,
+                  "Plan Rows": 1,
+                  "Plan Width": 129,
+                  "Actual Startup Time": 0.012,
+                  "Actual Total Time": 0.012,
+                  "Actual Rows": 1,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 1,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Relation Name": "web_page",
+                      "Alias": "web_page",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 2.90,
+                      "Plan Rows": 1,
+                      "Plan Width": 129,
+                      "Actual Startup Time": 0.008,
+                      "Actual Total Time": 0.012,
+                      "Actual Rows": 1,
+                      "Actual Loops": 1,
+                      "Filter": "((wp_char_count >= 5000) AND (wp_char_count <= 5200))",
+                      "Rows Removed by Filter": 59
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 143.00,
+              "Total Cost": 143.00,
+              "Plan Rows": 720,
+              "Plan Width": 32,
+              "Actual Startup Time": 0.585,
+              "Actual Total Time": 0.585,
+              "Actual Rows": 720,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 45,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "household_demographics",
+                  "Alias": "household_demographics",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 143.00,
+                  "Plan Rows": 720,
+                  "Plan Width": 32,
+                  "Actual Startup Time": 0.064,
+                  "Actual Total Time": 0.531,
+                  "Actual Rows": 720,
+                  "Actual Loops": 1,
+                  "Filter": "(hd_dep_count = 8)",
+                  "Rows Removed by Filter": 6480
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 2693.00,
+          "Total Cost": 2693.00,
+          "Plan Rows": 7200,
+          "Plan Width": 103,
+          "Actual Startup Time": 8.446,
+          "Actual Total Time": 8.446,
+          "Actual Rows": 7200,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 971,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "time_dim",
+              "Alias": "time_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 2693.00,
+              "Plan Rows": 7200,
+              "Plan Width": 103,
+              "Actual Startup Time": 3.733,
+              "Actual Total Time": 7.942,
+              "Actual Rows": 7200,
+              "Actual Loops": 1,
+              "Filter": "((t_hour >= 13) AND (t_hour <= 14))",
+              "Rows Removed by Filter": 79200
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 157.739
+  }
+]

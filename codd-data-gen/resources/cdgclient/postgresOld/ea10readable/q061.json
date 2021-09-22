@@ -1,0 +1,16 @@
+Hash Join  (cost=12135.60..935919.33 rows=4605 width=733) (actual time=211.704..26684.242 rows=622605 loops=1)
+  Hash Cond: (store_sales.ss_item_sk = item.i_item_sk)
+  ->  Hash Join  (cost=2322.65..916608.77 rows=136712 width=229) (actual time=16.942..15986.057 rows=5504626 loops=1)
+        Hash Cond: (store_sales.ss_sold_date_sk = date_dim.d_date_sk)
+        ->  Seq Scan on store_sales  (cost=0.00..804916.00 rows=28800800 width=111) (actual time=0.007..9175.419 rows=28800991 loops=1)
+        ->  Hash  (cost=2318.11..2318.11 rows=363 width=118) (actual time=16.919..16.919 rows=365 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 55kB
+              ->  Seq Scan on date_dim  (cost=0.00..2318.11 rows=363 width=118) (actual time=8.597..16.849 rows=365 loops=1)
+                    Filter: (d_year = 2002)
+                    Rows Removed by Filter: 72684
+  ->  Hash  (cost=9548.00..9548.00 rows=3436 width=504) (actual time=193.953..193.953 rows=11549 loops=1)
+        Buckets: 1024  Batches: 8 (originally 2)  Memory Usage: 1025kB
+        ->  Seq Scan on item  (cost=0.00..9548.00 rows=3436 width=504) (actual time=0.009..181.851 rows=11549 loops=1)
+              Filter: (((i_category = ANY ('{Jewelry,Women,Shoes}'::bpchar[])) AND (i_class = ANY ('{"mens watch",dresses,mens}'::bpchar[]))) OR ((i_category = ANY ('{Men,Sports,Music}'::bpchar[])) AND (i_class = ANY ('{sports-apparel,sailing,pop}'::bpchar[]))))
+              Rows Removed by Filter: 90451
+Total runtime: 26716.039 ms

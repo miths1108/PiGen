@@ -1,0 +1,76 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 2322.65,
+      "Total Cost": 4639.81,
+      "Plan Rows": 357,
+      "Plan Width": 232,
+      "Actual Startup Time": 16.563,
+      "Actual Total Time": 50.232,
+      "Actual Rows": 13634,
+      "Actual Loops": 1,
+      "Hash Cond": "(web_returns.wr_returned_date_sk = date_dim.d_date_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "web_returns",
+          "Alias": "web_returns",
+          "Startup Cost": 0.00,
+          "Total Cost": 2044.63,
+          "Plan Rows": 71763,
+          "Plan Width": 114,
+          "Actual Startup Time": 0.009,
+          "Actual Total Time": 8.918,
+          "Actual Rows": 71763,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 2318.11,
+          "Total Cost": 2318.11,
+          "Plan Rows": 363,
+          "Plan Width": 118,
+          "Actual Startup Time": 16.546,
+          "Actual Total Time": 16.546,
+          "Actual Rows": 366,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 64,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "date_dim",
+              "Alias": "date_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 2318.11,
+              "Plan Rows": 363,
+              "Plan Width": 118,
+              "Actual Startup Time": 8.255,
+              "Actual Total Time": 16.475,
+              "Actual Rows": 366,
+              "Actual Loops": 1,
+              "Filter": "(d_year = 2000)",
+              "Rows Removed by Filter": 72683
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.208,
+    "Triggers": [
+    ],
+    "Execution Time": 50.810
+  }
+]

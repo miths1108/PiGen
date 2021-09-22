@@ -1,0 +1,7 @@
+(declare-fun var0_0 () Int)
+(declare-fun var0_1 () Int)
+(assert (>= var0_0 0))
+(assert (>= var0_1 0))
+(assert (= (+ var0_1) 4))
+(assert (= (+ var0_0 var0_1) 20))
+(check-sat)

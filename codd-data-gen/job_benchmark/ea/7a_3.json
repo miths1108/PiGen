@@ -1,0 +1,130 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 304321.87,
+      "Total Cost": 2422295.89,
+      "Plan Rows": 785777,
+      "Plan Width": 211,
+      "Actual Startup Time": 2546.519,
+      "Actual Total Time": 24812.004,
+      "Actual Rows": 1211630,
+      "Actual Loops": 1,
+      "Hash Cond": "(ci.ci_person_id = n.n_id)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 109877.85,
+          "Total Cost": 1983875.89,
+          "Plan Rows": 5284055,
+          "Plan Width": 136,
+          "Actual Startup Time": 530.226,
+          "Actual Total Time": 19400.079,
+          "Actual Rows": 5943787,
+          "Actual Loops": 1,
+          "Hash Cond": "(ci.ci_movie_id = t.t_id)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "cast_info",
+              "Alias": "ci",
+              "Startup Cost": 0.00,
+              "Total Cost": 805680.36,
+              "Plan Rows": 47351236,
+              "Plan Width": 42,
+              "Actual Startup Time": 0.017,
+              "Actual Total Time": 3835.348,
+              "Actual Rows": 47373957,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 99566.12,
+              "Total Cost": 99566.12,
+              "Plan Rows": 379818,
+              "Plan Width": 94,
+              "Actual Startup Time": 530.036,
+              "Actual Total Time": 530.036,
+              "Actual Rows": 386419,
+              "Actual Loops": 1,
+              "Hash Buckets": 32768,
+              "Original Hash Buckets": 32768,
+              "Hash Batches": 16,
+              "Original Hash Batches": 16,
+              "Peak Memory Usage": 2986,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "title",
+                  "Alias": "t",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 99566.12,
+                  "Plan Rows": 379818,
+                  "Plan Width": 94,
+                  "Actual Startup Time": 0.006,
+                  "Actual Total Time": 464.655,
+                  "Actual Rows": 386419,
+                  "Actual Loops": 1,
+                  "Filter": "((t_production_year >= 1980) AND (t_production_year <= 1995))",
+                  "Rows Removed by Filter": 3016791
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 174810.30,
+          "Total Cost": 174810.30,
+          "Plan Rows": 779258,
+          "Plan Width": 75,
+          "Actual Startup Time": 1517.190,
+          "Actual Total Time": 1517.190,
+          "Actual Rows": 910014,
+          "Actual Loops": 1,
+          "Hash Buckets": 65536,
+          "Original Hash Buckets": 65536,
+          "Hash Batches": 32,
+          "Original Hash Batches": 32,
+          "Peak Memory Usage": 3552,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "name",
+              "Alias": "n",
+              "Startup Cost": 0.00,
+              "Total Cost": 174810.30,
+              "Plan Rows": 779258,
+              "Plan Width": 75,
+              "Actual Startup Time": 0.015,
+              "Actual Total Time": 1370.885,
+              "Actual Rows": 910014,
+              "Actual Loops": 1,
+              "Filter": "(((n_name_pcode_cf)::text >= 'A'::text) AND ((n_name_pcode_cf)::text <= 'F'::text) AND (((n_gender)::text = 'm'::text) OR ((n_gender)::text = 'f'::text)))",
+              "Rows Removed by Filter": 4330846
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.278,
+    "Triggers": [
+    ],
+    "Execution Time": 24848.156
+  }
+]

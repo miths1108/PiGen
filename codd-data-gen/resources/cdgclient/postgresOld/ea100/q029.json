@@ -1,0 +1,72 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 2684.52,
+      "Total Cost": 9135039.71,
+      "Plan Rows": 351023,
+      "Plan Width": 229,
+      "Actual Startup Time": 152635.807,
+      "Actual Total Time": 152635.807,
+      "Actual Rows": 0,
+      "Actual Loops": 1,
+      "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "store_sales",
+          "Alias": "store_sales",
+          "Startup Cost": 0.00,
+          "Total Cost": 8048855.88,
+          "Plan Rows": 287997088,
+          "Plan Width": 111,
+          "Actual Startup Time": 0.172,
+          "Actual Total Time": 117408.423,
+          "Actual Rows": 287997024,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 2683.36,
+          "Total Cost": 2683.36,
+          "Plan Rows": 93,
+          "Plan Width": 118,
+          "Actual Startup Time": 19.932,
+          "Actual Total Time": 19.932,
+          "Actual Rows": 92,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 22,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "date_dim",
+              "Alias": "date_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 2683.36,
+              "Plan Rows": 93,
+              "Plan Width": 118,
+              "Actual Startup Time": 10.438,
+              "Actual Total Time": 19.902,
+              "Actual Rows": 92,
+              "Actual Loops": 1,
+              "Filter": "((d_moy >= 3) AND (d_moy <= 5) AND (d_year = 2004))",
+              "Rows Removed by Filter": 72957
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 2.053,
+    "Triggers": [
+    ],
+    "Execution Time": 152635.864
+  }
+]

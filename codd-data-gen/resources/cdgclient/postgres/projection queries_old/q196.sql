@@ -1,0 +1,6 @@
+select distinct i_brand_id,i_class_id,i_category_id
+from store_sales, item, date_dim
+ where ss_item_sk = i_item_sk
+   and ss_sold_date_sk = d_date_sk
+   and d_week_seq = 5320
+;

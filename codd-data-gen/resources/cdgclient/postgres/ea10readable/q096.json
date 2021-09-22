@@ -1,0 +1,9 @@
+Hash Join  (cost=2501.12..89956.61 rows=1179 width=216) (actual time=17.923..1557.546 rows=32718 loops=1)
+  Hash Cond: (store_returns.sr_returned_date_sk = date_dim.d_date_sk)
+  ->  Seq Scan on store_returns  (cost=0.00..76660.69 rows=2875469 width=98) (actual time=0.195..1201.938 rows=2875432 loops=1)
+  ->  Hash  (cost=2500.73..2500.73 rows=31 width=118) (actual time=17.704..17.704 rows=32 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 5kB
+        ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=31 width=118) (actual time=7.923..17.686 rows=32 loops=1)
+              Filter: ((d_date >= '1998-08-14'::date) AND (d_date <= '1998-09-14'::date))
+              Rows Removed by Filter: 73017
+Total runtime: 1559.642 ms

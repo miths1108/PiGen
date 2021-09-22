@@ -1,0 +1,16 @@
+Hash Join  (cost=13271.57..302248.48 rows=892 width=788) (actual time=138.329..5790.505 rows=21371 loops=1)
+  Hash Cond: (web_sales.ws_item_sk = item.i_item_sk)
+  ->  Hash Join  (cost=2501.11..289247.02 rows=2955 width=284) (actual time=17.870..5470.972 rows=71480 loops=1)
+        Hash Cond: (web_sales.ws_sold_date_sk = date_dim.d_date_sk)
+        ->  Seq Scan on web_sales  (cost=0.00..259724.99 rows=7197699 width=166) (actual time=0.022..4591.741 rows=7197566 loops=1)
+        ->  Hash  (cost=2500.73..2500.73 rows=30 width=118) (actual time=17.734..17.734 rows=31 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 5kB
+              ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=30 width=118) (actual time=8.029..17.717 rows=31 loops=1)
+                    Filter: ((d_date >= '2002-04-01'::date) AND (d_date <= '2002-05-01'::date))
+                    Rows Removed by Filter: 73018
+  ->  Hash  (cost=8400.50..8400.50 rows=30797 width=504) (actual time=105.021..105.021 rows=30586 loops=1)
+        Buckets: 1024  Batches: 32  Memory Usage: 539kB
+        ->  Seq Scan on item  (cost=0.00..8400.50 rows=30797 width=504) (actual time=0.009..79.168 rows=30586 loops=1)
+              Filter: (i_category = ANY ('{Children,Sports,Music}'::bpchar[]))
+              Rows Removed by Filter: 71414
+Total runtime: 5791.552 ms

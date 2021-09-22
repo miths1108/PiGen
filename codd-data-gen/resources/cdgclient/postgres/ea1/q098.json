@@ -1,0 +1,70 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 2501.10,
+      "Total Cost": 7477.59,
+      "Plan Rows": 57,
+      "Plan Width": 248,
+      "Actual Startup Time": 6.349,
+      "Actual Total Time": 29.648,
+      "Actual Rows": 1451,
+      "Actual Loops": 1,
+      "Hash Cond": "(catalog_returns.cr_returned_date_sk = date_dim.d_date_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "catalog_returns",
+          "Alias": "catalog_returns",
+          "Startup Cost": 0.00,
+          "Total Cost": 4435.67,
+          "Plan Rows": 144067,
+          "Plan Width": 130,
+          "Actual Startup Time": 0.014,
+          "Actual Total Time": 14.395,
+          "Actual Rows": 141190,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 2500.73,
+          "Total Cost": 2500.73,
+          "Plan Rows": 29,
+          "Plan Width": 118,
+          "Actual Startup Time": 6.329,
+          "Actual Total Time": 6.329,
+          "Actual Rows": 32,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 5,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "date_dim",
+              "Alias": "date_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 2500.73,
+              "Plan Rows": 29,
+              "Plan Width": 118,
+              "Actual Startup Time": 2.776,
+              "Actual Total Time": 6.322,
+              "Actual Rows": 32,
+              "Actual Loops": 1,
+              "Filter": "((d_date >= '1998-08-14'::date) AND (d_date <= '1998-09-14'::date))",
+              "Rows Removed by Filter": 73017
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 29.723
+  }
+]

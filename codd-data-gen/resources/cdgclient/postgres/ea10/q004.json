@@ -1,0 +1,123 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 10776.02,
+      "Total Cost": 587715.30,
+      "Plan Rows": 16,
+      "Plan Width": 792,
+      "Actual Startup Time": 2539.151,
+      "Actual Total Time": 5820.389,
+      "Actual Rows": 751,
+      "Actual Loops": 1,
+      "Hash Cond": "(catalog_sales.cs_sold_date_sk = date_dim.d_date_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 8274.11,
+          "Total Cost": 585166.11,
+          "Plan Rows": 12566,
+          "Plan Width": 674,
+          "Actual Startup Time": 61.423,
+          "Actual Total Time": 5801.481,
+          "Actual Rows": 25777,
+          "Actual Loops": 1,
+          "Hash Cond": "(catalog_sales.cs_item_sk = item.i_item_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "catalog_sales",
+              "Alias": "catalog_sales",
+              "Startup Cost": 0.00,
+              "Total Cost": 522761.61,
+              "Plan Rows": 14401261,
+              "Plan Width": 170,
+              "Actual Startup Time": 0.965,
+              "Actual Total Time": 3638.952,
+              "Actual Rows": 14258808,
+              "Actual Loops": 1
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 8273.00,
+              "Total Cost": 8273.00,
+              "Plan Rows": 89,
+              "Plan Width": 504,
+              "Actual Startup Time": 60.429,
+              "Actual Total Time": 60.429,
+              "Actual Rows": 192,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Original Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 108,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "item",
+                  "Alias": "item",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 8273.00,
+                  "Plan Rows": 89,
+                  "Plan Width": 504,
+                  "Actual Startup Time": 0.129,
+                  "Actual Total Time": 60.168,
+                  "Actual Rows": 192,
+                  "Actual Loops": 1,
+                  "Filter": "(i_manufact_id = 291)",
+                  "Rows Removed by Filter": 101808
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 2500.73,
+          "Total Cost": 2500.73,
+          "Plan Rows": 94,
+          "Plan Width": 118,
+          "Actual Startup Time": 14.538,
+          "Actual Total Time": 14.538,
+          "Actual Rows": 93,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 22,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "date_dim",
+              "Alias": "date_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 2500.73,
+              "Plan Rows": 94,
+              "Plan Width": 118,
+              "Actual Startup Time": 7.330,
+              "Actual Total Time": 14.503,
+              "Actual Rows": 93,
+              "Actual Loops": 1,
+              "Filter": "((d_date >= '2000-03-22'::date) AND (d_date <= '2000-06-22'::date))",
+              "Rows Removed by Filter": 72956
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 1.326,
+    "Triggers": [
+    ],
+    "Execution Time": 5820.590
+  }
+]

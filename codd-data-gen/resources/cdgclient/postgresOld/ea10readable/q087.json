@@ -1,0 +1,28 @@
+Hash Join  (cost=636978.51..645388.94 rows=993 width=1012) (actual time=17775.475..18055.779 rows=39871 loops=1)
+  Hash Cond: (item.i_item_sk = catalog_sales.cs_item_sk)
+  ->  Seq Scan on item  (cost=0.00..8018.00 rows=102000 width=504) (actual time=0.006..48.781 rows=102000 loops=1)
+  ->  Hash  (cost=636966.10..636966.10 rows=993 width=508) (actual time=17774.585..17774.585 rows=39871 loops=1)
+        Buckets: 1024  Batches: 32 (originally 1)  Memory Usage: 1025kB
+        ->  Hash Join  (cost=58395.08..636966.10 rows=993 width=508) (actual time=7362.271..17659.763 rows=39871 loops=1)
+              Hash Cond: (catalog_sales.cs_promo_sk = promotion.p_promo_sk)
+              ->  Hash Join  (cost=58368.33..636925.67 rows=999 width=341) (actual time=7361.960..17624.789 rows=40095 loops=1)
+                    Hash Cond: (catalog_sales.cs_bill_cdemo_sk = customer_demographics.cd_demo_sk)
+                    ->  Hash Join  (cost=2322.65..574736.01 rows=71199 width=285) (actual time=6604.580..12691.348 rows=2852599 loops=1)
+                          Hash Cond: (catalog_sales.cs_sold_date_sk = date_dim.d_date_sk)
+                          ->  Seq Scan on catalog_sales  (cost=0.00..517696.36 rows=14401336 width=167) (actual time=0.381..8853.698 rows=14401261 loops=1)
+                          ->  Hash  (cost=2318.11..2318.11 rows=363 width=118) (actual time=17.291..17.291 rows=365 loops=1)
+                                Buckets: 1024  Batches: 1  Memory Usage: 55kB
+                                ->  Seq Scan on date_dim  (cost=0.00..2318.11 rows=363 width=118) (actual time=8.710..17.209 rows=365 loops=1)
+                                      Filter: (d_year = 2001)
+                                      Rows Removed by Filter: 72684
+                    ->  Hash  (cost=55442.00..55442.00 rows=27094 width=56) (actual time=654.628..654.628 rows=27440 loops=1)
+                          Buckets: 2048  Batches: 4  Memory Usage: 629kB
+                          ->  Seq Scan on customer_demographics  (cost=0.00..55442.00 rows=27094 width=56) (actual time=0.015..643.917 rows=27440 loops=1)
+                                Filter: ((cd_gender = 'M'::bpchar) AND (cd_marital_status = 'D'::bpchar) AND (cd_education_status = 'College'::bpchar))
+                                Rows Removed by Filter: 1893360
+              ->  Hash  (cost=20.50..20.50 rows=500 width=167) (actual time=0.305..0.305 rows=498 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 100kB
+                    ->  Seq Scan on promotion  (cost=0.00..20.50 rows=500 width=167) (actual time=0.006..0.217 rows=498 loops=1)
+                          Filter: ((p_channel_email = 'N'::bpchar) OR (p_channel_event = 'N'::bpchar))
+                          Rows Removed by Filter: 2
+Total runtime: 18057.641 ms

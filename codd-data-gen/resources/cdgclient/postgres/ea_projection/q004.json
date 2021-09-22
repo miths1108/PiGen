@@ -1,0 +1,38 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Startup Cost": 1507.58,
+      "Total Cost": 1507.92,
+      "Plan Rows": 34,
+      "Plan Width": 4,
+      "Actual Startup Time": 8.535,
+      "Actual Total Time": 8.587,
+      "Actual Rows": 298,
+      "Actual Loops": 1,
+      "Group Key": ["i_brand_id"],
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "item",
+          "Alias": "item",
+          "Startup Cost": 0.00,
+          "Total Cost": 1506.00,
+          "Plan Rows": 633,
+          "Plan Width": 4,
+          "Actual Startup Time": 0.008,
+          "Actual Total Time": 8.314,
+          "Actual Rows": 641,
+          "Actual Loops": 1,
+          "Filter": "((i_current_price < 1.5) AND (i_current_price >= 1.2))",
+          "Rows Removed by Filter": 17359
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 8.631
+  }
+]

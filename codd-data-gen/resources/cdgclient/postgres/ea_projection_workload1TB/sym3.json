@@ -1,0 +1,42 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Partial Mode": "Simple",
+      "Parallel Aware": false,
+      "Startup Cost": 29854.58,
+      "Total Cost": 29855.58,
+      "Plan Rows": 100,
+      "Plan Width": 4,
+      "Actual Startup Time": 148.084,
+      "Actual Total Time": 148.088,
+      "Actual Rows": 29000,
+      "Actual Loops": 1,
+      "Group Key": ["ws_quantity"],
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "web_sales",
+          "Alias": "web_sales",
+          "Startup Cost": 0.00,
+          "Total Cost": 29714.07,
+          "Plan Rows": 56207,
+          "Plan Width": 4,
+          "Actual Startup Time": 0.009,
+          "Actual Total Time": 138.263,
+          "Actual Rows": 50883000,
+          "Actual Loops": 1,
+          "Filter": "((ws_quantity < 30) AND (ws_sales_price > '70'::numeric))",
+          "Rows Removed by Filter": 597142
+        }
+      ]
+    },
+    "Planning Time": 0.077,
+    "Triggers": [
+    ],
+    "Execution Time": 148.108
+  }
+]

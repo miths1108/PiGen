@@ -1,0 +1,1 @@
+SELECT * FROM complete_cast AS cc, comp_cast_type AS cct1, kind_type AS kt, title AS t WHERE cct1.cct_kind  = 'crew' AND kt.kt_kind  in ('movie', 'episode') AND t.t_production_year  > 2005 AND kt.kt_id = t.t_kind_id AND t.t_id = cc.cc_movie_id AND cct1.cct_id = cc.cc_subject_id;

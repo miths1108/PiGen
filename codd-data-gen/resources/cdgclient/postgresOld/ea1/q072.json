@@ -1,0 +1,170 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 2965.03,
+      "Total Cost": 100022.19,
+      "Plan Rows": 725,
+      "Plan Width": 537,
+      "Actual Startup Time": 12.976,
+      "Actual Total Time": 625.978,
+      "Actual Rows": 1409,
+      "Actual Loops": 1,
+      "Hash Cond": "(store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk)",
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 2717.62,
+          "Total Cost": 99749.72,
+          "Plan Rows": 4753,
+          "Plan Width": 505,
+          "Actual Startup Time": 8.947,
+          "Actual Total Time": 623.952,
+          "Actual Rows": 8787,
+          "Actual Loops": 1,
+          "Hash Cond": "(store_sales.ss_sold_time_sk = time_dim.t_time_sk)",
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Join Type": "Inner",
+              "Startup Cost": 1.16,
+              "Total Cost": 95840.37,
+              "Plan Rows": 229072,
+              "Plan Width": 402,
+              "Actual Startup Time": 0.027,
+              "Actual Total Time": 585.988,
+              "Actual Rows": 436964,
+              "Actual Loops": 1,
+              "Hash Cond": "(store_sales.ss_store_sk = store.s_store_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "store_sales",
+                  "Alias": "store_sales",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 82746.99,
+                  "Plan Rows": 2880399,
+                  "Plan Width": 115,
+                  "Actual Startup Time": 0.008,
+                  "Actual Total Time": 226.031,
+                  "Actual Rows": 2622614,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Startup Cost": 1.15,
+                  "Total Cost": 1.15,
+                  "Plan Rows": 1,
+                  "Plan Width": 287,
+                  "Actual Startup Time": 0.004,
+                  "Actual Total Time": 0.004,
+                  "Actual Rows": 1,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 1,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Relation Name": "store",
+                      "Alias": "store",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 1.15,
+                      "Plan Rows": 1,
+                      "Plan Width": 287,
+                      "Actual Startup Time": 0.002,
+                      "Actual Total Time": 0.003,
+                      "Actual Rows": 1,
+                      "Actual Loops": 1,
+                      "Filter": "((s_store_name)::text = 'ese'::text)",
+                      "Rows Removed by Filter": 11
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 2693.00,
+              "Total Cost": 2693.00,
+              "Plan Rows": 1877,
+              "Plan Width": 103,
+              "Actual Startup Time": 8.417,
+              "Actual Total Time": 8.417,
+              "Actual Rows": 1800,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 243,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Relation Name": "time_dim",
+                  "Alias": "time_dim",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 2693.00,
+                  "Plan Rows": 1877,
+                  "Plan Width": 103,
+                  "Actual Startup Time": 2.900,
+                  "Actual Total Time": 8.284,
+                  "Actual Rows": 1800,
+                  "Actual Loops": 1,
+                  "Filter": "((t_minute >= 30) AND (t_hour = 8))",
+                  "Rows Removed by Filter": 84600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 233.00,
+          "Total Cost": 233.00,
+          "Plan Rows": 1152,
+          "Plan Width": 32,
+          "Actual Startup Time": 1.058,
+          "Actual Total Time": 1.058,
+          "Actual Rows": 1200,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 75,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "household_demographics",
+              "Alias": "household_demographics",
+              "Startup Cost": 0.00,
+              "Total Cost": 233.00,
+              "Plan Rows": 1152,
+              "Plan Width": 32,
+              "Actual Startup Time": 0.004,
+              "Actual Total Time": 0.969,
+              "Actual Rows": 1200,
+              "Actual Loops": 1,
+              "Filter": "(((hd_dep_count = 4) AND (hd_vehicle_count <= 6)) OR ((hd_dep_count = (-1)) AND (hd_vehicle_count <= 1)) OR ((hd_dep_count = 0) AND (hd_vehicle_count <= 2)))",
+              "Rows Removed by Filter": 6000
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 626.075
+  }
+]

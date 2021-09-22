@@ -1,0 +1,1 @@
+select distinct relp,ten from jointable where agep between 21 and 114 and sex=2 and puma10=59304;

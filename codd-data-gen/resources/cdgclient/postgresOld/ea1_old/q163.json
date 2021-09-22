@@ -1,0 +1,76 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 2412.81,
+      "Total Cost": 11167.42,
+      "Plan Rows": 1067,
+      "Plan Width": 216,
+      "Actual Startup Time": 32.396,
+      "Actual Total Time": 163.803,
+      "Actual Rows": 40686,
+      "Actual Loops": 1,
+      "Hash Cond": "(store_returns.sr_returned_date_sk = date_dim.d_date_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "store_returns",
+          "Alias": "store_returns",
+          "Startup Cost": 0.00,
+          "Total Cost": 7666.14,
+          "Plan Rows": 287514,
+          "Plan Width": 98,
+          "Actual Startup Time": 0.028,
+          "Actual Total Time": 45.018,
+          "Actual Rows": 287514,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 2409.42,
+          "Total Cost": 2409.42,
+          "Plan Rows": 271,
+          "Plan Width": 118,
+          "Actual Startup Time": 32.357,
+          "Actual Total Time": 32.357,
+          "Actual Rows": 274,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 50,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Relation Name": "date_dim",
+              "Alias": "date_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 2409.42,
+              "Plan Rows": 271,
+              "Plan Width": 118,
+              "Actual Startup Time": 16.276,
+              "Actual Total Time": 32.303,
+              "Actual Rows": 274,
+              "Actual Loops": 1,
+              "Filter": "(d_quarter_name = ANY ('{2001Q1,2001Q2,2001Q3}'::bpchar[]))",
+              "Rows Removed by Filter": 72775
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.221,
+    "Triggers": [
+    ],
+    "Execution Time": 165.528
+  }
+]

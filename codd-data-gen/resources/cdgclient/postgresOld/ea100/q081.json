@@ -1,0 +1,74 @@
+ [                                                                                   
+   {                                                                                 
+     "Plan": {                                                                       
+       "Node Type": "Hash Join",                                                     
+       "Join Type": "Inner",                                                         
+       "Startup Cost": 49220.09,                                                     
+       "Total Cost": 284771.58,                                                      
+       "Plan Rows": 881938,                                                          
+       "Plan Width": 390,                                                            
+       "Actual Startup Time": 564.069,                                               
+       "Actual Total Time": 4028.337,                                                
+       "Actual Rows": 882556,                                                        
+       "Actual Loops": 1,                                                            
+       "Hash Cond": "(customer.c_current_addr_sk = customer_address.ca_address_sk)", 
+       "Plans": [                                                                    
+         {                                                                           
+           "Node Type": "Seq Scan",                                                  
+           "Parent Relationship": "Outer",                                           
+           "Relation Name": "customer",                                              
+           "Alias": "customer",                                                      
+           "Startup Cost": 0.00,                                                     
+           "Total Cost": 76944.08,                                                   
+           "Plan Rows": 2000008,                                                     
+           "Plan Width": 245,                                                        
+           "Actual Startup Time": 0.011,                                             
+           "Actual Total Time": 1109.764,                                            
+           "Actual Rows": 2000000,                                                   
+           "Actual Loops": 1                                                         
+         },                                                                          
+         {                                                                           
+           "Node Type": "Hash",                                                      
+           "Parent Relationship": "Inner",                                           
+           "Startup Cost": 34234.00,                                                 
+           "Total Cost": 34234.00,                                                   
+           "Plan Rows": 440967,                                                      
+           "Plan Width": 145,                                                        
+           "Actual Startup Time": 562.117,                                           
+           "Actual Total Time": 562.117,                                             
+           "Actual Rows": 440966,                                                    
+           "Actual Loops": 1,                                                        
+           "Hash Buckets": 32768,                                                    
+           "Original Hash Buckets": 32768,                                           
+           "Hash Batches": 32,                                                       
+           "Original Hash Batches": 32,                                              
+           "Peak Memory Usage": 2632,                                                
+           "Plans": [                                                                
+             {                                                                       
+               "Node Type": "Seq Scan",                                              
+               "Parent Relationship": "Outer",                                       
+               "Relation Name": "customer_address",                                  
+               "Alias": "customer_address",                                          
+               "Startup Cost": 0.00,                                                 
+               "Total Cost": 34234.00,                                               
+               "Plan Rows": 440967,                                                  
+               "Plan Width": 145,                                                    
+               "Actual Startup Time": 0.009,                                         
+               "Actual Total Time": 374.961,                                         
+               "Actual Rows": 440966,                                                
+               "Actual Loops": 1,                                                    
+               "Filter": "(ca_gmt_offset = '-6'::numeric)",                          
+               "Rows Removed by Filter": 559034                                      
+             }                                                                       
+           ]                                                                         
+         }                                                                           
+       ]                                                                             
+     },                                                                              
+     "Planning Time": 0.548,                                                         
+     "Triggers": [                                                                   
+     ],                                                                              
+     "Execution Time": 4066.725                                                      
+   }                                                                                 
+ ]
+
+

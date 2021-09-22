@@ -1,0 +1,148 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Partial Mode": "Simple",
+      "Parallel Aware": false,
+      "Startup Cost": 91727.82,
+      "Total Cost": 91728.04,
+      "Plan Rows": 22,
+      "Plan Width": 8,
+      "Actual Startup Time": 638.079,
+      "Actual Total Time": 638.206,
+      "Actual Rows": 1408,
+      "Actual Loops": 1,
+      "Group Key": ["item.i_manufact_id", "date_dim.d_qoy"],
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 5147.24,
+          "Total Cost": 91727.71,
+          "Plan Rows": 22,
+          "Plan Width": 8,
+          "Actual Startup Time": 27.202,
+          "Actual Total Time": 626.490,
+          "Actual Rows": 28404,
+          "Actual Loops": 1,
+          "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)",
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 1911.36,
+              "Total Cost": 88475.77,
+              "Plan Rows": 4225,
+              "Plan Width": 8,
+              "Actual Startup Time": 15.611,
+              "Actual Total Time": 598.297,
+              "Actual Rows": 103729,
+              "Actual Loops": 1,
+              "Hash Cond": "(store_sales.ss_item_sk = item.i_item_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "store_sales",
+                  "Alias": "store_sales",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 76687.57,
+                  "Plan Rows": 2622557,
+                  "Plan Width": 8,
+                  "Actual Startup Time": 0.038,
+                  "Actual Total Time": 298.916,
+                  "Actual Rows": 2485280,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 1911.00,
+                  "Total Cost": 1911.00,
+                  "Plan Rows": 29,
+                  "Plan Width": 8,
+                  "Actual Startup Time": 15.561,
+                  "Actual Total Time": 15.561,
+                  "Actual Rows": 934,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Original Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 45,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "item",
+                      "Alias": "item",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 1911.00,
+                      "Plan Rows": 29,
+                      "Plan Width": 8,
+                      "Actual Startup Time": 0.014,
+                      "Actual Total Time": 15.385,
+                      "Actual Rows": 934,
+                      "Actual Loops": 1,
+                      "Filter": "(((i_category = ANY ('{Books,Children,Electronics}'::bpchar[])) AND (i_class = ANY ('{personal,portable,reference,self-help}'::bpchar[])) AND (i_brand = ANY ('{\"scholaramalgamalg #14\",\"scholaramalgamalg #7\",\"exportiunivamalg #9\",\"scholaramalgamalg #9\"}'::bpchar[]))) OR ((i_category = ANY ('{Women,Music,Men}'::bpchar[])) AND (i_class = ANY ('{accessories,classical,fragrances,pants}'::bpchar[])) AND (i_brand = ANY ('{\"amalgimporto #1\",\"edu packscholar #1\",\"exportiimporto #1\",\"importoamalg #1\"}'::bpchar[]))))",
+                      "Rows Removed by Filter": 17066
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 3231.23,
+              "Total Cost": 3231.23,
+              "Plan Rows": 372,
+              "Plan Width": 8,
+              "Actual Startup Time": 11.569,
+              "Actual Total Time": 11.569,
+              "Actual Rows": 366,
+              "Actual Loops": 1,
+              "Hash Buckets": 1024,
+              "Original Hash Buckets": 1024,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 23,
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "date_dim",
+                  "Alias": "date_dim",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 3231.23,
+                  "Plan Rows": 372,
+                  "Plan Width": 8,
+                  "Actual Startup Time": 5.593,
+                  "Actual Total Time": 11.531,
+                  "Actual Rows": 366,
+                  "Actual Loops": 1,
+                  "Filter": "(d_month_seq = ANY ('{1195,1196,1197,1198,1199,1200,1201,1202,1203,1204,1205,1206}'::integer[]))",
+                  "Rows Removed by Filter": 72683
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.437,
+    "Triggers": [
+    ],
+    "Execution Time": 638.280
+  }
+]

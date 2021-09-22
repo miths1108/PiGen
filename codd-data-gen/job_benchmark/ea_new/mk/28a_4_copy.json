@@ -1,0 +1,202 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Partial Mode": "Simple",
+      "Parallel Aware": false,
+      "Startup Cost": 215206.95,
+      "Total Cost": 215206.96,
+      "Plan Rows": 1,
+      "Plan Width": 5,
+      "Actual Startup Time": 1697.535,
+      "Actual Total Time": 1697.536,
+      "Actual Rows": 3,
+      "Actual Loops": 1,
+      "Group Key": ["k.k_phonetic_code"],
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 103533.36,
+          "Total Cost": 215206.94,
+          "Plan Rows": 1,
+          "Plan Width": 5,
+          "Actual Startup Time": 970.189,
+          "Actual Total Time": 1692.928,
+          "Actual Rows": 27439,
+          "Actual Loops": 1,
+          "Hash Cond": "(mk.mk_movie_id = t.t_id)",
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 3906.68,
+              "Total Cost": 115579.76,
+              "Plan Rows": 133,
+              "Plan Width": 9,
+              "Actual Startup Time": 33.410,
+              "Actual Total Time": 881.860,
+              "Actual Rows": 43641,
+              "Actual Loops": 1,
+              "Hash Cond": "(mk.mk_keyword_id = k.k_id)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "movie_keyword",
+                  "Alias": "mk",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 89810.27,
+                  "Plan Rows": 5829727,
+                  "Plan Width": 8,
+                  "Actual Startup Time": 0.032,
+                  "Actual Total Time": 410.704,
+                  "Actual Rows": 5829736,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 3906.63,
+                  "Total Cost": 3906.63,
+                  "Plan Rows": 4,
+                  "Plan Width": 9,
+                  "Actual Startup Time": 33.304,
+                  "Actual Total Time": 33.304,
+                  "Actual Rows": 3,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Original Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 9,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "keyword",
+                      "Alias": "k",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 3906.63,
+                      "Plan Rows": 4,
+                      "Plan Width": 9,
+                      "Actual Startup Time": 1.590,
+                      "Actual Total Time": 33.299,
+                      "Actual Rows": 3,
+                      "Actual Loops": 1,
+                      "Filter": "(k_keyword = ANY ('{murder,murder-in-title,blood,violence}'::text[]))",
+                      "Rows Removed by Filter": 175839
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Startup Cost": 99362.89,
+              "Total Cost": 99362.89,
+              "Plan Rows": 21103,
+              "Plan Width": 4,
+              "Actual Startup Time": 744.513,
+              "Actual Total Time": 744.513,
+              "Actual Rows": 564054,
+              "Actual Loops": 1,
+              "Hash Buckets": 131072,
+              "Original Hash Buckets": 32768,
+              "Hash Batches": 8,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 3500,
+              "Plans": [
+                {
+                  "Node Type": "Hash Join",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 22.88,
+                  "Total Cost": 99362.89,
+                  "Plan Rows": 21103,
+                  "Plan Width": 4,
+                  "Actual Startup Time": 338.614,
+                  "Actual Total Time": 661.539,
+                  "Actual Rows": 564054,
+                  "Actual Loops": 1,
+                  "Hash Cond": "(t.t_kind_id = kt.kt_id)",
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "title",
+                      "Alias": "t",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 91057.10,
+                      "Plan Rows": 2152503,
+                      "Plan Width": 8,
+                      "Actual Startup Time": 0.013,
+                      "Actual Total Time": 477.575,
+                      "Actual Rows": 2147984,
+                      "Actual Loops": 1,
+                      "Filter": "(t_production_year < 2002)",
+                      "Rows Removed by Filter": 1255226
+                    },
+                    {
+                      "Node Type": "Hash",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Startup Cost": 22.75,
+                      "Total Cost": 22.75,
+                      "Plan Rows": 10,
+                      "Plan Width": 4,
+                      "Actual Startup Time": 0.006,
+                      "Actual Total Time": 0.006,
+                      "Actual Rows": 1,
+                      "Actual Loops": 1,
+                      "Hash Buckets": 1024,
+                      "Original Hash Buckets": 1024,
+                      "Hash Batches": 1,
+                      "Original Hash Batches": 1,
+                      "Peak Memory Usage": 9,
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Relation Name": "kind_type",
+                          "Alias": "kt",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 22.75,
+                          "Plan Rows": 10,
+                          "Plan Width": 4,
+                          "Actual Startup Time": 0.004,
+                          "Actual Total Time": 0.005,
+                          "Actual Rows": 1,
+                          "Actual Loops": 1,
+                          "Filter": "((kt_kind)::text = ANY ('{movie,episode}'::text[]))",
+                          "Rows Removed by Filter": 6
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.426,
+    "Triggers": [
+    ],
+    "Execution Time": 1697.578
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Parallel Aware": false,
+      "Relation Name": "store_sales",
+      "Alias": "store_sales",
+      "Startup Cost": 0.00,
+      "Total Cost": 138099.24,
+      "Plan Rows": 30267,
+      "Plan Width": 111,
+      "Actual Startup Time": 0.066,
+      "Actual Total Time": 1055.521,
+      "Actual Rows": 34855,
+      "Actual Loops": 1,
+      "Filter": "((ss_quantity >= 11) AND (ss_quantity <= 15) AND (((ss_list_price >= '106'::numeric) AND (ss_list_price <= '116'::numeric)) OR ((ss_coupon_amt >= '10740'::numeric) AND (ss_coupon_amt <= '11740'::numeric)) OR ((ss_wholesale_cost >= '16'::numeric) AND (ss_wholesale_cost <= '36'::numeric))))",
+      "Rows Removed by Filter": 2845549
+    },
+    "Planning Time": 0.261,
+    "Triggers": [
+    ],
+    "Execution Time": 1057.119
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Partial Mode": "Simple",
+      "Parallel Aware": false,
+      "Startup Cost": 2409.43,
+      "Total Cost": 2409.46,
+      "Plan Rows": 3,
+      "Plan Width": 4,
+      "Actual Startup Time": 11.008,
+      "Actual Total Time": 11.008,
+      "Actual Rows": 3,
+      "Actual Loops": 1,
+      "Group Key": ["d_week_seq"],
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "date_dim",
+          "Alias": "date_dim",
+          "Startup Cost": 0.00,
+          "Total Cost": 2409.42,
+          "Plan Rows": 3,
+          "Plan Width": 4,
+          "Actual Startup Time": 6.269,
+          "Actual Total Time": 10.998,
+          "Actual Rows": 3,
+          "Actual Loops": 1,
+          "Filter": "(d_date = ANY ('{1999-04-17,1999-10-04,1999-11-10}'::date[]))",
+          "Rows Removed by Filter": 73046
+        }
+      ]
+    },
+    "Planning Time": 0.079,
+    "Triggers": [
+    ],
+    "Execution Time": 11.040
+  }
+]

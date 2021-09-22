@@ -1,0 +1,1 @@
+SELECT * FROM cast_info AS ci, name AS n, title AS t WHERE ci.ci_note  in ('(writer)', '(head writer)', '(written by)', '(story)', '(story editor)') AND n.n_gender = 'f' AND t.t_production_year  between 2008 and 2014 AND t.t_id = ci.ci_movie_id AND n.n_id = ci.ci_person_id;

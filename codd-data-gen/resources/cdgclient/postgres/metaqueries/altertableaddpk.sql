@@ -1,0 +1,1 @@
+ALTER TABLE <postgres-ddlgenerated-tablenamep> ADD PRIMARY KEY (<postgres-ddlgenerated-columnnamep>);

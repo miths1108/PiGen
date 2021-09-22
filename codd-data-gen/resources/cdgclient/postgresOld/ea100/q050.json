@@ -1,0 +1,123 @@
+ [                                                                                                                           
+   {                                                                                                                         
+     "Plan": {                                                                                                               
+       "Node Type": "Hash Join",                                                                                             
+       "Join Type": "Inner",                                                                                                 
+       "Startup Cost": 43267.93,                                                                                             
+       "Total Cost": 9323945.75,                                                                                             
+       "Plan Rows": 1607910,                                                                                                 
+       "Plan Width": 733,                                                                                                    
+       "Actual Startup Time": 725.979,                                                                                       
+       "Actual Total Time": 394118.906,                                                                                      
+       "Actual Rows": 67507118,                                                                                              
+       "Actual Loops": 1,                                                                                                    
+       "Hash Cond": "(store_sales.ss_item_sk = item.i_item_sk)",                                                             
+       "Plans": [                                                                                                            
+         {                                                                                                                   
+           "Node Type": "Hash Join",                                                                                         
+           "Parent Relationship": "Outer",                                                                                   
+           "Join Type": "Inner",                                                                                             
+           "Startup Cost": 3053.93,                                                                                          
+           "Total Cost": 9147977.99,                                                                                         
+           "Plan Rows": 1607910,                                                                                             
+           "Plan Width": 229,                                                                                                
+           "Actual Startup Time": 25.076,                                                                                    
+           "Actual Total Time": 199620.298,                                                                                  
+           "Actual Rows": 67507118,                                                                                          
+           "Actual Loops": 1,                                                                                                
+           "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)",                                                
+           "Plans": [                                                                                                        
+             {                                                                                                               
+               "Node Type": "Seq Scan",                                                                                      
+               "Parent Relationship": "Outer",                                                                               
+               "Relation Name": "store_sales",                                                                               
+               "Alias": "store_sales",                                                                                       
+               "Startup Cost": 0.00,                                                                                         
+               "Total Cost": 8048855.88,                                                                                     
+               "Plan Rows": 287997088,                                                                                       
+               "Plan Width": 111,                                                                                            
+               "Actual Startup Time": 0.004,                                                                                 
+               "Actual Total Time": 117733.644,                                                                              
+               "Actual Rows": 287997024,                                                                                     
+               "Actual Loops": 1                                                                                             
+             },                                                                                                              
+             {                                                                                                               
+               "Node Type": "Hash",                                                                                          
+               "Parent Relationship": "Inner",                                                                               
+               "Startup Cost": 3048.60,                                                                                      
+               "Total Cost": 3048.60,                                                                                        
+               "Plan Rows": 426,                                                                                             
+               "Plan Width": 118,                                                                                            
+               "Actual Startup Time": 25.028,                                                                                
+               "Actual Total Time": 25.028,                                                                                  
+               "Actual Rows": 428,                                                                                           
+               "Actual Loops": 1,                                                                                            
+               "Hash Buckets": 1024,                                                                                         
+               "Original Hash Buckets": 1024,                                                                                
+               "Hash Batches": 1,                                                                                            
+               "Original Hash Batches": 1,                                                                                   
+               "Peak Memory Usage": 73,                                                                                      
+               "Plans": [                                                                                                    
+                 {                                                                                                           
+                   "Node Type": "Seq Scan",                                                                                  
+                   "Parent Relationship": "Outer",                                                                           
+                   "Relation Name": "date_dim",                                                                              
+                   "Alias": "date_dim",                                                                                      
+                   "Startup Cost": 0.00,                                                                                     
+                   "Total Cost": 3048.60,                                                                                    
+                   "Plan Rows": 426,                                                                                         
+                   "Plan Width": 118,                                                                                        
+                   "Actual Startup Time": 11.780,                                                                            
+                   "Actual Total Time": 24.936,                                                                              
+                   "Actual Rows": 428,                                                                                       
+                   "Actual Loops": 1,                                                                                        
+                   "Filter": "((d_year = 2000) OR ((d_year = 1999) AND (d_moy = 12)) OR ((d_year = 2001) AND (d_moy = 1)))", 
+                   "Rows Removed by Filter": 72621                                                                           
+                 }                                                                                                           
+               ]                                                                                                             
+             }                                                                                                               
+           ]                                                                                                                 
+         },                                                                                                                  
+         {                                                                                                                   
+           "Node Type": "Hash",                                                                                              
+           "Parent Relationship": "Inner",                                                                                   
+           "Startup Cost": 24515.00,                                                                                         
+           "Total Cost": 24515.00,                                                                                           
+           "Plan Rows": 204000,                                                                                              
+           "Plan Width": 504,                                                                                                
+           "Actual Startup Time": 700.747,                                                                                   
+           "Actual Total Time": 700.747,                                                                                     
+           "Actual Rows": 204000,                                                                                            
+           "Actual Loops": 1,                                                                                                
+           "Hash Buckets": 8192,                                                                                             
+           "Original Hash Buckets": 8192,                                                                                    
+           "Hash Batches": 32,                                                                                               
+           "Original Hash Batches": 32,                                                                                      
+           "Peak Memory Usage": 3572,                                                                                        
+           "Plans": [                                                                                                        
+             {                                                                                                               
+               "Node Type": "Seq Scan",                                                                                      
+               "Parent Relationship": "Outer",                                                                               
+               "Relation Name": "item",                                                                                      
+               "Alias": "item",                                                                                              
+               "Startup Cost": 0.00,                                                                                         
+               "Total Cost": 24515.00,                                                                                       
+               "Plan Rows": 204000,                                                                                          
+               "Plan Width": 504,                                                                                            
+               "Actual Startup Time": 0.002,                                                                                 
+               "Actual Total Time": 468.224,                                                                                 
+               "Actual Rows": 204000,                                                                                        
+               "Actual Loops": 1                                                                                             
+             }                                                                                                               
+           ]                                                                                                                 
+         }                                                                                                                   
+       ]                                                                                                                     
+     },                                                                                                                      
+     "Planning Time": 0.438,                                                                                                 
+     "Triggers": [                                                                                                           
+     ],                                                                                                                      
+     "Execution Time": 397035.240                                                                                            
+   }                                                                                                                         
+ ]
+
+

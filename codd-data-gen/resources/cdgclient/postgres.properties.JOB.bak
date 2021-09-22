@@ -1,0 +1,40 @@
+#Postgres Connection
+postgres.conn.driverclass=org.postgresql.Driver
+postgres.conn.connstring=jdbc:postgresql://localhost:5432/JOB
+postgres.conn.username=shadab
+postgres.conn.passwd=''
+
+
+#Postgres Basic Schema Input
+postgres.basicschema.dbname=JOB
+postgres.basicschema.schemaname=public
+postgres.basicschema.schemaquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/basicschema.sql
+postgres.basicschema.fkeysquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/fkeys.sql
+postgres.basicschema.rowcountquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/rowcount.sql
+postgres.basicschema.pkeysquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/primarykeys.sql
+
+#Postgres Basic Schema Output
+postgres.basicschema.targetfile=job_benchmark/temp_files/basicschema10.info
+
+#Postgres Anonymized Schema Output
+postgres.anonymizedschema.targetfile=job_benchmark/temp_files/anonymizedschema.info
+
+#Postgres Generate DDL Output
+postgres.ddlgenerated.createtablequery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/createtable.sql
+postgres.ddlgenerated.altertableaddpkquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/altertableaddpk.sql
+postgres.ddlgenerated.altertableaddfkquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/altertableaddfk.sql
+postgres.ddlgenerated.targetfile=job_benchmark/temp_files/schemaddl.sql
+
+#Postgres Anonymized Queries Output
+postgres.anonymizedqueries.targetlocation=job_benchmark/temp_files/anonymizedsqlqueries
+postgres.anonymizedqueries.selectstarquery=../codd-data-gen/resources/cdgclient/postgres/metaqueries/selectstar.sql
+
+
+#Postgres Queries Input
+postgres.sqlquery.location=job_benchmark/queries_new/mc
+
+#Postgres EAs Output
+postgres.explainanalyze.location=job_benchmark/ea_new/mc
+
+#Postgres Anonymized CCs Output
+postgres.anonymizedccs.targetfile=job_benchmark/temp_files/anonymizedcc.info

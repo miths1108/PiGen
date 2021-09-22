@@ -1,0 +1,23 @@
+Hash Join  (cost=5835.29..293950.37 rows=1203 width=492) (actual time=48.424..5811.223 rows=65344 loops=1)
+  Hash Cond: (web_sales.ws_sold_time_sk = time_dim.t_time_sk)
+  ->  Hash Join  (cost=2323.93..289567.75 rows=3576 width=389) (actual time=17.656..5394.591 rows=144189 loops=1)
+        Hash Cond: (web_sales.ws_ship_mode_sk = ship_mode.sm_ship_mode_sk)
+        ->  Hash Join  (cost=2322.65..289396.61 rows=35760 width=284) (actual time=17.612..5156.885 rows=1439752 loops=1)
+              Hash Cond: (web_sales.ws_sold_date_sk = date_dim.d_date_sk)
+              ->  Seq Scan on web_sales  (cost=0.00..259724.99 rows=7197699 width=166) (actual time=0.338..3092.316 rows=7197566 loops=1)
+              ->  Hash  (cost=2318.11..2318.11 rows=363 width=118) (actual time=17.259..17.259 rows=365 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 55kB
+                    ->  Seq Scan on date_dim  (cost=0.00..2318.11 rows=363 width=118) (actual time=8.524..17.174 rows=365 loops=1)
+                          Filter: (d_year = 1999)
+                          Rows Removed by Filter: 72684
+        ->  Hash  (cost=1.25..1.25 rows=2 width=105) (actual time=0.026..0.026 rows=2 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 1kB
+              ->  Seq Scan on ship_mode  (cost=0.00..1.25 rows=2 width=105) (actual time=0.018..0.023 rows=2 loops=1)
+                    Filter: (sm_carrier = ANY ('{DIAMOND,ZOUROS}'::bpchar[]))
+                    Rows Removed by Filter: 18
+  ->  Hash  (cost=2693.00..2693.00 rows=29069 width=103) (actual time=30.577..30.577 rows=28801 loops=1)
+        Buckets: 1024  Batches: 4  Memory Usage: 955kB
+        ->  Seq Scan on time_dim  (cost=0.00..2693.00 rows=29069 width=103) (actual time=9.180..22.525 rows=28801 loops=1)
+              Filter: ((t_time >= 46185) AND (t_time <= 74985))
+              Rows Removed by Filter: 57599
+Total runtime: 5814.651 ms

@@ -1,0 +1,152 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Nested Loop",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 2323.37,
+      "Total Cost": 112677.07,
+      "Plan Rows": 2,
+      "Plan Width": 430,
+      "Actual Startup Time": 54.562,
+      "Actual Total Time": 2104.176,
+      "Actual Rows": 104,
+      "Actual Loops": 1,
+      "Plans": [
+        {
+          "Node Type": "Nested Loop",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Join Type": "Inner",
+          "Startup Cost": 2322.94,
+          "Total Cost": 112615.35,
+          "Plan Rows": 58,
+          "Plan Width": 374,
+          "Actual Startup Time": 17.686,
+          "Actual Total Time": 2064.886,
+          "Actual Rows": 4673,
+          "Actual Loops": 1,
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 2322.65,
+              "Total Cost": 112302.19,
+              "Plan Rows": 892,
+              "Plan Width": 229,
+              "Actual Startup Time": 16.934,
+              "Actual Total Time": 1785.850,
+              "Actual Rows": 69756,
+              "Actual Loops": 1,
+              "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "store_sales",
+                  "Alias": "store_sales",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 109298.16,
+                  "Plan Rows": 179429,
+                  "Plan Width": 111,
+                  "Actual Startup Time": 0.048,
+                  "Actual Total Time": 1656.558,
+                  "Actual Rows": 352876,
+                  "Actual Loops": 1,
+                  "Filter": "((ss_sales_price >= 50.00) AND (ss_sales_price <= 200.00) AND (ss_net_profit >= '0'::numeric) AND (ss_net_profit <= '2000'::numeric))",
+                  "Rows Removed by Filter": 2527528
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 2318.11,
+                  "Total Cost": 2318.11,
+                  "Plan Rows": 363,
+                  "Plan Width": 118,
+                  "Actual Startup Time": 16.770,
+                  "Actual Total Time": 16.770,
+                  "Actual Rows": 365,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Original Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 63,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "date_dim",
+                      "Alias": "date_dim",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 2318.11,
+                      "Plan Rows": 363,
+                      "Plan Width": 118,
+                      "Actual Startup Time": 8.240,
+                      "Actual Total Time": 16.712,
+                      "Actual Rows": 365,
+                      "Actual Loops": 1,
+                      "Filter": "(d_year = 1998)",
+                      "Rows Removed by Filter": 72684
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Node Type": "Index Scan",
+              "Parent Relationship": "Inner",
+              "Parallel Aware": false,
+              "Scan Direction": "Forward",
+              "Index Name": "customer_address_pkey",
+              "Relation Name": "customer_address",
+              "Alias": "customer_address",
+              "Startup Cost": 0.29,
+              "Total Cost": 0.34,
+              "Plan Rows": 1,
+              "Plan Width": 145,
+              "Actual Startup Time": 0.004,
+              "Actual Total Time": 0.004,
+              "Actual Rows": 0,
+              "Actual Loops": 69756,
+              "Index Cond": "(ca_address_sk = store_sales.ss_addr_sk)",
+              "Rows Removed by Index Recheck": 0,
+              "Filter": "(((ca_country)::text = 'United States'::text) AND (ca_state = ANY ('{AK,IA,NE}'::bpchar[])))",
+              "Rows Removed by Filter": 1
+            }
+          ]
+        },
+        {
+          "Node Type": "Index Scan",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Scan Direction": "Forward",
+          "Index Name": "customer_demographics_pkey",
+          "Relation Name": "customer_demographics",
+          "Alias": "customer_demographics",
+          "Startup Cost": 0.43,
+          "Total Cost": 1.05,
+          "Plan Rows": 1,
+          "Plan Width": 56,
+          "Actual Startup Time": 0.008,
+          "Actual Total Time": 0.008,
+          "Actual Rows": 0,
+          "Actual Loops": 4673,
+          "Index Cond": "(cd_demo_sk = store_sales.ss_cdemo_sk)",
+          "Rows Removed by Index Recheck": 0,
+          "Filter": "((cd_marital_status = 'S'::bpchar) AND (cd_education_status = '4 yr Degree'::bpchar))",
+          "Rows Removed by Filter": 1
+        }
+      ]
+    },
+    "Planning Time": 0.752,
+    "Triggers": [
+    ],
+    "Execution Time": 2104.319
+  }
+]

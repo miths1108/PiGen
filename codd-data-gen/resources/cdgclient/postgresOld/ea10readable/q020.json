@@ -1,0 +1,23 @@
+Hash Join  (cost=2786.98..918018.61 rows=19181 width=548) (actual time=24.383..15193.448 rows=339609 loops=1)
+  Hash Cond: (store_sales.ss_store_sk = store.s_store_sk)
+  ->  Hash Join  (cost=2779.40..917715.35 rows=27698 width=261) (actual time=23.516..14843.346 rows=1163473 loops=1)
+        Hash Cond: (store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk)
+        ->  Hash Join  (cost=2595.90..916674.88 rows=115998 width=229) (actual time=21.540..13884.963 rows=4776273 loops=1)
+              Hash Cond: (store_sales.ss_sold_date_sk = date_dim.d_date_sk)
+              ->  Seq Scan on store_sales  (cost=0.00..804916.00 rows=28800800 width=111) (actual time=0.004..7642.310 rows=28800991 loops=1)
+              ->  Hash  (cost=2592.05..2592.05 rows=308 width=118) (actual time=21.520..21.520 rows=314 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 48kB
+                    ->  Seq Scan on date_dim  (cost=0.00..2592.05 rows=308 width=118) (actual time=11.010..21.437 rows=314 loops=1)
+                          Filter: ((d_dow = ANY ('{6,0}'::integer[])) AND (d_year = ANY ('{2000,2001,2002}'::integer[])))
+                          Rows Removed by Filter: 72735
+        ->  Hash  (cost=161.00..161.00 rows=1800 width=32) (actual time=1.968..1.968 rows=1800 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 113kB
+              ->  Seq Scan on household_demographics  (cost=0.00..161.00 rows=1800 width=32) (actual time=0.172..1.764 rows=1800 loops=1)
+                    Filter: ((hd_dep_count = 8) OR (hd_vehicle_count = (-1)))
+                    Rows Removed by Filter: 5400
+  ->  Hash  (cost=6.66..6.66 rows=74 width=287) (actual time=0.081..0.081 rows=29 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 10kB
+        ->  Seq Scan on store  (cost=0.00..6.66 rows=74 width=287) (actual time=0.009..0.070 rows=29 loops=1)
+              Filter: ((s_city)::text = ANY ('{Midway,Fairview,Fairview,Fairview,Fairview}'::text[]))
+              Rows Removed by Filter: 73
+Total runtime: 15208.976 ms

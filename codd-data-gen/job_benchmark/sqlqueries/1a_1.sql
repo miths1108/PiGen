@@ -1,0 +1,1 @@
+SELECT * FROM company_type AS ct, movie_companies AS mc, title AS t WHERE ct.ct_kind = 'production companies' AND /*mc.mc_note  not like '%(as Metro-Goldwyn-Mayer Pictures)%' and (mc.mc_note like '%(co-production)%' or mc.mc_note like '%(presents)%') AND*/ ct.ct_id = mc.mc_company_type_id AND t.t_id = mc.mc_movie_id;

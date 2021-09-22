@@ -1,0 +1,139 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Aggregate",
+      "Strategy": "Hashed",
+      "Startup Cost": 177689.06,
+      "Total Cost": 177689.11,
+      "Plan Rows": 5,
+      "Plan Width": 2,
+      "Actual Startup Time": 1296.997,
+      "Actual Total Time": 1296.998,
+      "Actual Rows": 5,
+      "Actual Loops": 1,
+      "Group Key": ["customer_demographics.cd_marital_status"],
+      "Plans": [
+        {
+          "Node Type": "Hash Join",
+          "Parent Relationship": "Outer",
+          "Join Type": "Inner",
+          "Startup Cost": 124478.69,
+          "Total Cost": 177655.19,
+          "Plan Rows": 13550,
+          "Plan Width": 2,
+          "Actual Startup Time": 802.497,
+          "Actual Total Time": 1294.125,
+          "Actual Rows": 14277,
+          "Actual Loops": 1,
+          "Hash Cond": "(customer_demographics.cd_demo_sk = c.c_current_cdemo_sk)",
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "customer_demographics",
+              "Alias": "customer_demographics",
+              "Startup Cost": 0.00,
+              "Total Cost": 45838.00,
+              "Plan Rows": 1920800,
+              "Plan Width": 6,
+              "Actual Startup Time": 0.005,
+              "Actual Total Time": 304.784,
+              "Actual Rows": 1920800,
+              "Actual Loops": 1,
+              "Filter": "(cd_dep_count >= 0)",
+              "Rows Removed by Filter": 0
+            },
+            {
+              "Node Type": "Hash",
+              "Parent Relationship": "Inner",
+              "Startup Cost": 124302.67,
+              "Total Cost": 124302.67,
+              "Plan Rows": 14081,
+              "Plan Width": 4,
+              "Actual Startup Time": 802.382,
+              "Actual Total Time": 802.382,
+              "Actual Rows": 14277,
+              "Actual Loops": 1,
+              "Hash Buckets": 16384,
+              "Original Hash Buckets": 16384,
+              "Hash Batches": 1,
+              "Original Hash Batches": 1,
+              "Peak Memory Usage": 630,
+              "Plans": [
+                {
+                  "Node Type": "Hash Join",
+                  "Parent Relationship": "Outer",
+                  "Join Type": "Inner",
+                  "Startup Cost": 38070.32,
+                  "Total Cost": 124302.67,
+                  "Plan Rows": 14081,
+                  "Plan Width": 4,
+                  "Actual Startup Time": 257.221,
+                  "Actual Total Time": 798.891,
+                  "Actual Rows": 14277,
+                  "Actual Loops": 1,
+                  "Hash Cond": "(c.c_current_addr_sk = ca.ca_address_sk)",
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Relation Name": "customer",
+                      "Alias": "c",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 78445.21,
+                      "Plan Rows": 2039021,
+                      "Plan Width": 8,
+                      "Actual Startup Time": 0.004,
+                      "Actual Total Time": 293.823,
+                      "Actual Rows": 2000000,
+                      "Actual Loops": 1
+                    },
+                    {
+                      "Node Type": "Hash",
+                      "Parent Relationship": "Inner",
+                      "Startup Cost": 37984.00,
+                      "Total Cost": 37984.00,
+                      "Plan Rows": 6906,
+                      "Plan Width": 4,
+                      "Actual Startup Time": 257.188,
+                      "Actual Total Time": 257.188,
+                      "Actual Rows": 7093,
+                      "Actual Loops": 1,
+                      "Hash Buckets": 8192,
+                      "Original Hash Buckets": 8192,
+                      "Hash Batches": 1,
+                      "Original Hash Batches": 1,
+                      "Peak Memory Usage": 314,
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Relation Name": "customer_address",
+                          "Alias": "ca",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 37984.00,
+                          "Plan Rows": 6906,
+                          "Plan Width": 4,
+                          "Actual Startup Time": 0.050,
+                          "Actual Total Time": 255.404,
+                          "Actual Rows": 7093,
+                          "Actual Loops": 1,
+                          "Filter": "((ca_county)::text = ANY ('{\"Walker County\",\"Richland County\",\"Gaines County\",\"Douglas County\",\"Dona Ana County\"}'::text[]))",
+                          "Rows Removed by Filter": 992907
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.548,
+    "Triggers": [
+    ],
+    "Execution Time": 1297.080
+  }
+]

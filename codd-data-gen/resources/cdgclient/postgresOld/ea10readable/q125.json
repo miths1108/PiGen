@@ -1,0 +1,4 @@
+Seq Scan on date_dim  (cost=0.00..2683.36 rows=1 width=118) (actual time=8.707..16.880 rows=1 loops=1)
+  Filter: ((d_year = 2001) AND (d_moy = 12) AND (d_dom = 16))
+  Rows Removed by Filter: 73048
+Total runtime: 16.903 ms

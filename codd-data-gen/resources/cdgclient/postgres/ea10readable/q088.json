@@ -1,0 +1,4 @@
+Seq Scan on item  (cost=0.00..8400.50 rows=894 width=17) (actual time=0.182..70.957 rows=806 loops=1)
+  Filter: (i_color = ANY ('{almond,dodger,dim}'::bpchar[]))
+  Rows Removed by Filter: 101194
+Total runtime: 71.017 ms

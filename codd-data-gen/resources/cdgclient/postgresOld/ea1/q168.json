@@ -1,0 +1,72 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Join Type": "Inner",
+      "Startup Cost": 2501.11,
+      "Total Cost": 67736.15,
+      "Plan Rows": 228,
+      "Plan Width": 288,
+      "Actual Startup Time": 248.021,
+      "Actual Total Time": 443.797,
+      "Actual Rows": 18811,
+      "Actual Loops": 1,
+      "Hash Cond": "(catalog_sales.cs_sold_date_sk = date_dim.d_date_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Relation Name": "catalog_sales",
+          "Alias": "catalog_sales",
+          "Startup Cost": 0.00,
+          "Total Cost": 63140.39,
+          "Plan Rows": 557966,
+          "Plan Width": 170,
+          "Actual Startup Time": 0.010,
+          "Actual Total Time": 404.585,
+          "Actual Rows": 554905,
+          "Actual Loops": 1,
+          "Filter": "((cs_net_profit > 1::numeric) AND (cs_net_paid > 0::numeric) AND (cs_quantity > 0))",
+          "Rows Removed by Filter": 872452
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Startup Cost": 2500.73,
+          "Total Cost": 2500.73,
+          "Plan Rows": 30,
+          "Plan Width": 118,
+          "Actual Startup Time": 6.119,
+          "Actual Total Time": 6.119,
+          "Actual Rows": 31,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 5,
+          "Plans": [
+            {
+              "Node Type": "Seq Scan",
+              "Parent Relationship": "Outer",
+              "Relation Name": "date_dim",
+              "Alias": "date_dim",
+              "Startup Cost": 0.00,
+              "Total Cost": 2500.73,
+              "Plan Rows": 30,
+              "Plan Width": 118,
+              "Actual Startup Time": 3.104,
+              "Actual Total Time": 6.114,
+              "Actual Rows": 31,
+              "Actual Loops": 1,
+              "Filter": "((d_year = 2000) AND (d_moy = 12))",
+              "Rows Removed by Filter": 73018
+            }
+          ]
+        }
+      ]
+    },
+    "Triggers": [
+    ],
+    "Total Runtime": 444.265
+  }
+]

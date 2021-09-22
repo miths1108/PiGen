@@ -1,0 +1,1 @@
+ALTER TABLE <postgres-ddlgenerated-tablenamef> ADD CONSTRAINT <postgres-ddlgenerated-fkconstaintname> foreign key  (<postgres-ddlgenerated-columnnamef>) references <postgres-ddlgenerated-tablenamep> (<postgres-ddlgenerated-columnnamep>);

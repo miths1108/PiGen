@@ -1,0 +1,1 @@
+SELECT * FROM keyword AS k, kind_type AS kt, movie_keyword AS mk, title AS t WHERE kt.kt_kind  in ('movie', 'tv movie', 'video movie', 'video game') AND t.t_production_year  > 1990 AND kt.kt_id = t.t_kind_id AND t.t_id = mk.mk_movie_id AND k.k_id = mk.mk_keyword_id;

@@ -1,0 +1,23 @@
+Hash Join  (cost=299216.80..308462.29 rows=111 width=933) (actual time=4262.173..4438.710 rows=5566 loops=1)
+  Hash Cond: (customer_address.ca_address_sk = web_sales.ws_bill_addr_sk)
+  ->  Seq Scan on customer_address  (cost=0.00..8560.00 rows=91250 width=145) (actual time=0.010..99.050 rows=90666 loops=1)
+        Filter: (ca_gmt_offset = (-5)::numeric)
+        Rows Removed by Filter: 159334
+  ->  Hash  (cost=299212.99..299212.99 rows=305 width=788) (actual time=4259.849..4259.849 rows=15311 loops=1)
+        Buckets: 1024  Batches: 16 (originally 1)  Memory Usage: 1025kB
+        ->  Hash Join  (cost=11559.58..299212.99 rows=305 width=788) (actual time=85.777..4212.581 rows=15313 loops=1)
+              Hash Cond: (web_sales.ws_item_sk = item.i_item_sk)
+              ->  Hash Join  (cost=2501.12..289248.02 rows=3054 width=284) (actual time=17.530..3832.059 rows=154358 loops=1)
+                    Hash Cond: (web_sales.ws_sold_date_sk = date_dim.d_date_sk)
+                    ->  Seq Scan on web_sales  (cost=0.00..259724.99 rows=7197699 width=166) (actual time=0.049..2981.650 rows=7197566 loops=1)
+                    ->  Hash  (cost=2500.73..2500.73 rows=31 width=118) (actual time=17.293..17.293 rows=31 loops=1)
+                          Buckets: 1024  Batches: 1  Memory Usage: 5kB
+                          ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=31 width=118) (actual time=8.664..17.278 rows=31 loops=1)
+                                Filter: ((d_year = 1998) AND (d_moy = 8))
+                                Rows Removed by Filter: 73018
+              ->  Hash  (cost=8273.00..8273.00 rows=10197 width=504) (actual time=67.946..67.946 rows=10149 loops=1)
+                    Buckets: 1024  Batches: 8  Memory Usage: 687kB
+                    ->  Seq Scan on item  (cost=0.00..8273.00 rows=10197 width=504) (actual time=0.009..59.551 rows=10149 loops=1)
+                          Filter: (i_category = 'Children'::bpchar)
+                          Rows Removed by Filter: 91851
+Total runtime: 4439.262 ms

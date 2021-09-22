@@ -1,0 +1,9 @@
+Hash Join  (cost=2501.12..51053.78 rows=611 width=244) (actual time=19.026..918.085 rows=14458 loops=1)
+  Hash Cond: (catalog_returns.cr_returned_date_sk = date_dim.d_date_sk)
+  ->  Seq Scan on catalog_returns  (cost=0.00..43147.49 rows=1439749 width=126) (actual time=1.295..733.397 rows=1439749 loops=1)
+  ->  Hash  (cost=2500.73..2500.73 rows=31 width=118) (actual time=17.713..17.713 rows=32 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 5kB
+        ->  Seq Scan on date_dim  (cost=0.00..2500.73 rows=31 width=118) (actual time=7.847..17.705 rows=32 loops=1)
+              Filter: ((d_date >= '1998-08-14'::date) AND (d_date <= '1998-09-14'::date))
+              Rows Removed by Filter: 73017
+Total runtime: 918.856 ms

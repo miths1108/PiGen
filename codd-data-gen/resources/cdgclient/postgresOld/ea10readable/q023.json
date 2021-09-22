@@ -1,0 +1,9 @@
+Hash Join  (cost=9519.99..31292.97 rows=3598 width=390) (actual time=95.593..512.571 rows=3693 loops=1)
+  Hash Cond: (c.c_current_addr_sk = ca.ca_address_sk)
+  ->  Seq Scan on customer c  (cost=0.00..19237.00 rows=500000 width=245) (actual time=0.007..325.687 rows=500000 loops=1)
+  ->  Hash  (cost=9497.50..9497.50 rows=1799 width=145) (actual time=95.098..95.098 rows=1867 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 330kB
+        ->  Seq Scan on customer_address ca  (cost=0.00..9497.50 rows=1799 width=145) (actual time=0.221..94.448 rows=1867 loops=1)
+              Filter: ((ca_county)::text = ANY ('{"Yellowstone County","Montgomery County","Divide County","Cedar County","Manassas Park city"}'::text[]))
+              Rows Removed by Filter: 248133
+Total runtime: 512.853 ms

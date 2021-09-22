@@ -1,0 +1,130 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 19709.48,
+      "Total Cost": 138906.93,
+      "Plan Rows": 7986,
+      "Plan Width": 196,
+      "Actual Startup Time": 486.203,
+      "Actual Total Time": 1728.425,
+      "Actual Rows": 614281,
+      "Actual Loops": 1,
+      "Hash Cond": "(t.t_id = ml.ml_linked_movie_id)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "title",
+          "Alias": "t",
+          "Startup Cost": 0.00,
+          "Total Cost": 99566.12,
+          "Plan Rows": 1737908,
+          "Plan Width": 94,
+          "Actual Startup Time": 0.007,
+          "Actual Total Time": 554.229,
+          "Actual Rows": 1739087,
+          "Actual Loops": 1,
+          "Filter": "((t_production_year >= 1980) AND (t_production_year <= 2010))",
+          "Rows Removed by Filter": 1664123
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 19513.98,
+          "Total Cost": 19513.98,
+          "Plan Rows": 15640,
+          "Plan Width": 102,
+          "Actual Startup Time": 484.537,
+          "Actual Total Time": 484.537,
+          "Actual Rows": 1006984,
+          "Actual Loops": 1,
+          "Hash Buckets": 65536,
+          "Original Hash Buckets": 16384,
+          "Hash Batches": 32,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 3585,
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 19.90,
+              "Total Cost": 19513.98,
+              "Plan Rows": 15640,
+              "Plan Width": 102,
+              "Actual Startup Time": 0.028,
+              "Actual Total Time": 281.131,
+              "Actual Rows": 1006984,
+              "Actual Loops": 1,
+              "Hash Cond": "(ml.ml_link_type_id = lt.lt_id)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "movie_link",
+                  "Alias": "ml",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 15552.04,
+                  "Plan Rows": 1009504,
+                  "Plan Width": 16,
+                  "Actual Startup Time": 0.018,
+                  "Actual Total Time": 73.663,
+                  "Actual Rows": 1009504,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 19.76,
+                  "Total Cost": 19.76,
+                  "Plan Rows": 11,
+                  "Plan Width": 86,
+                  "Actual Startup Time": 0.008,
+                  "Actual Total Time": 0.008,
+                  "Actual Rows": 3,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Original Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 9,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "link_type",
+                      "Alias": "lt",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 19.76,
+                      "Plan Rows": 11,
+                      "Plan Width": 86,
+                      "Actual Startup Time": 0.003,
+                      "Actual Total Time": 0.005,
+                      "Actual Rows": 3,
+                      "Actual Loops": 1,
+                      "Filter": "((lt_link)::text = ANY ('{\"followed by\",follows,\"version of\"}'::text[]))",
+                      "Rows Removed by Filter": 15
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.162,
+    "Triggers": [
+    ],
+    "Execution Time": 1746.295
+  }
+]

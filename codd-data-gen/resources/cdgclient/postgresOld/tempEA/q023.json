@@ -1,0 +1,128 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Hash Join",
+      "Parallel Aware": false,
+      "Join Type": "Inner",
+      "Startup Cost": 6150.60,
+      "Total Cost": 109619.94,
+      "Plan Rows": 734,
+      "Plan Width": 446,
+      "Actual Startup Time": 30.850,
+      "Actual Total Time": 331.526,
+      "Actual Rows": 696,
+      "Actual Loops": 1,
+      "Hash Cond": "(customer_demographics.cd_demo_sk = customer.c_current_cdemo_sk)",
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Relation Name": "customer_demographics",
+          "Alias": "customer_demographics",
+          "Startup Cost": 0.00,
+          "Total Cost": 41036.00,
+          "Plan Rows": 1920800,
+          "Plan Width": 56,
+          "Actual Startup Time": 0.005,
+          "Actual Total Time": 137.483,
+          "Actual Rows": 1920800,
+          "Actual Loops": 1
+        },
+        {
+          "Node Type": "Hash",
+          "Parent Relationship": "Inner",
+          "Parallel Aware": false,
+          "Startup Cost": 6141.43,
+          "Total Cost": 6141.43,
+          "Plan Rows": 734,
+          "Plan Width": 390,
+          "Actual Startup Time": 30.013,
+          "Actual Total Time": 30.013,
+          "Actual Rows": 696,
+          "Actual Loops": 1,
+          "Hash Buckets": 1024,
+          "Original Hash Buckets": 1024,
+          "Hash Batches": 1,
+          "Original Hash Batches": 1,
+          "Peak Memory Usage": 269,
+          "Plans": [
+            {
+              "Node Type": "Hash Join",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Join Type": "Inner",
+              "Startup Cost": 1904.09,
+              "Total Cost": 6141.43,
+              "Plan Rows": 734,
+              "Plan Width": 390,
+              "Actual Startup Time": 10.713,
+              "Actual Total Time": 29.482,
+              "Actual Rows": 696,
+              "Actual Loops": 1,
+              "Hash Cond": "(customer.c_current_addr_sk = customer_address.ca_address_sk)",
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Relation Name": "customer",
+                  "Alias": "customer",
+                  "Startup Cost": 0.00,
+                  "Total Cost": 3855.00,
+                  "Plan Rows": 100000,
+                  "Plan Width": 245,
+                  "Actual Startup Time": 0.003,
+                  "Actual Total Time": 8.307,
+                  "Actual Rows": 94736,
+                  "Actual Loops": 1
+                },
+                {
+                  "Node Type": "Hash",
+                  "Parent Relationship": "Inner",
+                  "Parallel Aware": false,
+                  "Startup Cost": 1899.50,
+                  "Total Cost": 1899.50,
+                  "Plan Rows": 367,
+                  "Plan Width": 145,
+                  "Actual Startup Time": 10.701,
+                  "Actual Total Time": 10.701,
+                  "Actual Rows": 382,
+                  "Actual Loops": 1,
+                  "Hash Buckets": 1024,
+                  "Original Hash Buckets": 1024,
+                  "Hash Batches": 1,
+                  "Original Hash Batches": 1,
+                  "Peak Memory Usage": 76,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Relation Name": "customer_address",
+                      "Alias": "customer_address",
+                      "Startup Cost": 0.00,
+                      "Total Cost": 1899.50,
+                      "Plan Rows": 367,
+                      "Plan Width": 145,
+                      "Actual Startup Time": 0.080,
+                      "Actual Total Time": 10.614,
+                      "Actual Rows": 382,
+                      "Actual Loops": 1,
+                      "Filter": "((ca_county)::text = ANY ('{\"Yellowstone County\",\"Montgomery County\",\"Divide County\",\"Cedar County\",\"Manassas Park city\"}'::text[]))",
+                      "Rows Removed by Filter": 49618
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning Time": 0.253,
+    "Triggers": [
+    ],
+    "Execution Time": 331.618
+  }
+]

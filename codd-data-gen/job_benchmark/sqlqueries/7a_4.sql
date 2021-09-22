@@ -1,0 +1,1 @@
+SELECT * FROM link_type AS lt, movie_link AS ml, title AS t WHERE lt.lt_link ='version of' AND t.t_production_year BETWEEN 1980 AND 1995 AND ml.ml_linked_movie_id = t.t_id AND lt.lt_id = ml.ml_link_type_id;

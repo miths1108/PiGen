@@ -1,0 +1,1 @@
+CREATE TABLE <postgres-ddlgenerated-tablename>(<postgres-ddlgenerated-columnlist>);
